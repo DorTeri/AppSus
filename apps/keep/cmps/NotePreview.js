@@ -2,7 +2,7 @@ import NoteTxt from "./NoteTxt.js"
 import NoteImg from "./NoteImg.js"
 import NoteVideo from "./NoteVideo.js"
 import NoteTodos from "./NoteTodos.js"
-import { svgService } from "../services/svg.service.js"
+import { svgService } from '../../../services/svg.service.js'
 
 export default {
     props: ['note'],

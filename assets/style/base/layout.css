@@ -5,3 +5,22 @@
 }
 
 
+.main-mail-layout {
+  display: grid;
+  grid-template-columns: 10px 0.1fr 1fr 10px;
+  margin-top: 10px;
+
+}
+
+.email-side-filter {
+grid-column: 2;
+}
+
+.email-preview {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(223, 223, 223);
+  width: 100%;
+  justify-content: space-between;
+  padding: 2px;
+}

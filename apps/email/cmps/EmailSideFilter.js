@@ -1,10 +1,20 @@
+import { svgService } from '../../../services/svg.service.js'
+
 export default {
   template: `
         <section class="email-side-filter">
-            <div @click="filter('inbox')">1</div>
-            <div @click="filter('sent')">2</div>
-            <div @click="filter('trash')">3</div>
-            <div @click="filter('draft')">4</div>
+          <!-- Inbox -->
+          <div @click="filter('inbox')" className="inbox" 
+            v-html="getSvg('inboxFill')"></div>
+          <!-- Sent -->
+           <div @click="filter('sent')" className="sent" 
+            v-html="getSvg('sent')"></div>
+          <!-- Trash -->
+           <div @click="filter('trash')" className="trash" 
+            v-html="getSvg('trash')"> </div>
+          <!-- Draft -->
+           <div @click="filter('draft')" className="draft" 
+            v-html="getSvg('drafts')"></div>
             </section>
             `,
   data() {
@@ -22,6 +32,9 @@ export default {
     filter() {
       this.$emit('filter', this.filterBy.status)
       console.log('Clicked')
+    },
+    getSvg(iconName) {
+      return svgService.getMailSvg(iconName)
     },
   },
 }
