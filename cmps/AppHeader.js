@@ -1,12 +1,9 @@
-import EmailFilter from '../apps/email/cmps/EmailFilter.js'
-
-
-
+import SearchFilter from "./SearchFilter.js"
 export default {
 	template: `
         <header class="app-header">
             <h1>AppSus</h1>
-            <EmailFilter @filter="setFilterBy" />
+            <SearchFilter />
             <nav>
                 <RouterLink to="/">Home</RouterLink> | 
                 <RouterLink to="/about">About</RouterLink> |
@@ -17,6 +14,6 @@ export default {
     `,
 
     components: {
-        EmailFilter,
+        SearchFilter,
     }
 }

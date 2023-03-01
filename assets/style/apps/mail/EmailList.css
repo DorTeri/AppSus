@@ -15,18 +15,6 @@ width: 500px;
 height:  500px;
   }
 
-  input {
-    background-color: rgb(232, 237, 249);
-    border: none;
-    border-radius: 10px;
-    width: 45%;
-    width: 600px;
-  }
-
-  input:hover {
-    background-color: white;
-  }
-
   .empty-div {
    background-color: white;
    color: white;
