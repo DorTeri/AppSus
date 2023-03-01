@@ -9,7 +9,11 @@ const emailsDB = [
     subject: 'Miss you!',
     body: 'Would love to catch up sometimes',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'momo@momo.com',
     to: 'user@appsus.com',
@@ -20,7 +24,11 @@ const emailsDB = [
     subject: 'Hello!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'lolo@momo.com',
     to: 'user@appsus2.com',
@@ -30,7 +38,11 @@ const emailsDB = [
     subject: 'Burger lover?',
     body: 'Would love to catch',
     isRead: true,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'burger@momo.com',
     to: 'user@appsus2.com',
@@ -40,7 +52,11 @@ const emailsDB = [
     subject: 'Lets fight!!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'angry@momo.com',
     to: 'user@appsus2.com',
@@ -50,7 +66,11 @@ const emailsDB = [
     subject: 'Code some love!',
     body: 'Would love to catch',
     isRead: true,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'love@momo.com',
     to: 'user@appsus2.com',
@@ -60,7 +80,11 @@ const emailsDB = [
     subject: 'I will find you',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'finder@momo.com',
     to: 'user@appsus2.com',
@@ -70,7 +94,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: true,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -80,7 +108,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -90,7 +122,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -100,7 +136,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: true,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -110,7 +150,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -120,7 +164,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -130,7 +178,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -140,7 +192,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -150,7 +206,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: true,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -160,7 +220,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: false,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -170,7 +234,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: true,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -180,7 +248,11 @@ const emailsDB = [
     subject: 'Who is there?!',
     body: 'Would love to catch',
     isRead: true,
-    sentAt: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }),
+    sentAt: new Date().toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }),
     removedAt: null,
     from: 'Who@momo.com',
     to: 'user@appsus2.com',
@@ -203,9 +275,12 @@ export const emailService = {
 function query(filterBy = {}) {
   return storageService.query(EMAIL_KEY).then((emails) => {
     if (filterBy.status) {
-      emails = emails.filter((email) => (filterBy.status === sent && email.sentAt) ||
-      (filterBy.status === trash && email.removedAt))
-    //   (filterBy.status === draft && email.removedAt))
+      emails = emails.filter(
+        (email) =>
+          (filterBy.status === sent && email.sentAt) ||
+          (filterBy.status === trash && email.removedAt)
+      )
+      //   (filterBy.status === draft && email.removedAt))
     }
     return emails
   })

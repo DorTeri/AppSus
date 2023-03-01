@@ -30,3 +30,14 @@
 .email-preview:hover .remove-btn {
   display: block;
 }
+
+.preview-svgs-user {
+display: flex;
+align-items: center;
+margin-left: 15px;
+}
+
+.preview-svgs-user div {
+  margin: 5px;
+}
+
