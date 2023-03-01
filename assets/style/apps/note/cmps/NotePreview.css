@@ -1,23 +1,5 @@
 .note-preview {
     position: relative;
-    color: white;
-    width: 200px;
-    height: 200px;
-}
-
-.edits {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-}
-
-.hidden-clr {
-    background-color: white;
-    border: white;
-    position: absolute;
-    bottom: 0;
-    left: 60%;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+    color: black;
+    break-inside: avoid-column;
 }

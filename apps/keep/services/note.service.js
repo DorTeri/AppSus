@@ -18,7 +18,7 @@ const notes = [
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#f28b82'
         },
         info: {
             txt: 'Fullstack Me Baby!'
@@ -29,11 +29,11 @@ const notes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'http://some-img/me',
+            url: 'https://images.unsplash.com/photo-1529612700005-e35377bf1415?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZ2xlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
             title: 'Bobi and Me'
         },
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#fbbc04'
         }
     },
     {
@@ -46,8 +46,23 @@ const notes = [
                 { txt: 'Driving license', doneAt: null },
                 { txt: 'Coding power', doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: '#fff475'
         }
-    }
+    },
+    {
+        id: 'n102',
+        type: 'NoteVideo',
+        isPinned: false,
+        info: {
+            url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+            title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: '#fbbc04'
+        }
+    },
 ]
 
 makeNotes()

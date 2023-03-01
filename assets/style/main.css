@@ -18,6 +18,7 @@
 @import 'apps/note/NoteIndex.css';
 
 /* Note Components */
+@import 'apps/note/cmps/NoteEditor.css';
 @import 'apps/note/cmps/NoteList.css';
 @import 'apps/note/cmps/NotePreview.css';
 

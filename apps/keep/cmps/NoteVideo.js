@@ -1,11 +1,21 @@
+import NoteEditor from "./NoteEditor.js"
+
+
 export default {
     props: ['info'],
     template: `
-    <h2>I'm NoteVideo</h2>
+    <video class="video-preview" autoplay loop muted>
+    <source :src="info.url" type="video/mp4">
+    </video>
+    <h3>{{ info.title}}</h3>
+    <NoteEditor />
     `,
     data() {
         return {
 
         }
+    },
+    components: {
+        NoteEditor
     }
 }

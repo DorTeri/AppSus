@@ -1,0 +1,41 @@
+.note-editor {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 0;
+}
+
+.note-editor > *:not(img) {
+    width: 32px;
+    height: 32px;
+}
+
+.note-editor > *:hover {
+    cursor: pointer;
+    background-color: rgba(197, 197, 197, 0.5);
+    border-radius: 50%;
+}
+
+.color-picker {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    width: min-content;
+    display: flex;
+    position: absolute;
+    bottom: -50%;
+    z-index: 1;
+}
+
+.color {
+    margin-inline-start: 10px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.color:hover {
+    cursor: pointer;
+    outline: 2px solid black;
+}
