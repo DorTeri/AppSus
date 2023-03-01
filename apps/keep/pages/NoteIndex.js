@@ -1,5 +1,6 @@
 import NoteList from "../cmps/NoteList.js"
 import NoteEditor from "../cmps/NoteEditor.js"
+import MakeNote from "../cmps/MakeNote.js"
 
 import { noteService } from "../services/note.service.js"
 import { eventBus } from "../../../services/event-bus.service.js"
@@ -8,12 +9,9 @@ export default {
     template: `
     <section class="main-layout">
     <section class="note-index">
-    <div class="make-note">
-    <h3>Title</h3>
-    <input class="take-note" type="text" v-model="newNote.info.txt" placeholder="Take a note...">
-    <button class="close" @click="createNote">Close</button>
-    </div>
+    <MakeNote @addedNote="loadNotes"/>
     <NoteList 
+    @saveNote="save"
     :notes="notes"/>
     <RouterView />
     </section>
@@ -21,7 +19,6 @@ export default {
     `,
     data() {
         return {
-            newNote: noteService.getEmptyNote(),
             notes: null,
             filterBy: {}
         }
@@ -32,19 +29,10 @@ export default {
             note[changeObj.key] = changeObj.toUpdate
             noteService.save(note)
         })
-        eventBus.on('save', (note) => noteService.save(note))
         eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
         this.loadNotes()
     },
     methods: {
-        createNote() {
-            if (!this.newNote.info.txt) return
-            noteService.save(this.newNote)
-                .then(() => {
-                    this.loadNotes()
-                    this.newNote = noteService.getEmptyNote()
-                })
-        },
         removeNote(noteId) {
             noteService.remove(noteId)
                 .then(() => {
@@ -55,10 +43,14 @@ export default {
         loadNotes() {
             noteService.query()
             .then(notes => this.notes = notes)
+        },
+        save(note) {
+            noteService.save(note)
         }
     },
     components: {
         NoteList,
-        NoteEditor
+        NoteEditor,
+        MakeNote
     }
 }

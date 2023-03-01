@@ -8,38 +8,3 @@
     text-align: center;
     /* background-color: #fff; */
 }
-
-.make-note {
-    background-color: #fff;
-    position: relative;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-inline-start: 50%;
-    translate: -50%;
-    box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
-    text-align: left;
-    width: 60%;
-}
-
-.make-note input {
-    border: none;
-    background-color: #fff;
-    width: 100%;
-}
-
-.make-note .close {
-    width: 90px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: max-content;
-    border: none;
-    background-color: inherit;
-    border-radius: 8px;
-}
-
-.make-note .close:hover {
-    background-color: rgba(95, 99, 104, 0.039);
-}

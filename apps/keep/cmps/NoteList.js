@@ -12,7 +12,7 @@ export default {
     <section class="notes-list">
             <div v-for="note in notes" :key="note.id"
             @click.native="$router.push('/keep/' + note.id)">
-                <NotePreview :note="note"/>
+                <NotePreview @save="saveNote" :note="note"/>
             </div>
     </section>
     `,
@@ -26,6 +26,9 @@ export default {
         // this.loadNotes()
     },
     methods: {
+        saveNote(note) {
+            this.$emit('saveNote' , note)
+        }
         // loadNotes() {
         //     const unPinnedNotes = this.notes.filter(note => !note.isPinned)
         //     const pinnedNotes = this.notes.filter(note => note.isPinned)

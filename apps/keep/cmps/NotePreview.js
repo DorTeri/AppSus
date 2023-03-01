@@ -35,7 +35,7 @@ export default {
         },
         pin() {
             this.note.isPinned = !this.note.isPinned
-            eventBus.emit('save', this.note)
+            this.$emit('save', this.note)
         },
         updateNoteTxt(txt) {
             console.log('2')
