@@ -24,9 +24,6 @@ export default {
     getSvg(iconName) {
         return svgService.getMailSvg(iconName)
       },
-    // showDetails(emailId) {
-    //     this.$emit('show-details', emailId)
-    //   },
   },
   components: {
     EmailPreview,

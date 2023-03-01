@@ -34,3 +34,37 @@ height:  500px;
    border-top-left-radius: 15px;
    border-top-right-radius: 15px;
   }
+
+
+  .filter-section-svg {
+   display: flex;
+  padding: 7px;
+  width: 80%;
+  border-top-right-radius: 15px;
+  }
+
+  .filter-section-svg:hover {
+    background-color: rgb(224, 231, 249);
+   }
+
+  .filter-section-svg span {
+    margin-left: 20px;
+   }
+
+   .compose-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 142.5px;
+    height: 56px;
+    padding: 0 24px 0 0;
+    font-size: .875rem;
+    border-radius: 16px;
+    background-color: #c2e7ff;
+    margin-bottom: 1em;
+    margin-left: -18px;
+   }
+
+   .compose-icon:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   }

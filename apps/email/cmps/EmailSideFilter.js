@@ -3,18 +3,45 @@ import { svgService } from '../../../services/svg.service.js'
 export default {
   template: `
         <section class="email-side-filter">
+        <!-- Compose -->
+        <section class="filter-section compose-icon">
+          <div @click="filter('compose')" className="compose" 
+            v-html="getSvg('compose')"></div>
+            <span>Compose</span>
+         </section>
+
           <!-- Inbox -->
+          <section class="filter-section-svg">
           <div @click="filter('inbox')" className="inbox" 
             v-html="getSvg('inboxFill')"></div>
+            <span>Inbox</span>
+         </section>
+
+           <!-- Starred -->
+           <section class="filter-section-svg">
+          <div @click="filter('star')" className="star" 
+            v-html="getSvg('star')"></div>
+            <span>Starred</span>
+         </section>
+            
           <!-- Sent -->
+          <section class="filter-section-svg">
            <div @click="filter('sent')" className="sent" 
             v-html="getSvg('sent')"></div>
-          <!-- Trash -->
+            <span>Sent</span>
+            </section>
+            <!-- Draft -->
+            <section class="filter-section-svg">
+              <div @click="filter('draft')" className="draft" 
+              v-html="getSvg('drafts')"></div>
+              <span>Drafts</span>
+            </section>
+            <!-- Trash -->
+          <section class="filter-section-svg">
            <div @click="filter('trash')" className="trash" 
-            v-html="getSvg('trash')"> </div>
-          <!-- Draft -->
-           <div @click="filter('draft')" className="draft" 
-            v-html="getSvg('drafts')"></div>
+            v-html="getSvg('trash')"></div>
+            <span>Trash</span>
+            </section>
             </section>
             `,
   data() {
