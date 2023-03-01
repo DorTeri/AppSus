@@ -5,7 +5,6 @@ export default {
     props: ['info'],
     template: `
     <h3 contenteditable="true">{{ info.txt }}</h3>
-    <NoteEditor/>
     `,
     data() {
         return {

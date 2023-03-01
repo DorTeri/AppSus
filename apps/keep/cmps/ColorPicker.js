@@ -1,5 +1,3 @@
-import { eventBus } from "../../../services/event-bus.service.js"
-
 export default {
     template: `
     <div class="color-picker">
@@ -17,7 +15,7 @@ export default {
     },
     methods: {
         changeColor(color) {
-            eventBus.emit('color' , color)
+            this.$emit('color' , {'backgroundColor': color})
         }
     }
 }

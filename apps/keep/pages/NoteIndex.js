@@ -1,5 +1,6 @@
 import { noteService } from "../services/note.service.js"
 import NoteList from "../cmps/NoteList.js"
+import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
@@ -21,6 +22,11 @@ export default {
         }
     },
     created() {
+        eventBus.on('colorChange', (changeObj) => {
+            const note = this.notes.find(note => note.id === changeObj.noteId)
+            note.style = changeObj.color
+            noteService.save(note)
+        })
         noteService.query()
             .then(notes => this.notes = notes)
     },

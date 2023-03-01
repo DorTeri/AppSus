@@ -8,7 +8,6 @@ export default {
     <source :src="info.url" type="video/mp4">
     </video>
     <h3>{{ info.title}}</h3>
-    <NoteEditor />
     `,
     data() {
         return {

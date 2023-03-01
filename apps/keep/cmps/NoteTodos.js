@@ -7,7 +7,6 @@ export default {
     <ul>
         <li v-for="info in info.todos">{{info.txt}}</li>
     </ul>
-    <NoteEditor />
     `,
     data() {
         return {

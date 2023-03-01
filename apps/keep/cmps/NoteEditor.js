@@ -1,8 +1,9 @@
-import { svgService } from "../services/svg.service.js"
 import { eventBus } from "../../../services/event-bus.service.js"
+import { svgService } from "../services/svg.service.js"
 import ColorPicker from "./ColorPicker.js"
 
 export default {
+    props: ['noteId'],
     template: `
     <section class="note-editor">
     <div className="icon" v-html="getSvg('bell')"></div>
@@ -23,7 +24,7 @@ export default {
             return svgService.getSvg(iconName)
         },
         changeColor(color) {
-            this.$emit('colorChange' , color)
+            eventBus.emit('colorChange' , {noteId: this.noteId , color})
         }
     },
     components: {

@@ -5,7 +5,6 @@ export default {
     template: `
     <img :src="info.url + jpg">
     <h3>{{ info.title }}</h3>
-    <NoteEditor />
     `,
     data() {
         return {
