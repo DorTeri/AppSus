@@ -17,7 +17,15 @@
 @import 'apps/mail/EmailIndex.css';
 @import 'apps/note/NoteIndex.css';
 
+<<<<<<< HEAD
 /* Note Components */
 @import 'apps/note/cmps/NoteList.css';
 @import 'apps/note/cmps/NotePreview.css';
 
+=======
+
+/* Mail */
+@import 'apps/mail/EmailIndex.css';
+@import 'apps/mail/EmailList.css';
+@import 'apps/mail/EmailPreview.css';
+>>>>>>> 58d0e3e43a615ee64f524e61df3fae16c472a4c8
