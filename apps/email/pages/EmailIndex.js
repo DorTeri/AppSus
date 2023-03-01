@@ -50,3 +50,4 @@ created() {
     EmailList,
   },
 }
+
