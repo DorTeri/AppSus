@@ -9,6 +9,7 @@ html {
 body {
   margin: 0;
   color: var(--clr4);
+  text-align: center;
 }
 
 h1,
