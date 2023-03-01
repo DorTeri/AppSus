@@ -16,7 +16,6 @@
 
 .note-preview:hover .icon-pin{
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
     opacity: 0.5;
 }
 

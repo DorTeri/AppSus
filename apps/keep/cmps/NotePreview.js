@@ -14,6 +14,7 @@ export default {
     <Component :is="note.type" :info="note.info"></Component>
     <i class="fa-solid fa-thumbtack icon-pin"
     @click="pin"
+    @updateTxt="updateNoteTxt"
     :class="{pinned: note.isPinned}"></i>
     <NoteEditor :noteId="note.id"/>
     </article>
@@ -31,6 +32,10 @@ export default {
         pin() {
             this.note.isPinned = !this.note.isPinned
             eventBus.emit('save' , this.note)
+        },
+        updateNoteTxt(txt) {
+            console.log('2')
+            eventBus.emit('updateNote' , {toUpdate: txt , key: 'info.txt' , noteId: this.note.id})
         }
     },
     components: {

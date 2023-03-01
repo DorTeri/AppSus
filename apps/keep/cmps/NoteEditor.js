@@ -23,6 +23,7 @@ export default {
             return svgService.getSvg(iconName)
         },
         changeColor(color) {
+            
             eventBus.emit('updateNote' , {noteId: this.noteId , toUpdate: color , key: 'style'})
         },
         remove() {
