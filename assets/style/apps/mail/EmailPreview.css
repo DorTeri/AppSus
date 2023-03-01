@@ -1,22 +1,32 @@
 .email-preview {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
-    background-color: white;
-    line-height: 20px;
-    white-space: nowrap;
-    cursor: pointer;
-    border-collapse: collapse;
-    color: rgb(32, 33, 36);
-    font-weight: bold;
-  }
-  
-  .email-preview.read {
-    background-color: rgb(246, 248, 252);
-    font-weight: normal;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: inset 0 -1px 0 0 rgb(100 121 143 / 12%);
+  background-color: white;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  border-collapse: collapse;
+  color: rgb(32, 33, 36);
+  font-weight: bold;
+}
 
-  .email-preview:hover {
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;  } 
+.email-preview.read {
+  background-color: rgb(246, 248, 252);
+  font-weight: normal;
+}
+
+.email-preview:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.remove-btn {
+  display: none;
+}
+
+.email-preview:hover .remove-btn {
+  display: block;
+}

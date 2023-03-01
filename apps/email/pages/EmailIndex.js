@@ -9,18 +9,21 @@ export default {
   template: `
         <section class="email-index">
           <EmailFilter @filter="setFilterBy" />
-
+          
           <section class="main-mail-layout">
-          <EmailSideFilter @filter="setFilterBy" />
-          <EmailList 
-          v-if="emails"
-          :emails="filteredEmails" />
-        </section>
+            <EmailSideFilter @filter="setFilterBy" />
+            <EmailList 
+            v-if="!isDetails"
+            :emails="filteredEmails" 
+            @remove="removeEmail"/>
+          </section>
+          <RouterView />
         </section>
     `,
   data() {
     return {
       emails: null,
+      isDetails: true,
       filterBy: {
         status: 'inbox/sent/trash/draft',
         txt: '', // no need to support complex text search
@@ -35,9 +38,18 @@ created() {
 },
   methods: {
     setFilterBy(filterBy) {
-      this.filterBy.status = filterBy
+      this.filterBy = filterBy
+      // this.filterBy.status = filterBy
     },
+    removeEmail(emailId) {
+      emailService
+        .remove(emailId)
+        .then(emailId => {
+          const idx = this.emails.findIndex((email) => email.id === emailId)
+          this.emails.splice(idx, 1)
+        })
   },
+},
   computed: {
     filteredEmails() {
       const regex = new RegExp(this.filterBy.txt, 'i')
@@ -50,3 +62,4 @@ created() {
     EmailList,
   },
 }
+

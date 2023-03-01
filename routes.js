@@ -27,13 +27,19 @@ const routerOptions = {
 			component: NoteDetails,
 		},
 		{
-			path: '/mail/',
+			path: '/mail',
 			component: EmailIndex,
+			children: [
+				{
+				  path: ':id',
+				  component: EmailDetails,
+				},
+			]
 		},
-		{
-			path: '/mail/:id',
-			component: EmailDetails,
-		},
+		// {
+		// 	path: '/mail/:id',
+		// 	component: EmailDetails,
+		// },
 	],
 }
 
