@@ -5,7 +5,7 @@ import NoteTodos from "./NoteTodos.js"
 import NoteEditor from "./NoteEditor.js"
 
 import { eventBus } from "../../../services/event-bus.service.js"
-import { svgService } from "../services/svg.service.js"
+import { svgService } from '../../../services/svg.service.js'
 
 export default {
     props: ['note'],

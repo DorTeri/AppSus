@@ -1,13 +1,4 @@
 .app-header {
-  /* background-color: var(--clr5); */
-  background-color: rgb(230, 230, 230);
-  /* color: var(--secondary-clr1); */
   padding: 1em;
 }
 
-@media(max-width: 720px) {
-  .app-header {
-    background-color: var(--clr3);
-    color: var(--secondary-clr2);
-  }
-}

@@ -9,10 +9,13 @@ export default {
   template: `
         <section class="email-index">
           <EmailFilter @filter="setFilterBy" />
+
+          <section class="main-mail-layout">
           <EmailSideFilter @filter="setFilterBy" />
           <EmailList 
           v-if="emails"
           :emails="filteredEmails" />
+        </section>
         </section>
     `,
   data() {
