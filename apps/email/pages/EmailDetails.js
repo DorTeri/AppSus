@@ -3,7 +3,7 @@ import { emailService } from '../services/email.service.js'
 
 export default {
   template: `
-        <section class="email-details">
+        <section class="email-details" v-if="email">
               <p>{{email.subject}}</p>
               <p>{{email.from}}</p>
               <p>{{email.sentAt}}</p>
@@ -16,18 +16,14 @@ export default {
     }
   },
   created() {
-    const { emailId } = this.$route.params
-    emailService.get(emailId).then((email) => (this.email = email))
-    // console.log(email)
-    console.log(this.email)
+    const {id}  = this.$route.params
+    console.log(id)
+    emailService.get(id).then((email) => {
+      this.email = email
+    })
   },
-  methods: {
-   
-
-  },
-  computed: {
-  
-},
+  methods: {},
+  computed: {},
   components: {
     emailService,
   },

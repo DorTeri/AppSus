@@ -87,6 +87,7 @@ export const emailService = {
   get,
   save,
   getEmptyEmail,
+  remove,
 }
 
 function query(filterBy = {}) {
@@ -102,6 +103,10 @@ function query(filterBy = {}) {
 
 function get(emailId) {
   return storageService.get(EMAIL_KEY, emailId)
+}
+
+function remove(emailId) {
+  return storageService.remove(EMAIL_KEY, emailId)
 }
 
 function save(email) {
