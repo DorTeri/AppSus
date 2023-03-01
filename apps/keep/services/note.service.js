@@ -102,5 +102,7 @@ function save(note) {
 }
 
 function getEmptyNote() {
-    return { id: ''}
+    return { id: '' , info: {txt: ''},
+     style: {backgroundColor: '#fff'}, isPinned: false ,
+      type: 'NoteTxt'}
 }

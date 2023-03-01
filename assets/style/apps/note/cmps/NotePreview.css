@@ -1,5 +1,33 @@
 .note-preview {
+    margin-bottom: 20px;
+    border-radius: 8px;
     position: relative;
     color: black;
     break-inside: avoid-column;
+}
+
+.note-preview:hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.note-preview:hover .note-editor {
+    opacity: 1;
+}
+
+.note-preview:hover .icon-pin{
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 0.5;
+}
+
+.note-preview:hover .icon-pin:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.icon-pin {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    opacity: 0;
 }

@@ -12,7 +12,9 @@ export default {
     template: `
     <article class="note-preview" :style="note.style">
     <Component :is="note.type" :info="note.info"></Component>
-    
+    <i class="fa-solid fa-thumbtack icon-pin"
+    @click="pin"
+    :class="{pinned: note.isPinned}"></i>
     <NoteEditor :noteId="note.id"/>
     </article>
     `,
@@ -21,11 +23,15 @@ export default {
         }
     },
     created() {
-        eventBus.on('change' , (color) => {
-            eventBus.emit('updateNote' , {color , noteId: this.note.id})
-        })
     },
     methods: {
+        getSvg(iconName) {
+            return svgService.getSvg(iconName)
+        },
+        pin() {
+            this.note.isPinned = !this.note.isPinned
+            eventBus.emit('save' , this.note)
+        }
     },
     components: {
         NoteTodos,

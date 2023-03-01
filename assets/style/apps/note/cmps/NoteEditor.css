@@ -4,6 +4,8 @@
     justify-content: space-between;
     position: relative;
     bottom: 0;
+    opacity: 0;
+    transition: .5s;
 }
 
 .note-editor > *:not(img) {
@@ -38,4 +40,9 @@
 .color:hover {
     cursor: pointer;
     outline: 2px solid black;
+}
+
+.icon-trash {
+    width: 32px;
+    height: 32px;
 }

@@ -1,39 +1,48 @@
 import { noteService } from "../services/note.service.js"
 import NoteList from "../cmps/NoteList.js"
 import { eventBus } from "../../../services/event-bus.service.js"
+import NoteEditor from "../cmps/NoteEditor.js"
 
 export default {
     template: `
+    <section class="main-layout">
     <section class="note-index">
-    <h1>Note Index</h1>
-    <div>
-    <input class="take-note" type="text" v-model="note.txt" placeholder="Take a note...">
-    <button @click="createNote">Close</button>
+    <div class="make-note">
+    <h3>Title</h3>
+    <input class="take-note" type="text" v-model="newNote.info.txt" placeholder="Take a note...">
+    <button class="close" @click="createNote">Close</button>
     </div>
     <NoteList 
-    @remove="removeNote"
     :notes="notes"/>
+    <RouterView />
+    </section>
     </section>
     `,
     data() {
         return {
-            note: { txt: '' },
-            notes: null
+            newNote: noteService.getEmptyNote(),
+            notes: null,
+            filterBy: {}
         }
     },
     created() {
-        eventBus.on('colorChange', (changeObj) => {
+        eventBus.on('updateNote', (changeObj) => {
             const note = this.notes.find(note => note.id === changeObj.noteId)
-            note.style = changeObj.color
+            note[changeObj.key] = changeObj.toUpdate
             noteService.save(note)
         })
-        noteService.query()
-            .then(notes => this.notes = notes)
+        eventBus.on('save', (note) => noteService.save(note))
+        eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
+        this.loadNotes()
     },
     methods: {
         createNote() {
-            noteService.save(this.note)
-            this.notes.push(this.note)
+            if (!this.newNote.info.txt) return
+            noteService.save(this.newNote)
+                .then(() => {
+                    this.loadNotes()
+                    this.newNote = noteService.getEmptyNote()
+                })
         },
         removeNote(noteId) {
             noteService.remove(noteId)
@@ -42,8 +51,13 @@ export default {
                     this.notes.splice(idx, 1)
                 })
         },
+        loadNotes() {
+            noteService.query()
+            .then(notes => this.notes = notes)
+        }
     },
     components: {
-        NoteList
+        NoteList,
+        NoteEditor
     }
 }
