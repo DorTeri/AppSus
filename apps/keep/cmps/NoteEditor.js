@@ -1,5 +1,5 @@
 import { eventBus } from "../../../services/event-bus.service.js"
-import { svgService } from "../services/svg.service.js"
+import { svgService } from "../../../services/svg.service.js"
 import ColorPicker from "./ColorPicker.js"
 
 export default {
