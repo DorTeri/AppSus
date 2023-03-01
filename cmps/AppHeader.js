@@ -3,8 +3,10 @@ export default {
         <header class="app-header">
             <h1>AppSus</h1>
             <nav>
-                <router-link to="/">Home</router-link> | 
-                <router-link to="/about">About</router-link>
+                <RouterLink to="/">Home</RouterLink> | 
+                <RouterLink to="/about">About</RouterLink> |
+                <RouterLink to="/keep">Notes</RouterLink> |
+                <RouterLink to="/mail">Email</RouterLink>
             </nav>
         </header>
     `,
