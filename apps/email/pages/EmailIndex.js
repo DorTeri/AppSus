@@ -8,7 +8,7 @@ import EmailList from '../cmps/EmailList.js'
 export default {
   template: `
         <section class="email-index">
-          <EmailFilter @filter="setFilterBy" />
+          <!-- <EmailFilter @filter="setFilterBy" /> -->
           
           <section class="main-mail-layout">
             <EmailSideFilter @filter="setFilterBy" />

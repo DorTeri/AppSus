@@ -20,6 +20,7 @@ height:  500px;
     border: none;
     border-radius: 10px;
     width: 45%;
+    width: 600px;
   }
 
   input:hover {
@@ -30,7 +31,7 @@ height:  500px;
    background-color: white;
    color: white;
    width: 100%;
-   height: 52px;
+   height: 30px;
    border-top-left-radius: 15px;
    border-top-right-radius: 15px;
   }
@@ -39,12 +40,19 @@ height:  500px;
   .filter-section-svg {
    display: flex;
   padding: 7px;
-  width: 80%;
-  border-top-right-radius: 15px;
+  width: 95%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  grid-column: 1 -1;
+  }
+
+  .filter-section {
+    display: flex;
   }
 
   .filter-section-svg:hover {
-    background-color: rgb(224, 231, 249);
+    /* background-color: rgb(227, 226, 226); */
+    background-color: rgb(236, 236, 236);
    }
 
   .filter-section-svg span {
@@ -54,7 +62,7 @@ height:  500px;
    .compose-icon {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
     width: 142.5px;
     height: 56px;
     padding: 0 24px 0 0;
@@ -62,7 +70,7 @@ height:  500px;
     border-radius: 16px;
     background-color: #c2e7ff;
     margin-bottom: 1em;
-    margin-left: -18px;
+    /* margin-left: -18px; */
    }
 
    .compose-icon:hover {
