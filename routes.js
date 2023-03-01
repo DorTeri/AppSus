@@ -4,6 +4,7 @@ import EmailDetails from './apps/email/pages/EmailDetails.js'
 import EmailIndex from './apps/email/pages/EmailIndex.js'
 import NoteDetails from './apps/keep/pages/NoteDetails.js'
 import NoteIndex from './apps/keep/pages/NoteIndex.js'
+import NoteFilter from './apps/keep/cmps/NoteFilter.js'
 
 const { createRouter, createWebHashHistory } = VueRouter
 
@@ -25,6 +26,10 @@ const routerOptions = {
 				{
 					path: ':id',
 					component: NoteDetails,
+				},
+				{
+					path: 'search',
+					component: NoteFilter,
 				},
 			]
 		},

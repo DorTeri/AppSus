@@ -1,7 +1,8 @@
-import { noteService } from "../services/note.service.js"
 import NoteList from "../cmps/NoteList.js"
-import { eventBus } from "../../../services/event-bus.service.js"
 import NoteEditor from "../cmps/NoteEditor.js"
+
+import { noteService } from "../services/note.service.js"
+import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `

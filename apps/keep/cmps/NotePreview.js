@@ -12,10 +12,14 @@ export default {
     template: `
     <article class="note-preview" :style="note.style">
     <Component :is="note.type" :info="note.info"></Component>
-    <i class="fa-solid fa-thumbtack icon-pin"
+    <div v-if="note.isPinned" className="icon-pin" v-html="getSvg('pin')"
     @click="pin"
-    @updateTxt="updateNoteTxt"
-    :class="{pinned: note.isPinned}"></i>
+    @updateTxt="updateNoteTxt">
+</div>
+<div className="icon-pin" v-if="!note.isPinned" v-html="getSvg('unPin')"
+    @click="pin"
+    @updateTxt="updateNoteTxt">
+</div>
     <NoteEditor :noteId="note.id"/>
     </article>
     `,
@@ -31,11 +35,11 @@ export default {
         },
         pin() {
             this.note.isPinned = !this.note.isPinned
-            eventBus.emit('save' , this.note)
+            eventBus.emit('save', this.note)
         },
         updateNoteTxt(txt) {
             console.log('2')
-            eventBus.emit('updateNote' , {toUpdate: txt , key: 'info.txt' , noteId: this.note.id})
+            eventBus.emit('updateNote', { toUpdate: txt, key: 'info.txt', noteId: this.note.id })
         }
     },
     components: {
