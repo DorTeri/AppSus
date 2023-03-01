@@ -21,6 +21,12 @@ const routerOptions = {
 		{
 			path: '/keep',
 			component: NoteIndex,
+			children: [
+				{
+					path: ':id',
+					component: NoteDetails,
+				},
+			]
 		},
 		{
 			path: '/keep/:id',

@@ -5,6 +5,7 @@ import NoteEditor from "../cmps/NoteEditor.js"
 
 export default {
     template: `
+    <section class="main-layout">
     <section class="note-index">
     <div class="make-note">
     <h3>Title</h3>
@@ -13,6 +14,8 @@ export default {
     </div>
     <NoteList 
     :notes="notes"/>
+    <RouterView />
+    </section>
     </section>
     `,
     data() {
@@ -29,15 +32,17 @@ export default {
             noteService.save(note)
         })
         eventBus.on('save', (note) => noteService.save(note))
-        eventBus.on('removeNote' , (noteId) => this.removeNote(noteId))
-        noteService.query()
-            .then(notes => this.notes = notes)
+        eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
+        this.loadNotes()
     },
     methods: {
         createNote() {
-            if(!this.newNote.info.txt) return
+            if (!this.newNote.info.txt) return
             noteService.save(this.newNote)
-            this.notes.push(this.newNote)
+                .then(() => {
+                    this.loadNotes()
+                    this.newNote = noteService.getEmptyNote()
+                })
         },
         removeNote(noteId) {
             noteService.remove(noteId)
@@ -46,6 +51,10 @@ export default {
                     this.notes.splice(idx, 1)
                 })
         },
+        loadNotes() {
+            noteService.query()
+            .then(notes => this.notes = notes)
+        }
     },
     components: {
         NoteList,

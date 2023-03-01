@@ -1,10 +1,16 @@
+.main-layout {
+    display: grid;
+    grid-template-columns: 60px auto 60px;
+}
 
 .note-index {
+    grid-column: 2;
     text-align: center;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .make-note {
+    background-color: #fff;
     position: relative;
     padding: 10px;
     margin-bottom: 20px;
@@ -19,13 +25,14 @@
 
 .make-note input {
     border: none;
+    background-color: #fff;
     width: 100%;
 }
 
 .make-note .close {
     width: 90px;
     position: absolute;
-    bottom: -5%;
+    bottom: 0;
     right: 0;
     height: max-content;
     border: none;
