@@ -29,7 +29,9 @@ a {
   color: unset;
 }
 
-
+P {
+  margin-left: 7px;
+}
 
 /* Dont stretch my Media */
 img,
