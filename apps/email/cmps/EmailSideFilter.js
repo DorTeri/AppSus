@@ -1,44 +1,48 @@
 import { svgService } from '../../../services/svg.service.js'
 
+import EmailComposed from '../cmps/EmailCompose.js'
+
 export default {
   template: `
         <section class="email-side-filter">
+        <EmailComposed 
+        v-if="isCompose"/>
         <!-- Compose -->
-        <section class="filter-section compose-icon">
-          <div @click="filter('compose')" className="compose" 
+        <section @click="isCompose = !isCompose" class="filter-section compose-icon">
+          <div className="compose" 
             v-html="getSvg('compose')"></div>
             <span>Compose</span>
          </section>
 
           <!-- Inbox -->
-          <section class="filter-section-svg">
-          <div @click="filter('inbox')" className="inbox" 
+          <section @click="filter('inbox')" class="filter-section-svg">
+          <div className="inbox" 
             v-html="getSvg('inboxFill')"></div>
             <span>Inbox</span>
          </section>
 
            <!-- Starred -->
            <section class="filter-section-svg">
-          <div @click="filter('star')" className="star" 
+          <div className="star" 
             v-html="getSvg('star')"></div>
             <span>Starred</span>
          </section>
             
           <!-- Sent -->
-          <section class="filter-section-svg">
-           <div @click="filter('sent')" className="sent" 
+          <section @click="filter('sent')" class="filter-section-svg">
+           <div className="sent" 
             v-html="getSvg('sent')"></div>
             <span>Sent</span>
             </section>
             <!-- Draft -->
-            <section class="filter-section-svg">
-              <div @click="filter('draft')" className="draft" 
+            <section @click="filter('draft')" class="filter-section-svg">
+              <div className="draft" 
               v-html="getSvg('drafts')"></div>
               <span>Drafts</span>
             </section>
             <!-- Trash -->
-          <section class="filter-section-svg">
-           <div @click="filter('trash')" className="trash" 
+          <section @click="filter('trash')" class="filter-section-svg">
+           <div className="trash" 
             v-html="getSvg('trash')"></div>
             <span>Trash</span>
             </section>
@@ -46,6 +50,7 @@ export default {
             `,
   data() {
     return {
+      isCompose: true,
       filterBy: {
         status: 'sent',
         txt: '', // no need to support complex text search
@@ -56,12 +61,16 @@ export default {
     }
   },
   methods: {
-    filter() {
+    filter(status) {
+      this.filterBy.status = status
       this.$emit('filter', this.filterBy.status)
       console.log('Clicked')
     },
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
+  },
+  components: {
+  EmailComposed,
   },
 }

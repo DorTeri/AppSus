@@ -4,10 +4,6 @@ import EmailFilter from '../cmps/EmailFilter.js'
 import EmailSideFilter from '../cmps/EmailSideFilter.js'
 import EmailList from '../cmps/EmailList.js'
 
-// v-if="emails"
-{
-    /* <button @click="this.isDetails = !this.isDetails"></button> */
-}
 export default {
     template: `
         <section class="email-index">
@@ -58,6 +54,7 @@ export default {
     },
     computed: {
         filteredEmails() {
+          if (!this.emails) return
             const regex = new RegExp(this.filterBy.txt, 'i')
             return this.emails.filter((email) => regex.test(email.txt))
         },
