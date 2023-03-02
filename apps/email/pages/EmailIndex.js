@@ -5,7 +5,7 @@ import EmailSideFilter from '../cmps/EmailSideFilter.js'
 import EmailList from '../cmps/EmailList.js'
 
 export default {
-    template: `
+  template: `
         <section class="email-index">
           <!-- <EmailFilter @filter="setFilterBy" /> -->
           
@@ -20,56 +20,69 @@ export default {
         </section>
         </section>
     `,
-    data() {
-        return {
-            emails: null,
-            isDetails: false,
-            filterBy: {
-                status: 'inbox/sent/trash/draft',
-                txt: '', // no need to support complex text search
-                isRead: true, // (optional property, if missing: show all)
-                isStared: true, // (optional property, if missing: show all)
-                lables: ['important', 'romantic'], // has any of the labels
-            },
+  data() {
+    return {
+      emails: null,
+      isDetails: false,
+      filterBy: {
+        status: 'inbox',
+        txt: '', // no need to support complex text search
+        isRead: true, // (optional property, if missing: show all)
+        // isStared: true, // (optional property, if missing: show all)
+        lables: ['important', 'romantic'], // has any of the labels
+      },
+    }
+  },
+  created() {
+    emailService.query().then((emails) => (this.emails = emails))
+  },
+  methods: {
+    setFilterBy(filterBy) {
+      this.filterBy.status = filterBy
+    },
+    removeEmail(emailId) {
+      emailService.remove(emailId).then((emailId) => {
+        const idx = this.emails.findIndex((email) => email.id === emailId)
+        this.emails.splice(idx, 1)
+      })
+    },
+    toDetails({ mailId }) {
+      // this.isDetails =
+      this.$router.push(`mail/${mailId}`)
+    },
+  },
+  computed: {
+    filteredEmails() {
+      console.log(this.filterBy.status)
+      if (!this.emails) return
+      let filteredEmails = []
+      if (this.filterBy.status === 'starred') {
+        console.log('Hello')
+        filteredEmails = this.emails.filter((email) => email.isStarred)
+      } else {
+        filteredEmails = this.emails.filter(
+          (email) => email.status === this.filterBy.status)
         }
+        console.log(filteredEmails)
+        return filteredEmails
     },
-    created() {
-        emailService.query().then((emails) => (this.emails = emails))
+  },
+  watch: {
+    $route: {
+      handler(newValue) {
+        this.isDetails = newValue.params.id ? true : false
+      },
+      deep: true,
     },
-    methods: {
-        setFilterBy(filterBy) {
-            this.filterBy = filterBy
-                // this.filterBy.status = filterBy
-        },
-        removeEmail(emailId) {
-            emailService.remove(emailId).then((emailId) => {
-                const idx = this.emails.findIndex((email) => email.id === emailId)
-                this.emails.splice(idx, 1)
-            })
-        },
-        toDetails({ mailId }) {
-            // this.isDetails =
-            this.$router.push(`mail/${mailId}`)
-        },
-    },
-    computed: {
-        filteredEmails() {
-          if (!this.emails) return
-            const regex = new RegExp(this.filterBy.txt, 'i')
-            return this.emails.filter((email) => regex.test(email.txt))
-        },
-    },
-    watch: {
-        $route: {
-            handler(newValue) {
-                this.isDetails = newValue.params.id ? true : false
-            },
-            deep: true,
-        },
-    },
-    components: {
-        EmailFilter,
-        EmailSideFilter,
-        EmailList,
-    },
+  },
+  components: {
+    EmailFilter,
+    EmailSideFilter,
+    EmailList,
+  },
 }
+
+
+
+//   const regex = new RegExp(this.filterBy.txt, 'i')
+        //   return this.emails.filter((email) => regex.test(email.txt))

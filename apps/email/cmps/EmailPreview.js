@@ -9,7 +9,10 @@ export default {
         <div @click="filter('checkBox')" className="checkBox" 
                 v-html="getSvg('checkBox')"></div>
                 
-        <div @click="filter('star')" className="star" 
+        <div v-if="email.isStarred" @click="filter('starFill')" className=" starFill" 
+        v-html="getSvg('starFill')"></div>
+
+        <div v-else @click="filter('star')" className="star" 
         v-html="getSvg('star')"></div>
 
     <div @click="filter('labelImportantFill')" className="labelImportantFill" 
@@ -25,5 +28,7 @@ export default {
             return svgService.getMailSvg(iconName)
         },
     },
-    computed: {},
+    computed: {
+
+    },
 }
