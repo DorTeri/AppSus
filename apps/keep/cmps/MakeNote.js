@@ -14,7 +14,7 @@ export default {
     <div @click="changeType('NoteTodos')" data-title="New list" className="icon-list" v-html="getSvg('checkBox')"></div>
     <div data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil2')"></div>
     <label>
-    <div @class="changeType('NoteImg')" data-title="New note with image"  className="icon-img" v-html="getSvg('img')">
+    <div @click="changeType('NoteImg')" data-title="New note with image"  className="icon-img" v-html="getSvg('img')"></div>
     <input class="file" hidden type="file" @change="createImg">
     </label>
     </div>
