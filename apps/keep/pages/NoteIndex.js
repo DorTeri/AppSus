@@ -25,13 +25,14 @@ export default {
         }
     },
     created() {
-        eventBus.on('updateNote', (changeObj) => {
-            const note = this.notes.find(note => note.id === changeObj.noteId)
-            note[changeObj.key] = changeObj.toUpdate
-            noteService.save(note)
-        })
-        eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
-        this.loadNotes()
+        // eventBus.on('updateNote', (changeObj) => {
+        //     const note = this.notes.find(note => note.id === changeObj.noteId)
+        //     note[changeObj.key] = changeObj.toUpdate
+        //     noteService.save(note)
+        //     console.log('index')
+        // })
+        // eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
+        // this.loadNotes()
     },
     methods: {
         removeNote(noteId) {
