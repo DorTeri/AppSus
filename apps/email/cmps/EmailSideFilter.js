@@ -22,7 +22,7 @@ export default {
          </section>
 
            <!-- Starred -->
-           <section class="filter-section-svg">
+           <section @click="filter('starred')" class="filter-section-svg">
           <div className="star" 
             v-html="getSvg('star')"></div>
             <span>Starred</span>
@@ -50,9 +50,9 @@ export default {
             `,
   data() {
     return {
-      isCompose: true,
+      isCompose: false,
       filterBy: {
-        status: 'sent',
+        status: 'inbox',
         txt: '', // no need to support complex text search
         isRead: true, // (optional property, if missing: show all)
         isStared: true, // (optional property, if missing: show all)
@@ -73,4 +73,5 @@ export default {
   components: {
   EmailComposed,
   },
+
 }
