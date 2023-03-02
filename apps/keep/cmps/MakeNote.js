@@ -11,10 +11,10 @@ export default {
     <input class="take-note" type="text" v-model="note.txt" :placeholder='placeHolder'>
     <div class="make-note-bottom">
         <div class="btns-create">
-    <button @click="changeType('NoteTodos')" data-title="New list" class="btn-create"><div className="icon" v-html="getSvg('checkBox')"></div></button>
-    <button data-title="New note with drawing" class="btn-create"><div className="icon" v-html="getSvg('pencil2')"></div></button>
-    <label >
-    <div data-title="New note with image" class="btn-create" className="icon-create" v-html="getSvg('img')"></div>
+    <div @click="changeType('NoteTodos')" data-title="New list" className="icon-list" v-html="getSvg('checkBox')"></div>
+    <div data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil2')"></div>
+    <label>
+    <div @class="changeType('NoteImg')" data-title="New note with image"  className="icon-img" v-html="getSvg('img')">
     <input class="file" hidden type="file" @change="createImg">
     </label>
     </div>
