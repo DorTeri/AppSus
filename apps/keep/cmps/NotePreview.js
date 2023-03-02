@@ -3,6 +3,7 @@ import NoteImg from "./NoteImg.js"
 import NoteVideo from "./NoteVideo.js"
 import NoteTodos from "./NoteTodos.js"
 import NoteEditor from "./NoteEditor.js"
+import NoteCanvas from "./NoteCanvas.js"
 
 import { eventBus } from "../../../services/event-bus.service.js"
 import { svgService } from '../../../services/svg.service.js'

@@ -13,7 +13,7 @@ export default {
     <div class="make-note-bottom">
         <div class="btns-create">
     <div @click="changeType('NoteTodos')" data-title="New list" className="icon-list" v-html="getSvg('checkBox')"></div>
-    <div data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil2')"></div>
+    <div @click="isCanvas = true" data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil2')"></div>
     <label>
     <div @click="changeType('NoteImg')" data-title="New note with image"  className="icon-img" v-html="getSvg('img')"></div>
     <input class="file" hidden type="file" @change="createImg">
@@ -26,7 +26,7 @@ export default {
     data() {
         return {
             placeholder: '',
-            note: { title: '', txt: '', noteType: 'NoteTxt', url: '' }
+            note: { title: '', txt: '', noteType: 'NoteTxt', url: '' },
         }
     },
     created() {
@@ -75,12 +75,12 @@ export default {
         },
         getNewNote() {
             return { title: '', txt: '', noteType: 'NoteTxt', url: '' }
-        }
+        },
     },
     computed: {
         placeHolder() {
             if (this.note.noteType === 'NoteTodos') return 'Write list seperated by commas...'
             else return 'Take a note...'
-        }
+        },
     },
 }
