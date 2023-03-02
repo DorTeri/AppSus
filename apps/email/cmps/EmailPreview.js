@@ -6,8 +6,8 @@ export default {
   template: `
         <div class="email-preview" :class="{read: email.isRead}">
         <section class="preview-svgs-user">
-        <div @click="filter('unChecked')" className="unChecked" 
-                v-html="getSvg('unChecked')"></div>
+        <div @click="filter('checkBox')" className="checkBox" 
+                v-html="getSvg('checkBox')"></div>
                 
         <div @click="filter('star')" className="star" 
         v-html="getSvg('star')"></div>

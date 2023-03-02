@@ -14,7 +14,8 @@ export default {
           <section class="main-mail-layout">
             <EmailSideFilter @filter="setFilterBy" />
             <EmailList 
-              v-if="!isDetails"
+             v-if="!isDetails"
+              v-if="emails"
             :emails="filteredEmails" 
             @remove="removeEmail"/>
             <RouterView />

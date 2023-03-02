@@ -18,9 +18,11 @@ export default {
         v-html="getSvg('star')"></div>
              </div>
              </div>
-              <!-- <p>{{email.sentAt}}</p> -->
               <p>{{email.body}}</p>
               <img :src="email.img">
+              <br>
+              <br>
+              <RouterLink to="/mail">Back to list</RouterLink>
         </section>
     `,
   data() {

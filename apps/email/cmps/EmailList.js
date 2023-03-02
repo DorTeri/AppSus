@@ -5,7 +5,7 @@ export default {
   props: ['emails'],
   template: `
         <section class="email-list">
-            <div class="empty-div">E</div>
+            <div class="empty-div"></div>
                 <div v-for="email in emails" :key="email.id" 
                  @click.native="$router.push('/mail/' + email.id)"
                 class="email-preview" :email="email">
@@ -14,7 +14,6 @@ export default {
             v-html="getSvg('trash')"></div>
         </div>
         <br>
-        <RouterLink to="/mail">Back to list</RouterLink>
         </section>
     `,
   methods: {
