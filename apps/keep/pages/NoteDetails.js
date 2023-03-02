@@ -9,7 +9,7 @@ export default {
     emits: ['updateNoteInfo', 'removeNote'],
     template: `
     <section v-if="note" class="note-details">
-    <NotePreview @updateNoteInfo="update" :edit="true" v-if="note" :note="this.note"/>
+    <NotePreview :edit="true" v-if="note" :note="this.note"/>
     <RouterLink class="close" to="/keep">Close</RouterLink>
     </section>
     `,
@@ -34,7 +34,6 @@ export default {
         },
         update(changeObj) {
             this.note[changeObj.key] = changeObj.toUpdate
-            console.log('this.note', this.note)
             noteService.save(this.note)
                 .then(eventBus.emit('noteUpdated'))
         }

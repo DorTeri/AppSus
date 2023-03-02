@@ -60,3 +60,8 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+
+.note-preview li.done {
+    text-decoration: line-through;
+    color: #5f6368;
+}

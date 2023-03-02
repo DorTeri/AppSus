@@ -10,8 +10,8 @@ export default {
     @click.stop="" ref="todosTitle" 
     @input="updateTitle">{{ info.title }}</h4>
     <ul>
-        <li :contenteditable="editAble" @click.stop="" ref="indo.id"
-         v-for="(info , idx) in info.todos" @input="updateTodo(idx , info.id)">{{info.txt}}</li>
+        <li :contenteditable="editAble" @click.stop="todoDone(index)" 
+         v-for="(info , index) in info.todos" :class="{done: info.doneAt}" @input="updateTodo(index)">{{info.txt}}</li>
     </ul>
     `,
     data() {
@@ -23,16 +23,24 @@ export default {
         this.debounceUpdateInfo = utilService.debounce(this.updateInfo , 400)
     },
     methods: {
-        updateTodo(idx , infoId) {
-            this.newInfo.txt[idx] = this.$refs[infoId].innerText
-            // this.newInfo.txt[idx] = this.$refs.idx.innerText
+        updateTodo(idx) {
+            this.newInfo.todos[idx].txt = this.$refs.idx.innerText
         },
         updateTitle() {
             this.newInfo.title = this.$refs.todosTitle.innerText
         },
         updateInfo() {
             this.$emit('updateInfo' , this.newInfo)
+        },
+        todoDone(idx) {
+            this.newInfo.todos[idx].doneAt = 
+            (this.newInfo.todos[idx].doneAt) ? null : Date.now()
         }
+    },
+    computed: {
+        // isDone(idx) {
+        //     return idx
+        // }
     },
     watch: {
         newInfo: {
