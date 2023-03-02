@@ -13,10 +13,10 @@
 .make-note .icon-create {
     top: 50%;
     opacity: 0.54;
-    padding-top: 10px;
-    padding-left: 15px;
-    height: 46px;
-    width: 60px;
+    padding-top: 5px;
+    padding-left: 7px;
+    height: 36px;
+    width: 40px;
 }
 
 .btn-create:hover , .icon-create:hover {

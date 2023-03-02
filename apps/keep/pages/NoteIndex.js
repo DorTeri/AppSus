@@ -11,6 +11,7 @@ export default {
     <section class="note-index">
     <MakeNote @addedNote="loadNotes"/>
     <NoteList 
+    @copyNote="makeCopy"
     @saveNote="save"
     :notes="notes"/>
     <RouterView />
@@ -45,7 +46,14 @@ export default {
             .then(notes => this.notes = notes)
         },
         save(note) {
-            noteService.save(note)
+            return noteService.save(note)
+        },
+        makeCopy(noteId) {
+            const note = this.notes.find(note => note.id === noteId)
+                const newNote = JSON.parse(JSON.stringify(note))
+                newNote.id = null
+                this.save(newNote)
+                .then(this.loadNotes)
         }
     },
     components: {
