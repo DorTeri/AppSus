@@ -5,3 +5,23 @@
   align-items: baseline;
 }
 
+.logo > span:nth-child(1) {
+  color: #4285f4;
+}
+.logo > span:nth-child(2n) {
+  color: #db4437;
+}
+.logo > span:nth-child(3n) {
+  color: #f4b400;
+}
+.logo > span:nth-child(4n) {
+  color: #0f9d58;
+}
+
+.logo > span:nth-child(5) {
+  color: #4285f4;
+}
+
+.logo > span:nth-child(7) {
+  color: #db4437;
+}

@@ -6,8 +6,8 @@ import { storageService } from '../../../services/async-storage.service.js'
 const emailsDB = [
   {
     id: 'e101',
-    subject: 'Miss you!',
-    body: 'Would love to catch up sometimes',
+    subject: 'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
+    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -18,6 +18,7 @@ const emailsDB = [
     from: 'momo@momo.com',
     to: 'user@appsus.com',
     status: 'inbox',
+    img:'./../../../assets/img/ksp.jpg',
   },
   {
     id: 'e102',

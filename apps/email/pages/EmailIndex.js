@@ -4,6 +4,7 @@ import EmailFilter from '../cmps/EmailFilter.js'
 import EmailSideFilter from '../cmps/EmailSideFilter.js'
 import EmailList from '../cmps/EmailList.js'
 
+// v-if="emails"
 {/* <button @click="this.isDetails = !this.isDetails"></button> */}
 export default {
   template: `
@@ -13,6 +14,7 @@ export default {
           <section class="main-mail-layout">
             <EmailSideFilter @filter="setFilterBy" />
             <EmailList 
+             v-if="!isDetails"
               v-if="emails"
             :emails="filteredEmails" 
             @remove="removeEmail"/>
@@ -23,6 +25,7 @@ export default {
   data() {
     return {
       emails: null,
+      isDetails: true,
       filterBy: {
         status: 'inbox/sent/trash/draft',
         txt: '', // no need to support complex text search

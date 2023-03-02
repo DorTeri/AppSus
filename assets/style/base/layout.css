@@ -3,13 +3,3 @@
   padding-left: 1.6rem;
   padding-right: 1.6rem;
 }
-
-.main-mail-layout {
-  display: grid;
-  grid-template-columns: 20px 256px 1fr 10px;
-}
-
-.email-side-filter {
-  grid-column: 2;
-}
-
