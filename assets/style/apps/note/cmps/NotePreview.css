@@ -1,9 +1,27 @@
 .note-preview {
+    text-align: left;
     margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
     border-radius: 8px;
     position: relative;
     color: black;
     break-inside: avoid-column;
+}
+
+.note-preview h5{
+    padding: 16px 16px 0 16px;
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.note-preview h4 {
+    padding: 16px 16px 0 16px;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.note-preview li {
+    margin-bottom: 5px;
 }
 
 .note-preview:hover {
@@ -15,7 +33,6 @@
 }
 
 .note-preview:hover .icon-pin{
-    border-radius: 50%;
     opacity: 0.5;
 }
 
@@ -26,7 +43,20 @@
 
 .icon-pin {
     position: absolute;
+    padding: 4px;
     top: 3%;
     right: 3%;
     opacity: 0;
+    background-color: rgba(95,99,104,0.157);
+    border-radius: 50%;
+}
+
+.note-preview img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.note-preview video {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }

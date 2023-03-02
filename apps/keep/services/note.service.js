@@ -11,6 +11,7 @@ export const noteService = {
     getEmptyNote,
     createNoteTxt,
     createNoteList,
+    createNoteImg
 }
 
 const notes = [
@@ -120,11 +121,19 @@ function createNoteTxt(note) {
 }
 
 function createNoteList(note) {
-    console.log('note.noteType', note.noteType)
     const newNote = getEmptyNote()
     const list = note.txt.split(',')
     newNote.info.todos = list.map(txt => ({txt: txt, doneAt: null})) 
     newNote.type = note.noteType
     newNote.info.title = note.title
+    return storageService.post(NOTE_KEY, newNote)
+}
+
+function createNoteImg(note) {
+    const newNote = getEmptyNote()
+    newNote.type = note.noteType
+    newNote.info.url = note.url
+    newNote.info.title = note.title
+    newNote.info.txt = note.txt
     return storageService.post(NOTE_KEY, newNote)
 }

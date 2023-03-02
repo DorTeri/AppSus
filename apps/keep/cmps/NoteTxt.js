@@ -4,7 +4,8 @@ import NoteEditor from "./NoteEditor.js"
 export default {
     props: ['info'],
     template: `
-    <h3 contenteditable="true" ref="txt">{{ info.txt }}</h3>
+    <h4>{{ info.title }}</h4>
+    <h5 contenteditable="true" @input="updateTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {
@@ -25,7 +26,6 @@ export default {
     },
     watch: {
         txt() {
-            console.log('this.txt', this.txt)
             this.debounceUpdateTxt()
         }
     }

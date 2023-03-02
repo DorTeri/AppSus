@@ -3,7 +3,7 @@ export default {
     <div class="color-picker">
         <div v-for="color in colors" class="color" 
         :style="{'background-color': color}"
-        @click="changeColor(color)">
+        @click.stop="changeColor(color)">
     </div>
     </div>
     `,
