@@ -9,6 +9,8 @@ export const noteService = {
     remove,
     save,
     getEmptyNote,
+    createNoteTxt,
+    createNoteList,
 }
 
 const notes = [
@@ -73,16 +75,16 @@ function makeNotes() {
 
 function query(filterBy = {}) {
     return storageService.query(NOTE_KEY)
-        // .then(note => {
-        //     if (filterBy.txt) {
-        //         const regex = new RegExp(txt, 'i')
-        //         notes = notes.filter(note => regex.test(book.title))
-        //     }
-        //     if (filterBy.maxPrice) {
-        //         books = books.filter(book => book.listPrice <= filterBy.maxPrice)
-        //     }
-        //     return books
-        // })
+    // .then(note => {
+    //     if (filterBy.txt) {
+    //         const regex = new RegExp(txt, 'i')
+    //         notes = notes.filter(note => regex.test(book.title))
+    //     }
+    //     if (filterBy.maxPrice) {
+    //         books = books.filter(book => book.listPrice <= filterBy.maxPrice)
+    //     }
+    //     return books
+    // })
 }
 
 function get(noteId) {
@@ -102,7 +104,27 @@ function save(note) {
 }
 
 function getEmptyNote() {
-    return { id: '' , info: {txt: ''},
-     style: {backgroundColor: '#fff'}, isPinned: false ,
-      type: 'NoteTxt'}
+    return {
+        id: '', info: { txt: '' },
+        style: { backgroundColor: '#fff' }, isPinned: false,
+        type: 'NoteTxt'
+    }
+}
+
+function createNoteTxt(note) {
+    const newNote = getEmptyNote()
+    newNote.info.txt = note.txt
+    newNote.type = note.noteType
+    newNote.info.title = note.title
+    return storageService.post(NOTE_KEY, newNote)
+}
+
+function createNoteList(note) {
+    console.log('note.noteType', note.noteType)
+    const newNote = getEmptyNote()
+    const list = note.txt.split(',')
+    newNote.info.todos = list.map(txt => ({txt: txt, doneAt: null})) 
+    newNote.type = note.noteType
+    newNote.info.title = note.title
+    return storageService.post(NOTE_KEY, newNote)
 }

@@ -5,7 +5,8 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     animateCSS,
-    debounce
+    debounce,
+    loadImageFromInput
 }
 
 
@@ -74,3 +75,20 @@ function debounce(func, wait) {
       timeout = setTimeout(later, wait)
     }
   }
+
+//   function onImgInput(ev) {
+//     loadImageFromInput(ev)
+// }
+
+function loadImageFromInput(ev) {
+    let url
+    let url2
+    const reader = new FileReader()
+    reader.onload = function (event) {
+        let img = new Image() 
+        img.src = event.target.result 
+        url = img.src
+    }
+    url2 = reader.readAsDataURL(ev.target.files[0]) 
+    return {url , url2}
+}
