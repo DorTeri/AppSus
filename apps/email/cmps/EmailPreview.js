@@ -12,8 +12,8 @@ export default {
         <div @click="filter('star')" className="star" 
         v-html="getSvg('star')"></div>
 
-    <div @click="filter('labelImportant')" className="labelImportant" 
-            v-html="getSvg('labelImportant')"></div>
+    <div @click="filter('labelImportantFill')" className="labelImportantFill" 
+            v-html="getSvg('labelImportantFill')"></div>
             <p>{{ email.from}}</p>
 </section>
             <p class="preview-content">{{ email.subject}}</p>

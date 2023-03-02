@@ -5,7 +5,7 @@ export default {
         <section class="search-filter">
             <!-- <button><div @click="filter('search')" className="search" 
             v-html="getSvg('search')"></div></button> -->
-            <input
+            <input class="header-search-input"
             @click="changePath"
                 placeholder="Search mail"
                 type="text" />
