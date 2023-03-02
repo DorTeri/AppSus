@@ -18,6 +18,7 @@ const emailsDB = [
     from: 'momo@momo.com',
     to: 'user@appsus.com',
     status: 'inbox',
+    img:'./../../../assets/img/ksp.jpg',
   },
   {
     id: 'e102',
