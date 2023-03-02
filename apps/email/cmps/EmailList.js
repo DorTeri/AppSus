@@ -2,12 +2,12 @@ import EmailPreview from './EmailPreview.js'
 import { svgService } from '../../../services/svg.service.js'
 
 export default {
-  props: ['emails'],
-  template: `
+    props: ['emails'],
+    template: `
         <section class="email-list">
             <div class="empty-div"></div>
                 <div v-for="email in emails" :key="email.id" 
-                 @click.native="$router.push('/mail/' + email.id)"
+                 @click.native="showDetails(email.id)"
                 class="email-preview" :email="email">
                 <EmailPreview :email="email"/>
                 <div @click="remove(email.id)" class="remove-btn"
@@ -16,15 +16,18 @@ export default {
         <br>
         </section>
     `,
-  methods: {
-    remove(emailId) {
-      this.$emit('remove', emailId)
+    methods: {
+        remove(emailId) {
+            this.$emit('remove', emailId)
+        },
+        getSvg(iconName) {
+            return svgService.getMailSvg(iconName)
+        },
+        showDetails(mailId) {
+            this.$emit('toDetails', { mailId: mailId })
+        },
     },
-    getSvg(iconName) {
-        return svgService.getMailSvg(iconName)
-      },
-  },
-  components: {
-    EmailPreview,
-  },
+    components: {
+        EmailPreview,
+    },
 }
