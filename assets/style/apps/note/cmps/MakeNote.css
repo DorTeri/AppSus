@@ -10,7 +10,14 @@
     background-color: inherit;
 }
 
-.btn-create:hover {
+.icon-create {
+    opacity: 0.54;
+    height: 44px;
+    width: 50px;
+}
+
+.btn-create:hover , .icon-create:hover {
+    cursor: pointer;
     opacity: 0.87;
     background-color: rgba(95,99,104,0.157);
     border-radius: 50%;
@@ -51,4 +58,8 @@
 
 .make-note .close:hover {
     background-color: rgba(95, 99, 104, 0.039);
+}
+
+.make-note input:focus {
+    outline: none;
 }
