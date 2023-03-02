@@ -5,7 +5,6 @@ import NoteTodos from "./NoteTodos.js"
 import NoteEditor from "./NoteEditor.js"
 import NoteCanvas from "./NoteCanvas.js"
 
-import { eventBus } from "../../../services/event-bus.service.js"
 import { svgService } from '../../../services/svg.service.js'
 
 export default {
@@ -56,6 +55,7 @@ export default {
         NoteVideo,
         NoteImg,
         NoteTxt,
-        NoteEditor
+        NoteEditor,
+        NoteCanvas
     }
 }

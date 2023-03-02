@@ -11,7 +11,8 @@ export const noteService = {
     getEmptyNote,
     createNoteTxt,
     createNoteList,
-    createNoteImg
+    createNoteImg,
+    createNoteCanvas
 }
 
 const notes = [
@@ -134,6 +135,15 @@ function createNoteImg(note) {
     const newNote = getEmptyNote()
     newNote.type = note.noteType
     newNote.info.url = note.url
+    newNote.info.title = note.title
+    newNote.info.txt = note.txt
+    return storageService.post(NOTE_KEY, newNote)
+}
+
+function createNoteCanvas(note) {
+    const newNote = getEmptyNote()
+    newNote.type = 'NoteCanvas'
+    newNote.info.canvasUrl = note.canvasUrl
     newNote.info.title = note.title
     newNote.info.txt = note.txt
     return storageService.post(NOTE_KEY, newNote)

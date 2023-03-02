@@ -1,40 +1,44 @@
+import { utilService } from "../../../services/util.service.js"
+import NoteEditor from "./NoteEditor.js"
+
 export default {
     name: 'NoteCanvas',
+    emits: ['updateInfo'],
+    props: ['info' , 'editAble'],
     template: `
-    <div v-if="isCanvas" class="canvas-container">
-    <canvas @mousedown="startDraw"
-     @mousemove="drawLine"
-     @mouseup="stopDraw" 
-     ref="canvas"></canvas>
-    </div>
+    <img v-if="!editAble" :src="info.canvasUrl">
+    <h4 :contenteditable="editAble"  @click.stop="" ref="canvasTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" @click.stop="" ref="canvasTxt" @focusout="updateTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {
-            ctx: null,
-            drawMode: false,
-            startPosition: {
-                x: null,
-                y: null
-            }
+            color: null ,
+            newInfo: this.info
         }
+    },
+    created() {
+        this.debounceUpdateInfo = utilService.debounce(this.updateInfo , 400)
     },
     methods: {
-        startDraw(e) {
-            this.drawMode = true;
-            this.startPosition.x = e.clientX;
-            this.startPosition.y = e.clientY;
+        updateTxt() {
+            this.newInfo.txt = this.$refs.canvasTxt.innerText
         },
-        drawLine(e) {
-            if(this.drawMode) {
-                this.ctx.beginPath()
-                this.ctx.moveTo(this.startPosition.x ,
-                     this.startPosition.y)
-            }
+        updateTitle() {
+            this.newInfo.title = this.$refs.canvasTitle.innerText
+        },
+        updateInfo() {
+            this.$emit('updateInfo' , this.newInfo)
         }
     },
-    mounted() {
-        this.$refs.canvas.height = window.innerHeight;
-        this.$refs.canvas.width = window.innerWidth;
-        this.ctx = this.$refs.canvas.getContext("2d");
+    watch: {
+        newInfo: {
+            handler() {
+                this.debounceUpdateInfo()
+            },
+            deep: true
+        }
+    },
+    components: {
+        NoteEditor
     },
 }
