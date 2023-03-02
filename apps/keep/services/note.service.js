@@ -24,6 +24,7 @@ const notes = [
             backgroundColor: '#f28b82'
         },
         info: {
+            title: `I'm a test`,
             txt: 'Fullstack Me Baby!'
         }
     },

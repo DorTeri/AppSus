@@ -3,6 +3,7 @@ import { utilService } from "../../../services/util.service.js"
 import { noteService } from "../services/note.service.js"
 
 export default {
+    emits: ['addedNote'],
     template: `
     <div class="make-note">
     <div className="icon-pin" v-html="getSvg('unPin1')"></div>

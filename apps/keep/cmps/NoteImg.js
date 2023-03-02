@@ -2,11 +2,13 @@ import { utilService } from "../../../services/util.service.js"
 import NoteEditor from "./NoteEditor.js"
 
 export default {
-    props: ['info'],
+    name: 'NoteImg',
+    emits: ['updateInfo'],
+    props: ['info' , 'editAble'],
     template: `
     <img :src="info.url">
-    <h4 contenteditable="true" @click.stop="" ref="imgTitle" @input="updateTitle">{{ info.title }}</h4>
-    <h5 contenteditable="true" @click.stop="" ref="imgTxt" @input="updateTxt">{{ info.txt }}</h5>
+    <h4 :contenteditable="editAble" ref="imgTitle" @input="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" ref="imgTxt" @input="updateTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {
@@ -28,7 +30,7 @@ export default {
         }
     },
     watch: {
-        info: {
+        newInfo: {
             handler() {
                 this.debounceUpdateInfo()
             },

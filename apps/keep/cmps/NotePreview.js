@@ -8,10 +8,12 @@ import { eventBus } from "../../../services/event-bus.service.js"
 import { svgService } from '../../../services/svg.service.js'
 
 export default {
-    props: ['note'],
+    name: 'NotePreview',
+    emits: ['copy' , 'updateInfo', 'updateNoteInfo'],
+    props: ['note' , 'edit'],
     template: `
     <article class="note-preview" :style="note.style">
-    <Component :is="note.type" :info="note.info" @updateInfo="updateNote"></Component>
+    <Component :is="note.type" :editAble="isEditAble" :info="note.info" @updateInfo="updateNote"></Component>
     <div v-if="note.isPinned" className="icon-pin" v-html="getSvg('pin1')"
     @click.stop="pin">
 </div>
@@ -23,6 +25,7 @@ export default {
     `,
     data() {
         return {
+
         }
     },
     created() {
@@ -36,10 +39,15 @@ export default {
             this.$emit('save', this.note)
         },
         updateNote(info) {
-            eventBus.emit('updateNote', { toUpdate: info, key: 'info', noteId: this.note.id })
+            this.$emit('updateNoteInfo', { toUpdate: info, key: 'info', noteId: this.note.id })
         },
         copyNote(noteId) {
             this.$emit('copyNote' , noteId)
+        }
+    },
+    computed: {
+        isEditAble() {
+            if(this.edit) return true
         }
     },
     components: {

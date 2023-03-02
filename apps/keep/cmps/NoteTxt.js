@@ -2,10 +2,12 @@ import { utilService } from "../../../services/util.service.js"
 import NoteEditor from "./NoteEditor.js"
 
 export default {
-    props: ['info'],
+    name: 'NoteTxt',
+    emits: ['updateInfo'],
+    props: ['info' , 'editAble'],
     template: `
-    <h4 contenteditable="true"  @click.stop="" ref="txtTitle" @input="updateTitle">{{ info.title }}</h4>
-    <h5 contenteditable="true" @click.stop="" ref="txtTxt" @input="updateTxt">{{ info.txt }}</h5>
+    <h4 :contenteditable="editAble"  @click.stop="" ref="txtTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" @click.stop="" ref="txtTxt" @focusout="updateTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {
@@ -28,7 +30,7 @@ export default {
         }
     },
     watch: {
-        info: {
+        newInfo: {
             handler() {
                 this.debounceUpdateInfo()
             },
