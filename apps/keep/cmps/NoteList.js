@@ -8,7 +8,7 @@ export default {
     <section class="notes-list">
         <div v-for="note in pinnedNotes" :key="note"
             @click.native="$router.push('/keep/' + note.id)">
-            <NotePreview  @save="saveNote" :note="note"/>
+            <NotePreview @copyNote="makeCopyNote"  @save="saveNote" :note="note"/>
         </div>
     </section> 
     </section>
@@ -17,7 +17,7 @@ export default {
     <section class="notes-list">
             <div v-for="note in unPinnedNotes" :key="note.id"
             @click.native="$router.push('/keep/' + note.id)">
-                <NotePreview @save="saveNote" :note="note"/>
+                <NotePreview @copyNote="makeCopyNote" @save="saveNote" :note="note"/>
             </div>
     </section>
     </section>
@@ -31,6 +31,9 @@ export default {
     methods: {
         saveNote(note) {
             this.$emit('saveNote', note)
+        },
+        makeCopyNote(noteId) {
+            this.$emit('copyNote' , noteId)
         }
     },
     computed: {

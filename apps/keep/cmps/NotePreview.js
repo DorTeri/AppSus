@@ -11,16 +11,14 @@ export default {
     props: ['note'],
     template: `
     <article class="note-preview" :style="note.style">
-    <Component :is="note.type" :info="note.info"></Component>
+    <Component :is="note.type" :info="note.info" @updateInfo="updateNote"></Component>
     <div v-if="note.isPinned" className="icon-pin" v-html="getSvg('pin1')"
-    @click.stop="pin"
-    @updateTxt="updateNoteTxt">
+    @click.stop="pin">
 </div>
-<div className="icon-pin" v-if="!note.isPinned" v-html="getSvg('unPin1')"
-    @click.stop="pin"
-    @updateTxt="updateNoteTxt">
+<div className="icon-pin" v-if="!note.isPinned" @updateInfo="updateNote" v-html="getSvg('unPin1')"
+    @click.stop="pin">
 </div>
-    <NoteEditor :noteId="note.id"/>
+    <NoteEditor @copy="copyNote" :noteId="note.id"/>
     </article>
     `,
     data() {
@@ -37,9 +35,11 @@ export default {
             this.note.isPinned = !this.note.isPinned
             this.$emit('save', this.note)
         },
-        updateNoteTxt(txt) {
-            console.log('2')
-            eventBus.emit('updateNote', { toUpdate: txt, key: 'info.txt', noteId: this.note.id })
+        updateNote(info) {
+            eventBus.emit('updateNote', { toUpdate: info, key: 'info', noteId: this.note.id })
+        },
+        copyNote(noteId) {
+            this.$emit('copyNote' , noteId)
         }
     },
     components: {

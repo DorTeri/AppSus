@@ -8,6 +8,7 @@ export default {
     <section class="note-editor">
     <div @click.stop="openColor = !openColor" className="icon-editor" v-html="getSvg('colorPallet1')"></div>
     <div className="icon-editor" v-html="getSvg('img')"></div>
+    <div @click.stop="copy" className="icon-editor" v-html="getSvg('copy1')"></div>
     <div @click.stop="remove" className="icon-editor" v-html="getSvg('trash')"></div>
     </section>
     <ColorPicker @color="changeColor" v-show="openColor"/>
@@ -22,11 +23,13 @@ export default {
             return svgService.getSvg(iconName)
         },
         changeColor(color) {
-            
             eventBus.emit('updateNote' , {noteId: this.noteId , toUpdate: color , key: 'style'})
         },
         remove() {
             eventBus.emit('removeNote' , this.noteId)
+        },
+        copy() {
+            this.$emit('copy' , this.noteId)
         }
     },
     components: {
