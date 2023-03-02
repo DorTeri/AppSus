@@ -81,14 +81,13 @@ function debounce(func, wait) {
 // }
 
 function loadImageFromInput(ev) {
-    let url
-    let url2
-    const reader = new FileReader()
-    reader.onload = function (event) {
-        let img = new Image() 
-        img.src = event.target.result 
-        url = img.src
-    }
-    url2 = reader.readAsDataURL(ev.target.files[0]) 
-    return {url , url2}
+    return new Promise(resolve => {
+        const reader = new FileReader()
+        reader.onload = function (event) {
+            let img = new Image() 
+            img.src = event.target.result 
+            resolve(img.src)
+        }
+        reader.readAsDataURL(ev.target.files[0])
+    })
 }

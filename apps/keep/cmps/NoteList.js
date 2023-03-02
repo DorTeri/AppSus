@@ -3,38 +3,47 @@ import NotePreview from "./NotePreview.js"
 export default {
     props: ['notes'],
     template: `
-    <!-- <section class="notes-list">
+    <section class="pinned-notes">
+    <h5 class="pin-header">Pinned</h5>
+    <section class="notes-list">
         <div v-for="note in pinnedNotes" :key="note"
             @click.native="$router.push('/keep/' + note.id)">
-            <NotePreview :note="note"/>
+            <NotePreview  @save="saveNote" :note="note"/>
         </div>
-    </section>  -->
+    </section> 
+    </section>
+    <section class="un-pinned-notes">
+        <h5 class="pin-header">Others</h5>
     <section class="notes-list">
-            <div v-for="note in notes" :key="note.id"
+            <div v-for="note in unPinnedNotes" :key="note.id"
             @click.native="$router.push('/keep/' + note.id)">
                 <NotePreview @save="saveNote" :note="note"/>
             </div>
     </section>
+    </section>
     `,
     data() {
         return {
-            // pinnedNotes: [],
-            // unPinnedNotes: [],
         }
     },
     created() {
-        // this.loadNotes()
     },
     methods: {
         saveNote(note) {
-            this.$emit('saveNote' , note)
+            this.$emit('saveNote', note)
         }
-        // loadNotes() {
-        //     const unPinnedNotes = this.notes.filter(note => !note.isPinned)
-        //     const pinnedNotes = this.notes.filter(note => note.isPinned)
-        //     this.pinnedNotes = (pinnedNotes)
-        //     this.unPinnedNotes = (unPinnedNotes)
-        // }
+    },
+    computed: {
+        unPinnedNotes() {
+            if (this.notes) {
+                return this.notes.filter(note => !note.isPinned)
+            }
+        },
+        pinnedNotes() {
+            if (this.notes) {
+                return this.notes.filter(note => note.isPinned)
+            }
+        },
     },
     components: {
         NotePreview

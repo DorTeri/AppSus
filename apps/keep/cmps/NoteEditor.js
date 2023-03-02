@@ -6,10 +6,9 @@ export default {
     props: ['noteId'],
     template: `
     <section class="note-editor">
-    <img @click="openColor = !openColor" style="width:24px; height:24px" :src="getSvg('colorPallet')" alt="" />
-    <div className="icon" v-html="getSvg('img')"></div>
-    <div className="icon" v-html="getSvg('archive')"></div>
-    <div @click="remove" className="icon" v-html="getSvg('trash')"></div>
+    <div @click.stop="openColor = !openColor" className="icon-editor" v-html="getSvg('colorPallet1')"></div>
+    <div className="icon-editor" v-html="getSvg('img')"></div>
+    <div @click.stop="remove" className="icon-editor" v-html="getSvg('trash')"></div>
     </section>
     <ColorPicker @color="changeColor" v-show="openColor"/>
     `,

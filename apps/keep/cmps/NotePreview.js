@@ -12,12 +12,12 @@ export default {
     template: `
     <article class="note-preview" :style="note.style">
     <Component :is="note.type" :info="note.info"></Component>
-    <div v-if="note.isPinned" className="icon-pin" v-html="getSvg('pin')"
-    @click="pin"
+    <div v-if="note.isPinned" className="icon-pin" v-html="getSvg('pin1')"
+    @click.stop="pin"
     @updateTxt="updateNoteTxt">
 </div>
-<div className="icon-pin" v-if="!note.isPinned" v-html="getSvg('unPin')"
-    @click="pin"
+<div className="icon-pin" v-if="!note.isPinned" v-html="getSvg('unPin1')"
+    @click.stop="pin"
     @updateTxt="updateNoteTxt">
 </div>
     <NoteEditor :noteId="note.id"/>
