@@ -5,9 +5,11 @@ import EmailSideFilter from '../cmps/EmailSideFilter.js'
 import EmailList from '../cmps/EmailList.js'
 
 // v-if="emails"
-{/* <button @click="this.isDetails = !this.isDetails"></button> */}
+{
+    /* <button @click="this.isDetails = !this.isDetails"></button> */
+}
 export default {
-  template: `
+    template: `
         <section class="email-index">
           <!-- <EmailFilter @filter="setFilterBy" /> -->
           
@@ -15,53 +17,62 @@ export default {
             <EmailSideFilter @filter="setFilterBy" />
             <EmailList 
              v-if="!isDetails"
-              v-if="emails"
             :emails="filteredEmails" 
-            @remove="removeEmail"/>
+            @remove="removeEmail"
+            @toDetails="toDetails"/>
             <RouterView />
         </section>
         </section>
     `,
-  data() {
-    return {
-      emails: null,
-      isDetails: true,
-      filterBy: {
-        status: 'inbox/sent/trash/draft',
-        txt: '', // no need to support complex text search
-        isRead: true, // (optional property, if missing: show all)
-        isStared: true, // (optional property, if missing: show all)
-        lables: ['important', 'romantic'], // has any of the labels
-      },
-    }
-},
-created() {
-  emailService.query().then((emails) => (this.emails = emails))
-},
-  methods: {
-    setFilterBy(filterBy) {
-      this.filterBy = filterBy
-      // this.filterBy.status = filterBy
+    data() {
+        return {
+            emails: null,
+            isDetails: false,
+            filterBy: {
+                status: 'inbox/sent/trash/draft',
+                txt: '', // no need to support complex text search
+                isRead: true, // (optional property, if missing: show all)
+                isStared: true, // (optional property, if missing: show all)
+                lables: ['important', 'romantic'], // has any of the labels
+            },
+        }
     },
-    removeEmail(emailId) {
-      emailService
-        .remove(emailId)
-        .then(emailId => {
-          const idx = this.emails.findIndex((email) => email.id === emailId)
-          this.emails.splice(idx, 1)
-        })
-  },
-},
-  computed: {
-    filteredEmails() {
-      const regex = new RegExp(this.filterBy.txt, 'i')
-      return this.emails.filter((email) => regex.test(email.txt))
+    created() {
+        emailService.query().then((emails) => (this.emails = emails))
     },
-  },
-  components: {
-    EmailFilter,
-    EmailSideFilter,
-    EmailList,
-  },
+    methods: {
+        setFilterBy(filterBy) {
+            this.filterBy = filterBy
+                // this.filterBy.status = filterBy
+        },
+        removeEmail(emailId) {
+            emailService.remove(emailId).then((emailId) => {
+                const idx = this.emails.findIndex((email) => email.id === emailId)
+                this.emails.splice(idx, 1)
+            })
+        },
+        toDetails({ mailId }) {
+            // this.isDetails =
+            this.$router.push(`mail/${mailId}`)
+        },
+    },
+    computed: {
+        filteredEmails() {
+            const regex = new RegExp(this.filterBy.txt, 'i')
+            return this.emails.filter((email) => regex.test(email.txt))
+        },
+    },
+    watch: {
+        $route: {
+            handler(newValue) {
+                this.isDetails = newValue.params.id ? true : false
+            },
+            deep: true,
+        },
+    },
+    components: {
+        EmailFilter,
+        EmailSideFilter,
+        EmailList,
+    },
 }
-

@@ -19,8 +19,7 @@
 }
 
 .email-preview:hover {
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .email-preview:hover .remove-btn {
@@ -28,9 +27,10 @@
 }
 
 .preview-svgs-user {
-display: flex;
-align-items: center;
-margin-left: 15px;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  flex-basis: 250px;
 }
 
 .preview-svgs-user div {
@@ -43,4 +43,14 @@ margin-left: 15px;
   height: 50px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
+}
+
+.preview-content {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  text-align: start;
+}
+
+.preview-date {
+  flex-basis: 70px;
 }
