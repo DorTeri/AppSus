@@ -1,6 +1,7 @@
 .main-mail-layout {
     display: grid;
     grid-template-columns: 20px 256px 1fr 10px;
+     /* repeat(auto-fit, minmax(180px, 1fr)); */
   }
   
   .email-side-filter {
