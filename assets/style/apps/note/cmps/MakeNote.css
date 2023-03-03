@@ -16,7 +16,7 @@
 
 .icon-list:hover ,
  .icon-paint:hover ,
- .icon-img:hover{
+ .icon-img:hover {
     cursor: pointer;
     opacity: 0.87;
     background-color: rgba(95, 99, 104, 0.157);
@@ -24,6 +24,7 @@
 }
 
 .make-note {
+    margin-top: 20px;
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 35%);
     background-color: #fff;
     position: relative;
