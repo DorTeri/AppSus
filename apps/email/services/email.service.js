@@ -8,7 +8,7 @@ const emailsDB = [
     id: 'e101',
     subject:
       'New instructor posts on C++, javascript, cyber, python and more...',
-    body: 'Discover new technical content by our very own Udocity instructors.',
+    body: 'Discover ',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
