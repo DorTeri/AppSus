@@ -12,11 +12,13 @@ export default {
           
           <section class="main-mail-layout">
             <EmailSideFilter @filter="setFilterBy"/>
+            <div class="full-list">
             <EmailList 
              v-if="!isDetails"
             :emails="filteredEmails" 
             @remove="removeEmail"
             @toDetails="toDetails"/>
+          </div>
             <RouterView />
         </section>
         </section>
@@ -43,7 +45,7 @@ export default {
       this.filterBy.status = filterBy
     },
     removeEmail(emailId) {
-      emailService.remove(emailId).then((emailId) => {
+      emailService.remove(emailId).then(() => {
         const idx = this.emails.findIndex((email) => email.id === emailId)
         this.emails.splice(idx, 1)
       })
@@ -76,6 +78,7 @@ export default {
       },
       deep: true,
     },
+
   },
   components: {
     EmailFilter,
