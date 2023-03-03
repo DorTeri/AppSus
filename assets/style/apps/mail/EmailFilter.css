@@ -1,40 +1,40 @@
-
 .filter-section-svg {
-    display: flex;
-   padding: 7px;
-   width: 95%;
-   border-top-right-radius: 20px;
-   border-bottom-right-radius: 20px;
-   grid-column: 1 -1;
-   }
- 
-   .filter-section {
-     display: flex;
-   }
- 
-   .filter-section-svg:hover {
-     /* background-color: rgb(227, 226, 226); */
-     background-color: rgb(236, 236, 236);
-    }
- 
-   .filter-section-svg span {
-     margin-left: 20px;
-    }
- 
-    .compose-icon {
-     display: flex;
-     align-items: center;
-     justify-content: space-around;
-     width: 142.5px;
-     height: 56px;
-     padding: 0 24px 0 0;
-     font-size: .875rem;
-     border-radius: 16px;
-     background-color: #c2e7ff;
-     margin-bottom: 1em;
-     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
-    }
- 
-    .compose-icon:hover {
-     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    }
+  display: flex;
+  padding: 7px;
+  width: 95%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  grid-column: 1 -1;
+  cursor: pointer;
+}
+
+.filter-section {
+  display: flex;
+}
+
+.filter-section-svg:hover {
+  /* background-color: rgb(227, 226, 226); */
+  background-color: rgb(236, 236, 236);
+}
+
+.filter-section-svg span {
+  margin-left: 20px;
+}
+
+.compose-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 142.5px;
+  height: 56px;
+  padding: 0 24px 0 0;
+  font-size: 0.875rem;
+  border-radius: 16px;
+  background-color: #c2e7ff;
+  margin-bottom: 1em;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+
+.compose-icon:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

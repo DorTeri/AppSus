@@ -6,17 +6,19 @@ import { svgService } from '../../../services/svg.service.js'
 export default {
     props: ['emails'],
     template: `
+    <div class="full-list">
         <section class="email-list">
             <div class="empty-div"></div>
                 <div v-for="email in emails" :key="email.id" 
                  @click.native="showDetails(email.id)"
                 class="email-preview" :email="email">
                 <EmailPreview :email="email"/>
-                <div @click.stop=" moveToTrash(email.id)" class="remove-btn"
+                <div @click.stop="moveToTrash(email.id)" class="remove-btn"
             v-html="getSvg('trash')"></div>
         </div>
         <br>
         </section>
+</div>
     `,
     methods: {
         remove(emailId) {
@@ -26,6 +28,7 @@ export default {
             return svgService.getMailSvg(iconName)
         },
         showDetails(mailId) {
+            console.log(mailId)
             this.$emit('toDetails', { mailId: mailId })
         },
         moveToTrash(emailId) {

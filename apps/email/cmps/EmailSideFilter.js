@@ -3,13 +3,13 @@ import { svgService } from '../../../services/svg.service.js'
 import EmailComposed from '../cmps/EmailCompose.js'
 
 export default {
-  // props: ['emails'],
+  props: ['emails'],
   template: `
         <section class="email-side-filter">
-        <EmailComposed 
+        <EmailComposed @close="isCompose = false"
         v-if="isCompose"/>
         <!-- Compose -->
-        <section @click="isCompose = !isCompose" class="filter-section compose-icon">
+        <section @click="isCompose = true" class="filter-section compose-icon">
           <div className="compose" 
             v-html="getSvg('compose')"></div>
             <span>Compose</span>
@@ -69,6 +69,11 @@ export default {
     },
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
+    },
+    getUnreadCount() {
+      let counter = 0
+      console.log(counter)
+      this.emails.forEach(email => email.isRead === true)
     },
   },
   components: {

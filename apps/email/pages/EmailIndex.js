@@ -11,14 +11,12 @@ export default {
           <!-- <EmailFilter @filter="setFilterBy" /> -->
           
           <section class="main-mail-layout">
-            <EmailSideFilter @filter="setFilterBy"/>
-            <div class="full-list">
+            <EmailSideFilter @filter="setFilterBy" :emails="this.emails"/>
             <EmailList 
              v-if="!isDetails"
             :emails="filteredEmails" 
             @remove="removeEmail"
             @toDetails="toDetails"/>
-          </div>
             <RouterView />
         </section>
         </section>
@@ -56,7 +54,6 @@ export default {
   },
   computed: {
     filteredEmails() {
-      console.log('this.filterBy', this.filterBy)
       const regex = new RegExp(this.filterBy.txt, 'i')
       if (!this.emails) return
       let filteredEmails = []

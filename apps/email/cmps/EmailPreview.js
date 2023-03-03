@@ -6,13 +6,13 @@ export default {
     template: `
         <div class="email-preview" :class="{read: email.isRead}">
         <section class="preview-svgs-user">
-        <div @click="filter('checkBox')" className="checkBox" 
+        <div @click="" className="checkBox" 
                 v-html="getSvg('checkBox')"></div>
                 
-        <div v-if="email.isStarred" @click="filter('starFill')" className=" starFill" 
+        <div v-if="email.isStarred" @click.stop="email.isStarred = false" className=" starFill" 
         v-html="getSvg('starFill')"></div>
 
-        <div v-else @click="filter('star')" className="star" 
+        <div v-else @click.stop="email.isStarred = true" className="star" 
         v-html="getSvg('star')"></div>
 
     <div @click="filter('labelImportantFill')" className="labelImportantFill" 
