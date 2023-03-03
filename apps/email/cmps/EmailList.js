@@ -27,10 +27,14 @@ export default {
         getSvg(iconName) {
             return svgService.getMailSvg(iconName)
         },
-        showDetails(mailId) {
-            console.log(mailId)
-            this.$emit('toDetails', { mailId: mailId })
-        },
+         showDetails(mailId) {
+    const email = this.emails.find((email) => email.id === mailId);
+    if (email.status === "drafts") {
+      this.$emit("editDraft", email);
+    } else {
+      this.$emit("toDetails", { mailId: mailId });
+    }
+  },
         moveToTrash(emailId) {
            const email = this.emails.find(email => email.id === emailId)
             if (email.status === 'trash') this.remove(emailId)

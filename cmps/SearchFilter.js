@@ -7,7 +7,7 @@ export default {
             <input class="header-search-input"
             @click="searchClicked"
             @input="sendSearch" v-model="txt"
-                placeholder="Search mail"
+                placeholder="Search"
                 type="text" />
             </section>
             `,

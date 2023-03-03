@@ -13,12 +13,12 @@
 }
 
 .filter-section-svg:hover {
-  /* background-color: rgb(227, 226, 226); */
   background-color: rgb(236, 236, 236);
 }
 
-.filter-section-svg span {
+.filter-section-svg span:not(.unread-num) {
   margin-left: 20px;
+  align-self: center;
 }
 
 .compose-icon {
@@ -37,4 +37,17 @@
 
 .compose-icon:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.unread-num {
+  align-self: center;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.selected {
+  background-color: rgb(216, 225, 246);
+  font-weight:bold;
+  color:black;
 }

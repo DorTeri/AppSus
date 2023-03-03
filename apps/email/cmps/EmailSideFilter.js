@@ -16,36 +16,40 @@ export default {
          </section>
 
           <!-- Inbox -->
-          <section @click="filter('inbox')" class="filter-section-svg">
+          <section @click="filter('inbox')":class="{ 'selected': filterBy.status === 'inbox' }"  class="filter-section-svg">
           <div className="inbox" 
             v-html="getSvg('inboxFill')"></div>
             <span>Inbox</span>
+            <span class="unread-num">{{getUnreadCount('inbox')}}</span>
          </section>
 
            <!-- Starred -->
-           <section @click="filter('starred')" class="filter-section-svg">
+           <section @click="filter('starred')" :class="{ 'selected': filterBy.status === 'starred' }" class="filter-section-svg">
           <div className="star" 
             v-html="getSvg('star')"></div>
             <span>Starred</span>
+            <span class="unread-num">{{getUnreadCount('starred')}}</span>
          </section>
             
           <!-- Sent -->
-          <section @click="filter('sent')" class="filter-section-svg">
+          <section @click="filter('sent')" :class="{ 'selected': filterBy.status === 'sent' }" class="filter-section-svg">
            <div className="sent" 
             v-html="getSvg('sent')"></div>
             <span>Sent</span>
+            <span class="unread-num">{{getUnreadCount('sent')}}</span>
             </section>
             <!-- Draft -->
-            <section @click="filter('draft')" class="filter-section-svg">
+            <section @click="filter('draft')" :class="{ 'selected': filterBy.status === 'drafts' }" class="filter-section-svg">
               <div className="draft" 
               v-html="getSvg('drafts')"></div>
               <span>Drafts</span>
             </section>
             <!-- Trash -->
-          <section @click="filter('trash')" class="filter-section-svg">
+          <section @click="filter('trash')" :class="{ 'selected': filterBy.status === 'trash' }" class="filter-section-svg">
            <div className="trash" 
             v-html="getSvg('trash')"></div>
             <span>Trash</span>
+            <span class="unread-num">{{getUnreadCount('trash')}}</span>
             </section>
             </section>
             `,
@@ -70,11 +74,11 @@ export default {
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
-    getUnreadCount() {
-      let counter = 0
-      console.log(counter)
-      this.emails.forEach(email => email.isRead === true)
-    },
+    getUnreadCount(status) {
+      let unreadEmails = this.emails.filter(email => email.status === status && !email.isRead);
+      if (!unreadEmails.length) return;
+      return unreadEmails.length;
+    }
   },
   components: {
   EmailComposed,
