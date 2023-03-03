@@ -8,7 +8,7 @@ export default {
   template: `
     <section class="compose-section">
         <!-- Compose -->
-      <form @submit.prevent="composeEmail(email.id)" @focusout="saveDraft(email.id)" class="compose-new">
+      <form @submit.prevent="composeEmail" @focusout="saveDraft" class="compose-new">
           <div class="New-msg">New Message<span @click="closeCompose" class="exit-btn">✖</span></div>
             <input class="compose-input" v-model="email.to" placeholder="Recipients" type="text" />
             <input class="compose-input" v-model="email.subject" placeholder="Subject" type="text" />
@@ -33,11 +33,11 @@ export default {
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
-    composeEmail(emailId) {
+    composeEmail() {
       emailService.save(this.email)
       //   this.$emit('saveEmail',emailId)
     },
-    saveDraft(emailId) {
+    saveDraft() {
       emailService.save(this.email)
       this.email.status = 'draft'
     },

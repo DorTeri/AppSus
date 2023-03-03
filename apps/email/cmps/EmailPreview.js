@@ -25,7 +25,7 @@ export default {
            </div>
             <p class="preview-date">{{ email.sentAt}}</p>
             <div class="preview-btns">
-                  <div class="keep-btn"
+                  <div @click.stop="makeNote" class="keep-btn"
             v-html="getSvg('keepMail')"></div>
                 <div @click.stop="moveToTrash(email.id)" class="remove-btn"
                 v-html="getSvg('trash')"></div>
@@ -38,6 +38,9 @@ export default {
         },
         moveToTrash(emailId) {
             this.$emit('moveToTrash' , emailId)
+        },
+        makeNote() {
+            this.$router.push({ path: '/keep', query: {title: this.email.subject, txt: this.email.body}})
         }
     },
     computed: {

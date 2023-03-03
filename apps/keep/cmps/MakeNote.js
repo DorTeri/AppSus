@@ -55,6 +55,7 @@ export default {
                         .then(() => {
                             this.$emit('addedNote')
                             this.note = this.getNewNote()
+                            this.$router.push({query: {}})
                         })
                     break
                 case 'NoteTodos':
@@ -71,6 +72,7 @@ export default {
                         .then(() => {
                             this.$emit('addedNote')
                             this.note = this.getNewNote()
+                            this.$router.push({query: {}})
                         })
                     break
                 case 'MakeCanvas':
@@ -100,6 +102,16 @@ export default {
             if (this.note.noteType === 'NoteTodos') return 'Write list seperated by commas...'
             else return 'Take a note...'
         },
+    },
+    watch: {
+        '$route.query': {
+            immediate: true,
+            handler(newVal) {
+                this.note.noteType = 'NoteTxt'
+                this.note.title = newVal.title
+                this.note.txt = newVal.txt
+            }
+        }
     },
     components: {
         MakeCanvas
