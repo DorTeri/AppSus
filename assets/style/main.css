@@ -40,3 +40,5 @@
 @import 'apps/mail/EmailButtons.css';
 @import 'apps/mail/EmailLayouts.css';
 @import 'apps/mail/EmailCompose.css';
+
+@import 'setup/mq.css';
