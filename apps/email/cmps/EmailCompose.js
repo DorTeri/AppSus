@@ -1,9 +1,11 @@
 import { svgService } from '../../../services/svg.service.js'
 import { emailService } from '../services/email.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 
 export default {
-    template: `
+  props:['noteInfo'],
+  template: `
     <section class="compose-section">
         <!-- Compose -->
       <form @submit.prevent="composeEmail(email.id)" @focusout="saveDraft(email.id)" class="compose-new">
@@ -16,28 +18,40 @@ export default {
             </form>
 </section>
             `,
-    data() {
-        return {
-            email: emailService.getEmptyEmail(),
-        }
+  data() {
+    return {
+      email: emailService.getEmptyEmail(),
+    }
+  },
+  created() {
+    if(this.noteInfo) {
+      this.email.subject = this.noteInfo.subject
+      this.email.body = this.noteInfo.body
+    }
+  },
+  methods: {
+    getSvg(iconName) {
+      return svgService.getMailSvg(iconName)
     },
-    methods: {
-        getSvg(iconName) {
-            return svgService.getMailSvg(iconName)
-          },
-          composeEmail(emailId) {
-              emailService.save(this.email)
-            //   this.$emit('saveEmail',emailId)
-          },
-          saveDraft(emailId) {
-            emailService.save(this.email)
-            this.email.status = 'draft'
-          },
-          closeCompose() {
-            this.$emit('close')
-          }
-        },
-    components: {
-        emailService,
-      },
+    composeEmail(emailId) {
+      emailService.save(this.email)
+      //   this.$emit('saveEmail',emailId)
+    },
+    saveDraft(emailId) {
+      emailService.save(this.email)
+      this.email.status = 'draft'
+    },
+    closeCompose() {
+      this.$emit('close')
+    },
+    getParams() {
+      const subject = this.$route.query.subject
+      const body = this.$route.query.body
+      console.log('subject', subject)
+      console.log('body', body)
+    }
+  },
+  components: {
+    emailService,
+  },
 }
