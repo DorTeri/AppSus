@@ -2,7 +2,6 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    position: relative;
     bottom: 0;
     opacity: 0;
     transition: .5s;
@@ -27,8 +26,9 @@
     background-color: white;
     width: min-content;
     display: flex;
+    align-items: center;
     position: absolute;
-    bottom: -50%;
+    bottom: -50px;
     z-index: 1;
 }
 
@@ -39,7 +39,7 @@
     height: 30px;
 }
 
-.color:hover {
+.color:hover , .none-color:hover {
     cursor: pointer;
     outline: 2px solid black;
 }
@@ -49,6 +49,15 @@
     height: 32px;
 }
 
-.color-picker .selected {
+.color-picker .selected
+, .none-color.selected {
     outline: 2px solid #a142f4;
+}
+
+.none-color {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    border: 2px solid rgb(224, 224, 224);
+    border-radius: 50%;
 }

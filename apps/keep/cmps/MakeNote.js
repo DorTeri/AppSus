@@ -12,14 +12,15 @@ export default {
     <div class="make-note">
     <div className="icon-pin" v-html="getSvg('unPin1')"></div>
     <img v-if="this.note.url" :src="this.note.url">
-    <Component is="MakeCanvas"  v-if="this.note.noteType === 'MakeCanvas'"/>
+    <MakeCanvas v-if="this.note.noteType === 'MakeCanvas'"/>
     <input class="title-input" type="text" v-model="note.title" placeholder="Title">
     <input class="take-note" type="text" v-model="note.txt" :placeholder='placeHolder'>
     <div class="make-note-bottom">
         <div class="btns-create">
     <div @click="changeType('NoteTodos')" data-title="New list" className="icon-list" v-html="getSvg('checkBox')"></div>
     <div @click="changeType('MakeCanvas')" data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil10')"></div>
-    <div data-title="New note with audio" className="icon-img" v-html="getSvg('audio')"></div>
+    <div v-if="mediaRecorder" @click="stopRecord" data-title="Stop record" className="icon-img" v-html="getSvg('stopRecord')"></div>
+    <div v-if="!mediaRecorder" @click="record" data-title="New note with audio" className="icon-img" v-html="getSvg('audio')"></div>
     <label>
     <div @click="changeType('NoteImg')" data-title="New note with image"  className="icon-img" v-html="getSvg('img')"></div>
     <input class="file" hidden type="file" @change="createImg">
@@ -32,8 +33,9 @@ export default {
     data() {
         return {
             placeholder: '',
-            note: { title: '', txt: '', noteType: 'NoteTxt', url: '', canvasUrl: '' },
-            isCanvas: false
+            note: { title: '', txt: '', noteType: 'NoteTxt', url: '', canvasUrl: '' , audioUrl: '' },
+            isCanvas: false,
+            mediaRecorder: null
         }
     },
     created() {
@@ -55,7 +57,7 @@ export default {
                         .then(() => {
                             this.$emit('addedNote')
                             this.note = this.getNewNote()
-                            this.$router.push({query: {}})
+                            this.$router.push({ query: {} })
                         })
                     break
                 case 'NoteTodos':
@@ -72,11 +74,19 @@ export default {
                         .then(() => {
                             this.$emit('addedNote')
                             this.note = this.getNewNote()
-                            this.$router.push({query: {}})
+                            this.$router.push({ query: {} })
                         })
                     break
                 case 'MakeCanvas':
                     eventBus.emit('getCanvasUrl')
+                    break
+                    case 'NoteAudio':
+                        noteService.createNoteRecording(this.note)
+                        .then(() => {
+                            this.$emit('addedNote')
+                            this.note = this.getNewNote()
+                            this.$router.push({ query: {} })
+                        })
                 default:
                     break
             }
@@ -96,6 +106,31 @@ export default {
         getNewNote() {
             return { title: '', txt: '', noteType: 'NoteTxt', url: '' }
         },
+        record() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    this.mediaRecorder = new MediaRecorder(stream)
+                    this.mediaRecorder.start()
+
+                    const audioChunks = [];
+
+                    this.mediaRecorder.addEventListener("dataavailable", event => {
+                        audioChunks.push(event.data)
+                    })
+
+                    this.mediaRecorder.addEventListener("stop", () => {
+                        const audioBlob = new Blob(audioChunks , {'type': 'audio/mp3'})
+                        const audioUrl = URL.createObjectURL(audioBlob)
+                        this.note.audioUrl = audioUrl
+                        this.note.noteType = 'NoteAudio'
+                      })
+
+                })
+        },
+        stopRecord() {
+            this.mediaRecorder.stop()
+            this.mediaRecorder = null
+        }
     },
     computed: {
         placeHolder() {

@@ -38,11 +38,6 @@ export default {
             (this.newInfo.todos[idx].doneAt) ? null : Date.now()
         }
     },
-    computed: {
-        // isDone(idx) {
-        //     return idx
-        // }
-    },
     watch: {
         newInfo: {
             handler() {
