@@ -17,9 +17,12 @@ export default {
 
     <div @click="filter('labelImportantFill')" className="labelImportantFill" 
             v-html="getSvg('labelImportantFill')"></div>
-            <p>{{ email.from}}</p>
+            <p>{{ formattedUserName }}</p>
 </section>
+            <div class="subject-body">
             <p class="preview-content">{{ email.subject}}</p>
+            <p class="preview-content body-prev">{{ email.body}}</p>
+           </div>
             <p class="preview-date">{{ email.sentAt}}</p>
      </div>
     `,
@@ -29,6 +32,9 @@ export default {
         },
     },
     computed: {
-
+        formattedUserName() {
+            const idx = this.email.from.indexOf('@')
+            return this.email.from.slice(idx + 1)
+          },
     },
 }

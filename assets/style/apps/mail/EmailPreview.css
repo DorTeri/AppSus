@@ -46,12 +46,27 @@
 }
 
 .preview-content {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   text-overflow: ellipsis;
   text-align: start;
-  margin-left: 150px;
+  /* margin-left: 150px; */
 }
 
 .preview-date {
   flex-basis: 70px;
 }
+
+.subject-body {
+display: flex;
+flex-grow: 1;
+text-overflow: ellipsis;
+text-align: left;
+margin-left: 50px;
+
+}
+
+.body-prev {
+  color: #5f6368;
+  font-weight: 200;
+}
+

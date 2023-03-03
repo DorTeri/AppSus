@@ -7,8 +7,8 @@ const emailsDB = [
   {
     id: 'e101',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'New instructor posts on C++, javascript, cyber, python and more...',
+    body: 'Discover new technical content by our very own Udocity instructors.',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -217,7 +217,7 @@ const emailsDB = [
   {
     id: 'e114',
     subject: 'Wishing for an encounter with Shiny Jirachi?',
-    body: 'Wishing for an encounter with Shiny Jirachi?',
+    body: 'Wishing for an encounter  Shiny?',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -233,7 +233,7 @@ const emailsDB = [
   {
     id: 'e115',
     subject:
-      'סופ"ש קפה מתחיל! כל מותגי הקפה הטחון והפולים במקום אחד במשלוח חינם לרוכשים ב-₪249 | Lavazza, Mauro, AVA, Jacobs ועוד!(פרסומת)',
+      'סופ"ש קפה מתחיל! כל מותגי הקפה הטחון והפולים במשלוח חינם לרוכשים ב-₪249 |(פרסומת)',
     body: 'Would love to catch',
     isRead: true,
     sentAt: new Date().toLocaleString('en-US', {
@@ -298,8 +298,8 @@ const emailsDB = [
   {
     id: 'e119',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'Coding!',
+    body: 'Cright left center top bottom css html js Hello World',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -317,7 +317,7 @@ const emailsDB = [
     id: 'e120',
     subject:
       'אלפי ישראלים לא טועים, הרשמו למנוי שלנו.',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+    body: 'Come visit Eilat, or just stay and code some vue apps. ',
     isRead: true,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -334,8 +334,8 @@ const emailsDB = [
   {
     id: 'e121',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'יאללה בואו יאאלה בואו',
+    body: 'Come visit Eilat, or just stay and code some vue apps.',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -352,8 +352,8 @@ const emailsDB = [
   {
     id: 'e122',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'יורדים לתת',
+    body: ' left center top bottom css html js Hello World',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -370,8 +370,8 @@ const emailsDB = [
   {
     id: 'e123',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'טלפונים סלולריםת',
+    body: ' top bottom css html js Hello World',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -388,8 +388,8 @@ const emailsDB = [
   {
     id: 'e124',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'יורדים לאילת? תבואו לבקר! נים לכם סלולריםסומת)',
+    body: 'Conter top bottom css html js Hello World',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -406,8 +406,8 @@ const emailsDB = [
   {
     id: 'e125',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'יורדים לאילת? תבואו לבקר! אלפי פריטמתינים לכם לשריוסומת)',
+    body: 'Come visit Eilat, or justop bottom css html js Hello World',
     isRead: false,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
@@ -424,8 +424,8 @@ const emailsDB = [
   {
     id: 'e126',
     subject:
-      'יורדים לאילת? תבואו לבקר! אלפי פריטים במחירי אילת ממתינים לכם לשריון בסניפי אילת כבר היום! טלפונים סלולרים, מחשבים, שואבי אבק, צעצועים ועוד!(פרסומת)',
-    body: 'Come visit Eilat, or just stay and code some vue apps. right left center top bottom css html js Hello World',
+      'יורדים לאינים לכם לשריון בסניפי אילת!(פרסומת)',
+    body: 'Come visit Eilat, or op bottom css html js Hello World',
     isRead: true,
     sentAt: new Date().toLocaleString('en-US', {
       hour: 'numeric',
