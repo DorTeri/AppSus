@@ -3,8 +3,8 @@ import { svgService } from "../../../services/svg.service.js"
 import ColorPicker from "./ColorPicker.js"
 
 export default {
-    emits: ['updateNote' , 'color', 'copy', 'updateInfo'],
-    props: ['noteId'],
+    emits: ['updateNote' , 'color', 'copy', 'updateInfo' , 'updateColor'],
+    props: ['noteId' , 'note'],
     template: `
     <section class="note-editor">
     <div data-title="Background options" @click.stop="openColor = !openColor" className="icon-editor" v-html="getSvg('colorPallet1')"></div>
@@ -13,7 +13,7 @@ export default {
     <div className="icon-editor" v-html="getSvg('mail')"></div>
     <div @click.stop="remove" className="icon-editor" v-html="getSvg('trash')"></div>
     </section>
-    <ColorPicker @color="changeColor" v-show="openColor"/>
+    <ColorPicker @color="changeColor" v-show="openColor" :note="note"/>
     `,
     data() {
         return {
@@ -25,7 +25,7 @@ export default {
             return svgService.getSvg(iconName)
         },
         changeColor(color) {
-            this.$emit('updateInfo', { noteId: this.noteId, toUpdate: color, key: 'style' })
+            this.$emit('updateColor', { noteId: this.noteId, toUpdate: color, key: 'style' })
         },
         remove() {
             eventBus.emit('removeNote', this.noteId)

@@ -12,7 +12,7 @@ import { svgService } from '../../../services/svg.service.js'
 
 export default {
     name: 'NotePreview',
-    emits: ['copy' , 'updateColor', 'updateNoteInfo','updateInfo'],
+    emits: ['copy' , 'updateColor','updateInfo'],
     props: ['note' , 'edit'],
     template: `
     <article class="note-preview" :style="note.style">
@@ -23,7 +23,7 @@ export default {
 <div className="icon-pin" v-if="!note.isPinned" @updateInfo="updateNote" v-html="getSvg('unPin1')"
     @click.stop="pin">
 </div>
-    <NoteEditor @updateInfo="passColor" @copy="copyNote" :noteId="note.id"/>
+    <NoteEditor @updateColor="passColor" @copy="copyNote" :noteId="note.id" :note="note"/>
     </article>
     `,
     data() {
@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         passColor(updateObj) {
-            this.$emit('updateNoteInfo' , updateObj)
+            eventBus.emit('updateNoteInfo' , updateObj)
         },
         getSvg(iconName) {
             return svgService.getSvg(iconName)

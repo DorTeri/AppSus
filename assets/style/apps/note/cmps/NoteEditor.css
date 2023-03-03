@@ -48,3 +48,7 @@
     width: 32px;
     height: 32px;
 }
+
+.color-picker .selected {
+    outline: 2px solid #a142f4;
+}
