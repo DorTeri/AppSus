@@ -3,7 +3,7 @@ import { svgService } from "../../../services/svg.service.js"
 import ColorPicker from "./ColorPicker.js"
 
 export default {
-    emits: ['updateNote' , 'color', 'copy', 'updateColor'],
+    emits: ['updateNote' , 'color', 'copy', 'updateInfo'],
     props: ['noteId'],
     template: `
     <section class="note-editor">
@@ -25,8 +25,7 @@ export default {
             return svgService.getSvg(iconName)
         },
         changeColor(color) {
-            console.log('color', color)
-            this.$emit('updateColor', { noteId: this.noteId, toUpdate: color, key: 'style' })
+            this.$emit('updateInfo', { noteId: this.noteId, toUpdate: color, key: 'style' })
         },
         remove() {
             eventBus.emit('removeNote', this.noteId)
