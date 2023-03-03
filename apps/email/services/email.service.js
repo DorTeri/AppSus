@@ -19,7 +19,7 @@ const emailsDB = [
     from: 'momo@momo.com',
     to: 'user@appsus.com',
     status: 'inbox',
-    img: '../../../assets/img/ksp.png',
+    img: 'assets/img/ksp.png',
     isStarred: false,
   },
   {
