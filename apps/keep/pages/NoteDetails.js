@@ -9,7 +9,9 @@ export default {
     emits: ['removeNote'],
     template: `
     <section v-if="note" class="note-details">
+    <Transition >
     <NotePreview :edit="true" v-if="note" :note="this.note"/>
+    </Transition>
     <RouterLink class="close" to="/keep">Close</RouterLink>
     </section>
     `,

@@ -12,17 +12,9 @@ export default {
                 <div v-for="email in emails" :key="email.id" 
                  @click.native="showDetails(email.id)"
                 class="email-preview" :email="email">
-                <EmailPreview :email="email"/>
-                <!-- <section class="trash-keep-svgs"> -->
-                <div @click.stop="moveToTrash(email.id)" class="remove-btn"
-            v-html="getSvg('trash')"></div>
-                <div class="keep-btn"
-            v-html="getSvg('keepMail')"></div>
+                <EmailPreview @moveToTrash="moveToTrash" :email="email"/>
             </div>
         </section>
-        <!-- </section> -->
-        <!-- </div> -->
-        <!-- <br> -->
       </div>
     `,
   methods: {

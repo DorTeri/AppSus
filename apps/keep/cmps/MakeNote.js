@@ -89,6 +89,7 @@ export default {
         },
         changeType(type) {
             this.note.noteType = type
+            console.log('this.note.noteType', this.note.noteType)
         },
         getNewNote() {
             return { title: '', txt: '', noteType: 'NoteTxt', url: '' }
