@@ -43,6 +43,7 @@ export default {
         loadNotes() {
             noteService.query()
                 .then(notes => this.notes = notes)
+                console.log('s',)
         },
         save(note) {
             return noteService.save(note)
