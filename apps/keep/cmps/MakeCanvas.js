@@ -59,7 +59,7 @@ export default {
                 this.drawLine(this.x, this.y, ev.offsetX, ev.offsetY)
                 this.x = ev.clientX - rect.left
                 this.y = ev.clientY - rect.top
-            } else console.log('not drow mode')
+            }
         },
         stopDrawing() {
             this.drawMode = false

@@ -27,7 +27,8 @@ export default {
         }
     },
     created() {
-        eventBus.on('updateNoteInfo' , (changeObj) => this.update(changeObj))
+        eventBus.on('search', (txt) => this.search(txt))
+        eventBus.on('updateNoteInfo', (changeObj) => this.update(changeObj))
         eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
         this.loadNotes()
     },
@@ -41,22 +42,25 @@ export default {
         },
         loadNotes() {
             noteService.query()
-            .then(notes => this.notes = notes)
+                .then(notes => this.notes = notes)
         },
         save(note) {
             return noteService.save(note)
         },
         makeCopy(noteId) {
             const note = this.notes.find(note => note.id === noteId)
-                const newNote = JSON.parse(JSON.stringify(note))
-                newNote.id = null
-                this.save(newNote)
+            const newNote = JSON.parse(JSON.stringify(note))
+            newNote.id = null
+            this.save(newNote)
                 .then(this.loadNotes)
         },
         update(changeObj) {
             const note = this.notes.find(note => note.id === changeObj.noteId)
             note[changeObj.key] = changeObj.toUpdate
             noteService.save(note)
+        },
+        search(txt) {
+            console.log('txt', txt)
         }
     },
     computed: {

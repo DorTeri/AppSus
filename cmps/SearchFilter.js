@@ -1,23 +1,26 @@
 import { svgService } from '../services/svg.service.js'
+import { eventBus } from '../services/event-bus.service.js'
 
 export default {
   template: `
         <section class="search-filter">
-            <!-- <button><div @click="filter('search')" className="search" 
-            v-html="getSvg('search')"></div></button> -->
             <input class="header-search-input"
-            @click="changePath"
+            @input="sendSearch" v-model="txt"
                 placeholder="Search mail"
                 type="text" />
             </section>
             `,
+  data() {
+    return {
+      txt: '',
+    }
+  },
   methods: {
-    changePath() {
-      this.$router.push('search')
-    },
-
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
     },
+    sendSearch() {
+      eventBus.emit('search' , this.txt)
+    }
   },
 }
