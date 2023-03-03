@@ -24,17 +24,29 @@ export default {
             <p class="preview-content body-prev">{{ email.body}}</p>
            </div>
             <p class="preview-date">{{ email.sentAt}}</p>
+            <div class="preview-btns">
+                  <div @click.stop="makeNote" class="keep-btn"
+            v-html="getSvg('keepMail')"></div>
+                <div @click.stop="moveToTrash(email.id)" class="remove-btn"
+                v-html="getSvg('trash')"></div>
+            </div>
      </div>
     `,
     methods: {
         getSvg(iconName) {
             return svgService.getMailSvg(iconName)
         },
+        moveToTrash(emailId) {
+            this.$emit('moveToTrash' , emailId)
+        },
+        makeNote() {
+            this.$router.push({ path: '/keep', query: {title: this.email.subject, txt: this.email.body}})
+        }
     },
     computed: {
         formattedUserName() {
             const idx = this.email.from.indexOf('@')
             return this.email.from.slice(idx + 1)
-          },
+        },
     },
 }

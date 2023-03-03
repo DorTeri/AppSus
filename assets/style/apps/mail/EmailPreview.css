@@ -71,13 +71,30 @@ margin-left: 50px;
   font-weight: 200;
 }
 
-
-.remove-btn {
-  position: absolute;
-  top: 10;
-  right: 0;
-  /* display: none;  */
+.preview-btns {
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  display: none;
+  background-color: transparent;
+  border: none;
 }
+
+.email-preview:hover .preview-btns {
+  display: flex;
+}
+
+.preview-btns > * {
+  margin-inline-start: 10px;
+}
+
+
+/* .remove-btn { */
+  /* position: absolute; */
+  /* top: 10;
+  right: 0; */
+  /* display: none;  */
+/* } */
 
 .email-preview:hover .remove-btn {
   display: block; 
@@ -86,12 +103,12 @@ margin-left: 50px;
   display: none;
 }
 
-.keep-btn {
+/* .keep-btn {
   position: absolute;
   top: 10;
-  right: 0;
+  right: 0; */
   /* display: none;  */
-}
+/* } */
 
 .email-preview:hover .keep-btn {
   display: block; 

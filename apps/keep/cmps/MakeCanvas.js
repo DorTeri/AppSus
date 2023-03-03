@@ -1,11 +1,16 @@
 import { eventBus } from "../../../services/event-bus.service.js"
 import { canvasService } from "../services/canvas.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 export default {
     name: 'MakeCanvas',
-    props: ['info'],
+    props: ['info' , 'editAble'],
     template: `
-    <div class="canvas-container">
+    <section v-if="info">
+    <h4 :contenteditable="editAble" class="content"  @click.stop="" ref="canvasTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" class="content" @click.stop="" ref="canvasTxt" @focusout="updateTxt">{{ info.txt }}</h5>
+    </section>
+    <div class="canvas-container" v-if="isCanvasEdit">
     <canvas 
     class="canvas-edit"
     @mousedown="startDraw"
@@ -24,24 +29,25 @@ export default {
         }
     },
     created() {
+        this.debounceUpdateInfo = utilService.debounce(this.updateInfo , 400)
         eventBus.on('getCanvasUrl', () => {
+            console.log('this.$refs.canvas', this.$refs.canvas)
             const url = this.$refs.canvas.toDataURL('images/jpeg')
             eventBus.emit('canvasUrlUpdated', url)
         })
     },
     mounted() {
-        this.ctx = this.$refs.canvas.getContext("2d")
-        this.loadCanvas()
+        if(!this.info) this.ctx = this.$refs.canvas.getContext("2d")
     },
     methods: {
         drawLine(x1, y1, x2, y2) {
-            this.ctx.beginPath();
-            this.ctx.strokeStyle = 'black';
-            this.ctx.lineWidth = 1;
-            this.ctx.moveTo(x1, y1);
-            this.ctx.lineTo(x2, y2);
-            this.ctx.stroke();
-            this.ctx.closePath();
+            this.ctx.beginPath()
+            this.ctx.strokeStyle = 'black'
+            this.ctx.lineWidth = 1
+            this.ctx.moveTo(x1, y1)
+            this.ctx.lineTo(x2, y2)
+            this.ctx.stroke()
+            this.ctx.closePath()
         },
         drawShape(ev) {
             if (this.selectedShape === 'rect') canvasService.drawRect(ev, this.ctx)
@@ -63,14 +69,20 @@ export default {
         stopDrawing() {
             this.drawMode = false
         },
-        loadCanvas() {
-            if (this.info) {
-                const img = new Image()
-                img.src = this.info.canvasUrl
-                img.onload = () => {
-                    this.ctx.drawImage(img, 0, 0, this.ctx.width, this.ctx.height)
-                }
-            }
+        updateTxt() {
+            this.newInfo.txt = this.$refs.canvasTxt.innerText
+        },
+        updateTitle() {
+            this.newInfo.title = this.$refs.canvasTitle.innerText
+        },
+        updateInfo() {
+            this.$emit('updateInfo' , this.newInfo)
+        }
+    },
+    computed: {
+        isCanvasEdit() {
+            if(this.editAble || !this.info) return true
+            else return false
         }
     }
 }

@@ -85,15 +85,15 @@ export default {
       return unreadEmails.length
     },
   },
-  // watch: {
-  //   '$route.query': {
-  //     immediate: true,
-  //     handler(newVal) {
-  //       this.isCompose = true
-  //       this.noteInfo = newVal
-  //     }
-  //   }
-  // },
+  watch: {
+    '$route.query': {
+      immediate: true,
+      handler(newVal) {
+        this.isCompose = true
+        this.noteInfo = newVal
+      }
+    }
+  },
   components: {
     EmailComposed,
   },

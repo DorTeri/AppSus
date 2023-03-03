@@ -168,7 +168,7 @@ function createNoteImg(note) {
 
 function createNoteCanvas(note) {
     const newNote = getEmptyNote()
-    newNote.type = 'NoteCanvas'
+    newNote.type = 'MakeCanvas'
     newNote.info.canvasUrl = note.canvasUrl
     newNote.info.title = note.title
     newNote.info.txt = note.txt
