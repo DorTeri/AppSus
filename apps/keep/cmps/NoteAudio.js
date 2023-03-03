@@ -2,16 +2,19 @@ import { utilService } from "../../../services/util.service.js"
 import NoteEditor from "./NoteEditor.js"
 
 export default {
-    name: 'NoteImg',
+    name: 'NoteAudio',
     emits: ['updateInfo'],
     props: ['info' , 'editAble'],
     template: `
-    <img :src="info.url">
-    <h4 :contenteditable="editAble" ref="imgTitle" @input="updateTitle">{{ info.title }}</h4>
-    <h5 :contenteditable="editAble" ref="imgTxt" @input="updateTxt">{{ info.txt }}</h5>
+    <h4 :contenteditable="editAble"  @click.stop="" ref="audioTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" @click.stop="" ref="audioTxt" @focusout="updateTxt">{{ info.txt }}</h5>
+    <audio controls>
+    <source :src="info.audioUrl" type="audio/ogg">
+    </audio>
     `,
     data() {
         return {
+            color: null ,
             newInfo: this.info
         }
     },
@@ -20,10 +23,10 @@ export default {
     },
     methods: {
         updateTxt() {
-            this.newInfo.txt = this.$refs.imgTxt.innerText
+            this.newInfo.txt = this.$refs.audioTxt.innerText
         },
         updateTitle() {
-            this.newInfo.title = this.$refs.imgTitle.innerText
+            this.newInfo.title = this.$refs.audioTitle.innerText
         },
         updateInfo() {
             this.$emit('updateInfo' , this.newInfo)
@@ -39,5 +42,5 @@ export default {
     },
     components: {
         NoteEditor
-    }
+    },
 }

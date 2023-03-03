@@ -11,7 +11,8 @@ export const noteService = {
     getEmptyNote,
     createNoteTxt,
     createNoteList,
-    createNoteImg
+    createNoteImg,
+    createNoteCanvas
 }
 
 const notes = [
@@ -24,6 +25,7 @@ const notes = [
             backgroundColor: '#f28b82'
         },
         info: {
+            title: `I'm a test`,
             txt: 'Fullstack Me Baby!'
         }
     },
@@ -61,6 +63,32 @@ const notes = [
         info: {
             url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
             title: 'Bobi and Me'
+        },
+        style: {
+            backgroundColor: '#fbbc04'
+        }
+    },
+    {
+        id: 'n105',
+        type: 'NoteAudio',
+        isPinned: false,
+        info: {
+            audioUrl: `http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3`,
+            title: 'My first audio',
+            txt: 'Dor & Bar audio'
+        },
+        style: {
+            backgroundColor: '#fbbc04'
+        }
+    },
+    {
+        id: 'n106',
+        type: 'NoteMap',
+        isPinned: false,
+        info: {
+            coords: {lat: 14 , lng: 11},
+            title: 'My first Map',
+            txt: 'Dor & Bar Map'
         },
         style: {
             backgroundColor: '#fbbc04'
@@ -133,6 +161,15 @@ function createNoteImg(note) {
     const newNote = getEmptyNote()
     newNote.type = note.noteType
     newNote.info.url = note.url
+    newNote.info.title = note.title
+    newNote.info.txt = note.txt
+    return storageService.post(NOTE_KEY, newNote)
+}
+
+function createNoteCanvas(note) {
+    const newNote = getEmptyNote()
+    newNote.type = 'NoteCanvas'
+    newNote.info.canvasUrl = note.canvasUrl
     newNote.info.title = note.title
     newNote.info.txt = note.txt
     return storageService.post(NOTE_KEY, newNote)

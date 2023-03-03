@@ -2,19 +2,21 @@ import { utilService } from "../../../services/util.service.js"
 import NoteEditor from "./NoteEditor.js"
 
 export default {
-    props: ['info'],
+    name: 'NoteTodos',
+    emits: ['updateInfo'],
+    props: ['info', 'editAble'],
     template: `
-    <h4 contenteditable="true"  
+    <h4 :contenteditable="editAble"  
     @click.stop="" ref="todosTitle" 
     @input="updateTitle">{{ info.title }}</h4>
     <ul>
-        <li contenteditable="true" @click.stop="" ref="todo'"
-         v-for="(info , idx) in info.todos" @input="updateTodo(idx)">{{info.txt}}</li>
+        <li :contenteditable="editAble" @click.stop="todoDone(index)" 
+         v-for="(info , index) in info.todos" :class="{done: info.doneAt}" @input="updateTodo(index)">{{info.txt}}</li>
     </ul>
     `,
     data() {
         return {
-            newInfo: this.info
+            newInfo: this.info,
         }
     },
     created() {
@@ -22,17 +24,26 @@ export default {
     },
     methods: {
         updateTodo(idx) {
-            this.newInfo.txt[idx] = this.$refs.idx.innerText
+            this.newInfo.todos[idx].txt = this.$refs.idx.innerText
         },
         updateTitle() {
             this.newInfo.title = this.$refs.todosTitle.innerText
         },
         updateInfo() {
             this.$emit('updateInfo' , this.newInfo)
+        },
+        todoDone(idx) {
+            this.newInfo.todos[idx].doneAt = 
+            (this.newInfo.todos[idx].doneAt) ? null : Date.now()
         }
     },
+    computed: {
+        // isDone(idx) {
+        //     return idx
+        // }
+    },
     watch: {
-        info: {
+        newInfo: {
             handler() {
                 this.debounceUpdateInfo()
             },

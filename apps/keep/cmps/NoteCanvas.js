@@ -2,16 +2,17 @@ import { utilService } from "../../../services/util.service.js"
 import NoteEditor from "./NoteEditor.js"
 
 export default {
-    name: 'NoteImg',
+    name: 'NoteCanvas',
     emits: ['updateInfo'],
     props: ['info' , 'editAble'],
     template: `
-    <img :src="info.url">
-    <h4 :contenteditable="editAble" ref="imgTitle" @input="updateTitle">{{ info.title }}</h4>
-    <h5 :contenteditable="editAble" ref="imgTxt" @input="updateTxt">{{ info.txt }}</h5>
+    <img v-if="!editAble" :src="info.canvasUrl">
+    <h4 :contenteditable="editAble"  @click.stop="" ref="canvasTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" @click.stop="" ref="canvasTxt" @focusout="updateTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {
+            color: null ,
             newInfo: this.info
         }
     },
@@ -20,10 +21,10 @@ export default {
     },
     methods: {
         updateTxt() {
-            this.newInfo.txt = this.$refs.imgTxt.innerText
+            this.newInfo.txt = this.$refs.canvasTxt.innerText
         },
         updateTitle() {
-            this.newInfo.title = this.$refs.imgTitle.innerText
+            this.newInfo.title = this.$refs.canvasTitle.innerText
         },
         updateInfo() {
             this.$emit('updateInfo' , this.newInfo)
@@ -39,5 +40,5 @@ export default {
     },
     components: {
         NoteEditor
-    }
+    },
 }

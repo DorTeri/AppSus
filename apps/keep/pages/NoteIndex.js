@@ -6,6 +6,8 @@ import { noteService } from "../services/note.service.js"
 import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
+    name: 'NoteIndex',
+    emits: ['noteUpdated'],
     template: `
     <section class="main-layout">
     <section class="note-index">
@@ -13,7 +15,7 @@ export default {
     <NoteList 
     @copyNote="makeCopy"
     @saveNote="save"
-    :notes="notes"/>
+    :notes="notesToPreview"/>
     <RouterView />
     </section>
     </section>
@@ -25,10 +27,9 @@ export default {
         }
     },
     created() {
-        eventBus.on('updateNote', (changeObj) => {
-            const note = this.notes.find(note => note.id === changeObj.noteId)
-            note[changeObj.key] = changeObj.toUpdate
-            noteService.save(note)
+        eventBus.on('updateNoteInfo' , (changeObj) => this.update(changeObj))
+        eventBus.on('noteUpdated' , () =>{
+            this.loadNotes()
         })
         eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
         this.loadNotes()
@@ -54,6 +55,17 @@ export default {
                 newNote.id = null
                 this.save(newNote)
                 .then(this.loadNotes)
+        },
+        update(changeObj) {
+            const note = this.notes.find(note => note.id === changeObj.noteId)
+            note[changeObj.key] = changeObj.toUpdate
+            noteService.save(note)
+                .then(eventBus.emit('noteUpdated'))
+        }
+    },
+    computed: {
+        notesToPreview() {
+            return this.notes
         }
     },
     components: {

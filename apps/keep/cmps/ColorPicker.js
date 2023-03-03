@@ -1,4 +1,5 @@
 export default {
+    emits: ['color'],
     template: `
     <div class="color-picker">
         <div v-for="color in colors" class="color" 

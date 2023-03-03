@@ -1,0 +1,6 @@
+.note-preview audio {
+    width: 90%;
+    margin-inline-start: 50%;
+    translate: -50%;
+    background-color: inherit;
+}
