@@ -10,7 +10,7 @@ export default {
           <!-- <EmailFilter @filter="setFilterBy" /> -->
           
           <section class="main-mail-layout">
-            <EmailSideFilter @filter="setFilterBy" />
+            <EmailSideFilter @filter="setFilterBy"/>
             <EmailList 
              v-if="!isDetails"
             :emails="filteredEmails" 
@@ -47,7 +47,6 @@ export default {
       })
     },
     toDetails({ mailId }) {
-      // this.isDetails =
       this.$router.push(`mail/${mailId}`)
     },
   },

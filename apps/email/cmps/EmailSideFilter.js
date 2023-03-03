@@ -3,6 +3,7 @@ import { svgService } from '../../../services/svg.service.js'
 import EmailComposed from '../cmps/EmailCompose.js'
 
 export default {
+  // props: ['emails'],
   template: `
         <section class="email-side-filter">
         <EmailComposed 

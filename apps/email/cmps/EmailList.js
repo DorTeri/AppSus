@@ -1,6 +1,8 @@
 import EmailPreview from './EmailPreview.js'
 import { svgService } from '../../../services/svg.service.js'
 
+// @click="remove(email.id)"
+
 export default {
     props: ['emails'],
     template: `
@@ -10,7 +12,7 @@ export default {
                  @click.native="showDetails(email.id)"
                 class="email-preview" :email="email">
                 <EmailPreview :email="email"/>
-                <div @click="remove(email.id)" class="remove-btn"
+                <div @click.stop=" moveToTrash(email.id)" class="remove-btn"
             v-html="getSvg('trash')"></div>
         </div>
         <br>
@@ -26,6 +28,11 @@ export default {
         showDetails(mailId) {
             this.$emit('toDetails', { mailId: mailId })
         },
+        moveToTrash(emailId) {
+           const email = this.emails.find(email => email.id === emailId)
+            if (email.status === 'trash') this.remove(emailId)
+            else email.status = 'trash'
+        }
     },
     components: {
         EmailPreview,
