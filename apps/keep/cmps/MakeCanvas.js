@@ -48,15 +48,17 @@ export default {
             if (this.selectedShape === 'rect') canvasService.drawRect(ev, this.ctx)
         },
         startDraw(ev) {
-            this.x = ev.offsetX
-            this.y = ev.offsetY
+            const rect = this.$refs.canvas.getBoundingClientRect()
+            this.x = ev.clientX - rect.left
+            this.y = ev.clientY - rect.top
             this.drawMode = true
         },
         draw(ev) {
             if (this.drawMode) {
-                this.drawLine(this.x, this.y, ev.offsetX, ev.offsetY);
-                this.x = ev.offsetX;
-                this.y = ev.offsetY;
+                const rect = this.$refs.canvas.getBoundingClientRect()
+                this.drawLine(this.x, this.y, ev.offsetX, ev.offsetY)
+                this.x = ev.clientX - rect.left
+                this.y = ev.clientY - rect.top
             } else console.log('not drow mode')
         },
         stopDrawing() {

@@ -68,6 +68,32 @@ const notes = [
             backgroundColor: '#fbbc04'
         }
     },
+    {
+        id: 'n105',
+        type: 'NoteAudio',
+        isPinned: false,
+        info: {
+            audioUrl: `http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3`,
+            title: 'My first audio',
+            txt: 'Dor & Bar audio'
+        },
+        style: {
+            backgroundColor: '#fbbc04'
+        }
+    },
+    {
+        id: 'n106',
+        type: 'NoteMap',
+        isPinned: false,
+        info: {
+            coords: {lat: 14 , lng: 11},
+            title: 'My first Map',
+            txt: 'Dor & Bar Map'
+        },
+        style: {
+            backgroundColor: '#fbbc04'
+        }
+    },
 ]
 
 makeNotes()
