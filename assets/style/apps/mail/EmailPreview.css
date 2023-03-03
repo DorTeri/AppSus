@@ -76,12 +76,28 @@ margin-left: 50px;
   position: absolute;
   top: 10;
   right: 0;
-  display: none; 
+  /* display: none;  */
 }
 
-.email-preview:hover .delete-button {
+.email-preview:hover .remove-btn {
   display: block; 
 }
 .email-preview:hover .preview-date {
   display: none;
+}
+
+.keep-btn {
+  position: absolute;
+  top: 10;
+  right: 0;
+  /* display: none;  */
+}
+
+.email-preview:hover .keep-btn {
+  display: block; 
+}
+
+
+.trash-keep-svgs {
+display: flex;
 }

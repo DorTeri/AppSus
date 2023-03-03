@@ -4,8 +4,8 @@ import { svgService } from '../../../services/svg.service.js'
 // @click="remove(email.id)"
 
 export default {
-    props: ['emails'],
-    template: `
+  props: ['emails'],
+  template: `
     <div class="full-list">
         <section class="email-list">
             <div class="empty-div"></div>
@@ -13,35 +13,40 @@ export default {
                  @click.native="showDetails(email.id)"
                 class="email-preview" :email="email">
                 <EmailPreview :email="email"/>
+                <!-- <section class="trash-keep-svgs"> -->
                 <div @click.stop="moveToTrash(email.id)" class="remove-btn"
             v-html="getSvg('trash')"></div>
-        </div>
-        <br>
+                <div class="keep-btn"
+            v-html="getSvg('keepMail')"></div>
+            </div>
         </section>
-</div>
+        <!-- </section> -->
+        <!-- </div> -->
+        <!-- <br> -->
+      </div>
     `,
-    methods: {
-        remove(emailId) {
-            this.$emit('remove', emailId)
-        },
-        getSvg(iconName) {
-            return svgService.getMailSvg(iconName)
-        },
-         showDetails(mailId) {
-    const email = this.emails.find((email) => email.id === mailId);
-    if (email.status === "drafts") {
-      this.$emit("editDraft", email);
-    } else {
-      this.$emit("toDetails", { mailId: mailId });
-    }
+  methods: {
+    remove(emailId) {
+      this.$emit('remove', emailId)
+    },
+    getSvg(iconName) {
+      return svgService.getMailSvg(iconName)
+    },
+    showDetails(mailId) {
+      const email = this.emails.find((email) => email.id === mailId)
+      if (email.status === 'drafts') {
+        this.$emit('editDraft', email)
+      } else {
+        this.$emit('toDetails', { mailId: mailId })
+      }
+    },
+    moveToTrash(emailId) {
+      const email = this.emails.find((email) => email.id === emailId)
+      if (email.status === 'trash') this.remove(emailId)
+      else email.status = 'trash'
+    },
   },
-        moveToTrash(emailId) {
-           const email = this.emails.find(email => email.id === emailId)
-            if (email.status === 'trash') this.remove(emailId)
-            else email.status = 'trash'
-        }
-    },
-    components: {
-        EmailPreview,
-    },
+  components: {
+    EmailPreview,
+  },
 }

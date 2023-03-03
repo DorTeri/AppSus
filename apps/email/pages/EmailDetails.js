@@ -31,7 +31,7 @@ export default {
     }
   },
   created() {
-    const {id}  = this.$route.params
+    const { id } = this.$route.params
     emailService.get(id).then((email) => {
       this.email = email
     })
@@ -48,7 +48,7 @@ export default {
     },
     formattedTime() {
       return new Date()
-    }
+    },
   },
   components: {
     emailService,
