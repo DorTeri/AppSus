@@ -14,13 +14,14 @@ export default {
             <input class="compose-input" v-model="email.subject" placeholder="Subject" type="text" />
             <hr>
             <input class="compose-input-body" v-model="email.body" type="text" />
-            <section class="send-trash-btns"><button @click="closeCompose" >Send</button></section>
+            <section class="send-trash-btns"><button>Send</button></section>
             </form>
 </section>
             `,
   data() {
     return {
       email: emailService.getEmptyEmail(),
+      isSending: false,
     }
   },
   created() {
@@ -34,22 +35,22 @@ export default {
       return svgService.getMailSvg(iconName)
     },
     composeEmail() {
+      this.isSending = true
+      this.email.status = 'sent'
       emailService.save(this.email)
+      this.closeCompose()
+      this.$router.push({query: {}})
       //   this.$emit('saveEmail',emailId)
     },
     saveDraft() {
-      emailService.save(this.email)
+      if(this.isSending) return
       this.email.status = 'draft'
+      emailService.save(this.email)
+      this.$router.push({query: {}})
     },
     closeCompose() {
       this.$emit('close')
     },
-    getParams() {
-      const subject = this.$route.query.subject
-      const body = this.$route.query.body
-      console.log('subject', subject)
-      console.log('body', body)
-    }
   },
   components: {
     emailService,

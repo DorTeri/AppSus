@@ -72,7 +72,6 @@ export default {
     filter(status) {
       this.filterBy.status = status
       this.$emit('filter', this.filterBy.status)
-      console.log('Clicked')
     },
     getSvg(iconName) {
       return svgService.getMailSvg(iconName)
@@ -89,8 +88,9 @@ export default {
     '$route.query': {
       immediate: true,
       handler(newVal) {
-        this.isCompose = true
-        this.noteInfo = newVal
+        if(Object.keys(newVal).length === 0) return
+          this.isCompose = true
+          this.noteInfo = newVal
       }
     }
   },
