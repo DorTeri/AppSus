@@ -1,6 +1,7 @@
 
 export const mapService = {
-    connectGoogleApi
+    connectGoogleApi,
+    codeAddress,
 }
 
 function connectGoogleApi() {
@@ -14,5 +15,19 @@ function connectGoogleApi() {
     return new Promise((resolve, reject) => {
         elGoogleApi.onload = resolve
         elGoogleApi.onerror = () => reject('Google script failed to load')
+    })
+}
+
+function codeAddress(address) {
+    return new Promise((resolve) => {
+        const geocoder = new google.maps.Geocoder()
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK') {
+                const loc = JSON.parse(JSON.stringify(results[0].geometry.location))
+                resolve(loc)
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        })
     })
 }
