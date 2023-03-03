@@ -9,8 +9,8 @@ export default {
     <video class="video-preview" autoplay loop muted>
     <source :src="info.url" type="video/mp4">
     </video>
-    <h4 v-if="info.title" @input="updateTitle" :contenteditable="editAble" @click.stop="" ref="videoTitle">{{ info.title}}</h4>
-    <h5 v-if="info.txt" @input="updateTxt" :contenteditable="editAble" @click.stop="" ref="videoTxt">{{ info.txt }}</h5>
+    <h4 v-if="info.title" @input="updateTitle" class="content" :contenteditable="editAble" @click.stop="" ref="videoTitle">{{ info.title}}</h4>
+    <h5 v-if="info.txt" @input="updateTxt" class="content" :contenteditable="editAble" @click.stop="" ref="videoTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {

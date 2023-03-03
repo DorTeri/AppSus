@@ -1,6 +1,7 @@
 import NoteList from "../cmps/NoteList.js"
 import NoteEditor from "../cmps/NoteEditor.js"
 import MakeNote from "../cmps/MakeNote.js"
+import NoteFilter from "../cmps/NoteFilter.js"
 
 import { noteService } from "../services/note.service.js"
 import { eventBus } from "../../../services/event-bus.service.js"
@@ -11,7 +12,9 @@ export default {
     template: `
     <section class="main-layout">
     <section class="note-index">
-    <MakeNote @addedNote="loadNotes"/>
+    <NoteFilter v-if="false" @filter="setFilterBy"
+    @closeSearch="this.searchOpen = false"/>
+    <MakeNote  @addedNote="loadNotes"/>
     <NoteList 
     @copyNote="makeCopy"
     @saveNote="save"
@@ -23,11 +26,12 @@ export default {
     data() {
         return {
             notes: null,
-            filterBy: {}
+            filterBy: {},
+            searchOpen: false
         }
     },
     created() {
-        eventBus.on('search', (txt) => this.search(txt))
+        eventBus.on('searchClicked', () => this.searchOpen = true)
         eventBus.on('updateNoteInfo', (changeObj) => this.update(changeObj))
         eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
         this.loadNotes()
@@ -59,18 +63,24 @@ export default {
             note[changeObj.key] = changeObj.toUpdate
             noteService.save(note)
         },
-        search(txt) {
-            console.log('txt', txt)
-        }
+        setFilterBy(filterBy) {
+            this.filterBy = filterBy
+        },
     },
     computed: {
         notesToPreview() {
-            return this.notes
+            if (this.notes) {
+                const txtReg = new RegExp(this.filterBy.txt, 'i')
+                const typeReg = new RegExp(this.filterBy.noteType, 'i')
+                return this.notes.filter(note => txtReg.test(note.info.title)
+                    && typeReg.test(note.noteType))
+            }
         }
     },
     components: {
         NoteList,
         NoteEditor,
-        MakeNote
+        MakeNote,
+        NoteFilter
     }
 }

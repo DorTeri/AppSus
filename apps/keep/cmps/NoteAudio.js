@@ -6,8 +6,8 @@ export default {
     emits: ['updateInfo'],
     props: ['info' , 'editAble'],
     template: `
-    <h4 :contenteditable="editAble"  @click.stop="" ref="audioTitle" @focusout="updateTitle">{{ info.title }}</h4>
-    <h5 :contenteditable="editAble" @click.stop="" ref="audioTxt" @focusout="updateTxt">{{ info.txt }}</h5>
+    <h4 :contenteditable="editAble"  @click.stop="" class="content" ref="audioTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" @click.stop="" class="content" ref="audioTxt" @focusout="updateTxt">{{ info.txt }}</h5>
     <audio controls>
     <source :src="info.audioUrl" type="audio/ogg">
     </audio>

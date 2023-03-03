@@ -8,10 +8,11 @@ export default {
     template: `
     <h4 :contenteditable="editAble"  
     @click.stop="" ref="todosTitle" 
-    @input="updateTitle">{{ info.title }}</h4>
+    @input="updateTitle" class="content">{{ info.title }}</h4>
     <ul>
         <li :contenteditable="editAble" @click.stop="todoDone(index)" 
-         v-for="(info , index) in info.todos" :class="{done: info.doneAt}" @input="updateTodo(index)">{{info.txt}}</li>
+        v-for="(info , index) in info.todos" :class="{done: info.doneAt}"
+        @input="updateTodo(index)" class="content">{{info.txt}}</li>
     </ul>
     `,
     data() {

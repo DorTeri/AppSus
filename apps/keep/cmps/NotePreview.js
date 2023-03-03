@@ -3,7 +3,7 @@ import NoteImg from "./NoteImg.js"
 import NoteVideo from "./NoteVideo.js"
 import NoteTodos from "./NoteTodos.js"
 import NoteEditor from "./NoteEditor.js"
-import NoteCanvas from "./NoteCanvas.js"
+import MakeCanvas from "./MakeCanvas.js"
 import NoteAudio from "./NoteAudio.js"
 import NoteMap from "./NoteMap.js"
 
@@ -62,7 +62,7 @@ export default {
         NoteImg,
         NoteTxt,
         NoteEditor,
-        NoteCanvas,
+        MakeCanvas,
         NoteAudio,
         NoteMap
     }

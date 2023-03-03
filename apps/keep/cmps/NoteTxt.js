@@ -6,8 +6,8 @@ export default {
     emits: ['updateInfo'],
     props: ['info' , 'editAble'],
     template: `
-    <h4 :contenteditable="editAble"  @click.stop="" ref="txtTitle" @focusout="updateTitle">{{ info.title }}</h4>
-    <h5 :contenteditable="editAble" @click.stop="" ref="txtTxt" @focusout="updateTxt">{{ info.txt }}</h5>
+    <h4 :contenteditable="editAble" class="content"  @click.stop="" ref="txtTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" class="content" @click.stop="" ref="txtTxt" @focusout="updateTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {
