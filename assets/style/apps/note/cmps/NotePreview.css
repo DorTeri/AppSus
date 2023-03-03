@@ -37,6 +37,7 @@
 }
 
 .note-preview:hover .icon-pin:hover {
+    background-color: rgba(95,99,104,0.157);
     cursor: pointer;
     opacity: 0.9;
 }
@@ -47,7 +48,6 @@
     top: 3%;
     right: 3%;
     opacity: 0;
-    background-color: rgba(95,99,104,0.157);
     border-radius: 50%;
 }
 

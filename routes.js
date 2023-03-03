@@ -2,10 +2,8 @@ import HomePage from './views/HomePage.js'
 import AboutUs from './views/AboutUs.js'
 import EmailDetails from './apps/email/pages/EmailDetails.js'
 import EmailIndex from './apps/email/pages/EmailIndex.js'
-import EmailFilter from './apps/email/cmps/EmailFilter.js'
 import NoteDetails from './apps/keep/pages/NoteDetails.js'
 import NoteIndex from './apps/keep/pages/NoteIndex.js'
-import NoteFilter from './apps/keep/cmps/NoteFilter.js'
 
 const { createRouter, createWebHashHistory } = VueRouter
 
@@ -28,10 +26,6 @@ const routerOptions = {
 					path: ':id',
 					component: NoteDetails,
 				},
-				{
-					path: 'search',
-					component: NoteFilter,
-				},
 			]
 		},
 		{
@@ -45,10 +39,6 @@ const routerOptions = {
 				{
 				  path: ':id',
 				  component: EmailDetails,
-				},
-				{
-					path: 'search',
-					component: EmailFilter,
 				},
 			]
 		},

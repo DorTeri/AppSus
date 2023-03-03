@@ -86,7 +86,7 @@ const notes = [
         type: 'NoteMap',
         isPinned: false,
         info: {
-            coords: {lat: 14 , lng: 11},
+            coords: {lat: 21 , lng: 21},
             title: 'My first Map',
             txt: 'Dor & Bar Map'
         },

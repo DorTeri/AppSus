@@ -16,11 +16,11 @@ export default {
     props: ['note' , 'edit'],
     template: `
     <article class="note-preview" :style="note.style">
-    <Component :is="note.type" :editAble="isEditAble" :info="note.info"></Component>
+    <Component :is="note.type" @updateInfo="updateNote" :editAble="isEditAble" :info="note.info"></Component>
     <div v-if="note.isPinned" className="icon-pin" v-html="getSvg('pin1')"
     @click.stop="pin">
 </div>
-<div className="icon-pin" v-if="!note.isPinned" @updateInfo="updateNote" v-html="getSvg('unPin1')"
+<div className="icon-pin" v-if="!note.isPinned" v-html="getSvg('unPin1')"
     @click.stop="pin">
 </div>
     <NoteEditor @updateColor="passColor" @copy="copyNote" :noteId="note.id" :note="note"/>

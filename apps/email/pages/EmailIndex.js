@@ -1,4 +1,5 @@
 import { emailService } from '../services/email.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 import EmailFilter from '../cmps/EmailFilter.js'
 import EmailSideFilter from '../cmps/EmailSideFilter.js'
@@ -34,6 +35,7 @@ export default {
     }
   },
   created() {
+    eventBus.on('search', (txt) => this.filterBy.txt = txt)
     emailService.query().then((emails) => (this.emails = emails))
   },
   methods: {
@@ -52,17 +54,18 @@ export default {
   },
   computed: {
     filteredEmails() {
-      console.log(this.filterBy.status)
+      console.log('this.filterBy', this.filterBy)
+      const regex = new RegExp(this.filterBy.txt, 'i')
       if (!this.emails) return
       let filteredEmails = []
       if (this.filterBy.status === 'starred') {
-        console.log('Hello')
-        filteredEmails = this.emails.filter((email) => email.isStarred)
+        filteredEmails = this.emails.filter((email) => email.isStarred
+        && regex.test(email.txt))
       } else {
         filteredEmails = this.emails.filter(
-          (email) => email.status === this.filterBy.status)
+          (email) => email.status === this.filterBy.status 
+          && regex.test(email.txt))
         }
-        console.log(filteredEmails)
         return filteredEmails
     },
   },
@@ -83,5 +86,5 @@ export default {
 
 
 
-//   const regex = new RegExp(this.filterBy.txt, 'i')
-        //   return this.emails.filter((email) => regex.test(email.txt))
+  // const regex = new RegExp(this.filterBy.txt, 'i')
+  // return this.emails.filter((email) => regex.test(email.txt))
