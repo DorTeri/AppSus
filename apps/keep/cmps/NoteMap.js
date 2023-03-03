@@ -29,8 +29,6 @@ export default {
                 zoom: 15
             })
             this.center = JSON.parse(JSON.stringify(this.map.center))
-            console.log('this.map', this.map)
-            console.log('this.$refs.map', this.$refs.map)
         })
     },
     mounted() {

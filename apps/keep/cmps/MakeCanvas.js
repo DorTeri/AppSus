@@ -3,6 +3,7 @@ import { canvasService } from "../services/canvas.service.js"
 
 export default {
     name: 'MakeCanvas',
+    props: ['info'],
     template: `
     <div class="canvas-container">
     <canvas 
@@ -10,29 +11,27 @@ export default {
     @mousedown="startDraw"
     @mousemove="draw"
     @mouseup="stopDrawing"
-     ref="canvas"></canvas>
+    ref="canvas"></canvas>
     </div>
     `,
     data() {
         return {
             ctx: null,
             drawMode: false,
-                x: null,
-                y: null,
+            x: null,
+            y: null,
             selectedShape: 'rect'
         }
     },
     created() {
-        this.ctx = null
         eventBus.on('getCanvasUrl', () => {
             const url = this.$refs.canvas.toDataURL('images/jpeg')
             eventBus.emit('canvasUrlUpdated', url)
-            this.$refs.canvas = null
-            this.ctx = null
         })
     },
     mounted() {
         this.ctx = this.$refs.canvas.getContext("2d")
+        this.loadCanvas()
     },
     methods: {
         drawLine(x1, y1, x2, y2) {
@@ -64,6 +63,15 @@ export default {
         stopDrawing() {
             this.drawMode = false
         },
+        loadCanvas() {
+            if (this.info) {
+                const img = new Image()
+                img.src = this.info.canvasUrl
+                img.onload = () => {
+                    this.ctx.drawImage(img, 0, 0, this.ctx.width, this.ctx.height)
+                }
+            }
+        }
     }
 }
 // @mousedown="startDraw"
