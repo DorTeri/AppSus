@@ -28,9 +28,6 @@ export default {
     },
     created() {
         eventBus.on('updateNoteInfo' , (changeObj) => this.update(changeObj))
-        eventBus.on('noteUpdated' , () =>{
-            this.loadNotes()
-        })
         eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
         this.loadNotes()
     },
@@ -60,7 +57,6 @@ export default {
             const note = this.notes.find(note => note.id === changeObj.noteId)
             note[changeObj.key] = changeObj.toUpdate
             noteService.save(note)
-                .then(eventBus.emit('noteUpdated'))
         }
     },
     computed: {

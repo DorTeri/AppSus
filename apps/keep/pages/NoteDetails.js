@@ -6,10 +6,10 @@ import { utilService } from "../../../services/util.service.js"
 
 export default {
     name: 'NoteDetails',
-    emits: ['updateNoteInfo', 'removeNote'],
+    emits: ['removeNote'],
     template: `
     <section v-if="note" class="note-details">
-    <NotePreview @updateNoteInfo="update" :edit="true" v-if="note" :note="this.note"/>
+    <NotePreview :edit="true" v-if="note" :note="this.note"/>
     <RouterLink class="close" to="/keep">Close</RouterLink>
     </section>
     `,
@@ -19,9 +19,14 @@ export default {
         }
     },
     created() {
+        eventBus.on('updateNoteInfo' , (changeObj) => {
+            this.update(changeObj)
+        })
         this.loadNote()
         eventBus.on('removeNote', () => {
-            this.note = null
+            if(this.note){
+                this.note = null
+            }
         })
     },
     methods: {
@@ -33,10 +38,9 @@ export default {
                 })
         },
         update(changeObj) {
-            console.log(changeObj)
-            this.note[changeObj.key] = changeObj.toUpdate
-            noteService.save(this.note)
-                .then(eventBus.emit('noteUpdated'))
+            if(this.note) {
+                this.note[changeObj.key] = changeObj.toUpdate
+            }
         }
     },
     components: {
