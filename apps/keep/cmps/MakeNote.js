@@ -18,7 +18,7 @@ export default {
     <div class="make-note-bottom">
         <div class="btns-create">
     <div @click="changeType('NoteTodos')" data-title="New list" className="icon-list" v-html="getSvg('checkBox')"></div>
-    <div @click="changeType('MakeCanvas')" data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil2')"></div>
+    <div @click="changeType('MakeCanvas')" data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil10')"></div>
     <div data-title="New note with audio" className="icon-img" v-html="getSvg('audio')"></div>
     <label>
     <div @click="changeType('NoteImg')" data-title="New note with image"  className="icon-img" v-html="getSvg('img')"></div>

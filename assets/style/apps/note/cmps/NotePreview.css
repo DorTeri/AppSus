@@ -65,3 +65,7 @@
     text-decoration: line-through;
     color: #5f6368;
 }
+
+.content:focus {
+    outline: none;
+}

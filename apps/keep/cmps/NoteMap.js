@@ -8,9 +8,9 @@ export default {
     emits: ['updateInfo'],
     props: ['info' , 'editAble'],
     template: `
-    <div ref="map"></div>
-    <h4 :contenteditable="editAble"  @click.stop="" ref="mapTitle" @focusout="updateTitle">{{ info.title }}</h4>
-    <h5 :contenteditable="editAble" @click.stop="" ref="mapTxt" @focusout="updateTxt">{{ info.txt }}</h5>
+    <div ref="map" class="map-container"></div>
+    <h4 :contenteditable="editAble"  @click.stop="" class="content" ref="mapTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" @click.stop="" class="content" ref="mapTxt" @focusout="updateTxt">{{ info.txt }}</h5>
     `,
     data() {
         return {
@@ -29,6 +29,8 @@ export default {
                 zoom: 15
             })
             this.center = JSON.parse(JSON.stringify(this.map.center))
+            console.log('this.map', this.map)
+            console.log('this.$refs.map', this.$refs.map)
         })
     },
     mounted() {

@@ -4,6 +4,7 @@ export const mapService = {
 }
 
 function connectGoogleApi() {
+    console.log('googleApi')
     if (window.google) return Promise.resolve()
     const MAP_KEY = `AIzaSyD8o3Cd3Npmfar4KdG811Pa-KwoZv9O4Jo`
     var elGoogleApi = document.createElement('script')
