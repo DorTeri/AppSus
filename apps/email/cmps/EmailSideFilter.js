@@ -1,3 +1,4 @@
+import { eventBus } from '../../../services/event-bus.service.js'
 import { svgService } from '../../../services/svg.service.js'
 
 import EmailComposed from '../cmps/EmailCompose.js'
@@ -6,7 +7,7 @@ export default {
   props: ['emails'],
   template: `
         <section class="email-side-filter">
-        <EmailComposed @close="isCompose = false"
+        <EmailComposed :noteInfo="noteInfo" @close="isCompose = false"
         v-if="isCompose"/>
         <!-- Compose -->
         <section @click="isCompose = true" class="filter-section compose-icon">
@@ -51,6 +52,7 @@ export default {
             `,
   data() {
     return {
+      noteInfo: null,
       isCompose: false,
       filterBy: {
         status: 'inbox',
@@ -76,8 +78,17 @@ export default {
       this.emails.forEach(email => email.isRead === true)
     },
   },
+  // watch: {
+  //   '$route.query': {
+  //     immediate: true,
+  //     handler(newVal) {
+  //       this.isCompose = true
+  //       this.noteInfo = newVal
+  //     }
+  //   }
+  // },
   components: {
-  EmailComposed,
+    EmailComposed,
   },
 
 }
