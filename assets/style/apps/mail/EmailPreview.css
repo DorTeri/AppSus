@@ -48,10 +48,12 @@
 }
 
 .preview-content {
-  /* flex-grow: 1; */
-  /* text-overflow: ellipsis; */
+  display: inline-block;
+text-overflow: ellipsis;
   text-align: start;
-  /* margin-left: 150px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .preview-date {
@@ -61,8 +63,8 @@
 .subject-body {
   display: flex;
   flex-grow: 1;
-  text-align: left;
-  margin-left: 50px;
+  /* text-align: left; */
+  /* margin-left: 50px; */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
