@@ -12,8 +12,8 @@ export default {
     template: `
     <div class="make-note">
     <div v-if="isMakingNote" className="icon-pin" v-html="getSvg('unPin1')"></div>
-    <img v-if="this.note.url" :src="this.note.url">
     <MakeCanvas v-if="this.note.noteType === 'MakeCanvas'"/>
+    <img v-if="this.note.url" :src="this.note.url">
     <input v-if="isMakingNote" class="title-input" type="text" v-model="note.title" placeholder="Title">
     <input @focus="isMakingNote = true" class="take-note" type="text" v-model="note.txt" :placeholder='placeHolder'>
     <div class="make-note-bottom">

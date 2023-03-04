@@ -16,7 +16,8 @@ export const noteService = {
     createNoteRecording,
     createNoteMap,
 }
-
+const colors = ['#f28b82', '#fbbc04', '#fff475', '#ccff90',
+'#a7ffeb', '#cbf0f8', '#aecbfa', '#d7aefb', '#fdcfe8', '#e6c9a8', '#e8eaed']
 const notes = [
     {
         id: 'n101',
@@ -96,6 +97,42 @@ const notes = [
             backgroundColor: '#fbbc04'
         }
     },
+    {
+        id: 'n102',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            title: 'Beautiful road'
+        },
+        style: {
+            backgroundColor: '#a7ffeb'
+        }
+    },
+    {
+        id: 'n102',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIweW9ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+            title: 'Best photo on my trip'
+        },
+        style: {
+            backgroundColor: '#e6c9a8'
+        }
+    },
+    {
+        id: 'n102',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmV3JTIweW9ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+            title: 'My trip'
+        },
+        style: {
+            backgroundColor: '#aecbfa'
+        }
+    },
 ]
 
 makeNotes()
@@ -106,16 +143,6 @@ function makeNotes() {
 
 function query(filterBy = {}) {
     return storageService.query(NOTE_KEY)
-    // .then(note => {
-    //     if (filterBy.txt) {
-    //         const regex = new RegExp(txt, 'i')
-    //         notes = notes.filter(note => regex.test(book.title))
-    //     }
-    //     if (filterBy.maxPrice) {
-    //         books = books.filter(book => book.listPrice <= filterBy.maxPrice)
-    //     }
-    //     return books
-    // })
 }
 
 function get(noteId) {
