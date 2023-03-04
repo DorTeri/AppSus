@@ -3,4 +3,7 @@
     width: 310px;
     /* width: auto; */
   }
+  .make-note {
+    width: 600px;
+  }
 }

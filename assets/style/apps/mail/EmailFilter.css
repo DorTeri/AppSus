@@ -39,7 +39,6 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-
 .unread-num {
   align-self: center;
   margin-left: auto;
@@ -48,6 +47,23 @@
 
 .selected {
   background-color: rgb(216, 225, 246);
-  font-weight:bold;
-  color:black;
+  font-weight: bold;
+  color: black;
+}
+
+.label {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -40px;
+  margin-top: 2em;
+  color: black;
+  font-weight: 500;
+  align-items: baseline;
+}
+
+.plus {
+border: none;
+font-size: 25px;
+background-color: inherit;
+color: rgb(40, 40, 40);
 }

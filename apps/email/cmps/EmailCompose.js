@@ -28,6 +28,12 @@ export default {
       this.email.subject = this.noteInfo.subject
       this.email.body = this.noteInfo.body
     }
+    eventBus.on('composeOpened', (email) => {
+      console.log(email)
+      this.email = email
+      console.log(this.email)
+      console.log(email)
+    })
   },
   methods: {
     getSvg(iconName) {
@@ -36,6 +42,7 @@ export default {
     composeEmail() {
       this.isSending = true
       this.email.status = 'sent'
+      this.email.isRead = true
       emailService.save(this.email)
       this.closeCompose()
       this.$router.push({ query: {} })
@@ -44,8 +51,8 @@ export default {
     saveDraft() {
       if (this.isSending) return
       this.email.status = 'draft'
-      emailService.save(this.email)
-      this.$router.push({ query: {} })
+      emailService.save(this.email).then()
+      // this.$router.push({ query: {} })
     },
     closeCompose() {
       this.$emit('close')
