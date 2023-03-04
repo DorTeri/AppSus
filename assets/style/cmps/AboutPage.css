@@ -1,11 +1,38 @@
 .about-page {
- display: flex;
-  font-size: 40px;
-  width: 50%;
-  color: rgb(35, 35, 35);
+  width: 80%;
+  margin: 50px auto;
+  display: grid;
 }
 
-/* 
-.our-cards {
- display: grid;
-} */
+.our-team {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card {
+  position: relative;
+}
+
+.icons {
+  position: absolute;
+  left: 20%;
+  bottom: 0;
+  display: flex;
+}
+
+.icons > * {
+  font-size: 25px;
+  padding: 15px;
+}
+
+.icons > *:hover {
+  cursor: pointer;
+}
+
+.our-services {
+  margin-top: 30px;
+}
+
+.fa-gear {
+  padding: 0 20px;
+}
