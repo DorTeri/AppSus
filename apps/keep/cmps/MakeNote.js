@@ -59,7 +59,7 @@ export default {
                     if (!this.note.txt) return
                     noteService.createNoteTxt(this.note)
                         .then(() => {
-                            eventBus.emit('show-msg' , 'hi')
+                            this.$emit('addedNote')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
                         })
@@ -68,7 +68,7 @@ export default {
                     if (!this.note.txt) return
                     noteService.createNoteList(this.note)
                         .then(() => {
-                            eventBus.emit('show-msg' , 'Todos list created')
+                            this.$emit('addedNote')
                             this.note = this.getNewNote()
                         })
                     break
@@ -76,7 +76,7 @@ export default {
                     if (!this.note.url) return
                     noteService.createNoteImg(this.note)
                         .then(() => {
-                            eventBus.emit('show-msg' , 'Image note created')
+                            this.$emit('addedNote')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
                         })
@@ -87,7 +87,7 @@ export default {
                 case 'NoteAudio':
                     noteService.createNoteRecording(this.note)
                         .then(() => {
-                            eventBus.emit('show-msg' , 'Audio note created')
+                            eventBus.emit('addedNote')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
                         })
