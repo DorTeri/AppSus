@@ -53,12 +53,12 @@ export default {
             <span>Trash</span>
             <span v-if="emails" class="unread-num">{{getUnreadCount('trash')}}</span>
             </section>
-            <section class="label-div">
+            <!-- <section class="label-div">
               <div class="label">
                 <span>Labels</span>
                 <button class="plus">+</button>
               </div>
-            </section>
+            </section> -->
             </section>
 
             `,
