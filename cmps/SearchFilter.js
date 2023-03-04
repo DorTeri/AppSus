@@ -4,11 +4,10 @@ import { eventBus } from '../services/event-bus.service.js'
 export default {
   template: `
         <section class="search-filter">
-            <input class="header-search-input"
+            <input type="search" class="header-search-input"
             @click="searchClicked"
             @input="sendSearch" v-model="txt"
-                placeholder="Search"
-                type="text" />
+                placeholder="Search"/>
             </section>
             `,
   data() {

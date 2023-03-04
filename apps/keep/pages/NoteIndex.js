@@ -12,7 +12,7 @@ export default {
     template: `
     <section class="main-layout">
     <section class="note-index">
-    <NoteFilter v-if="false" @filter="setFilterBy"
+    <NoteFilter v-if="searchOpen" @filter="setFilterBy"
     @closeSearch="this.searchOpen = false"/>
     <MakeNote  @addedNote="loadNotes"/>
     <NoteList 
@@ -31,6 +31,7 @@ export default {
         }
     },
     created() {
+        eventBus.on('search' , (txt) => this.filterBy.txt = txt)
         eventBus.on('searchClicked', () => this.searchOpen = true)
         eventBus.on('updateNoteInfo', (changeObj) => this.update(changeObj))
         eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
@@ -65,6 +66,7 @@ export default {
         },
         setFilterBy(filterBy) {
             this.filterBy = filterBy
+            console.log('this.filterBy', this.filterBy)
         },
     },
     computed: {
@@ -73,7 +75,7 @@ export default {
                 const txtReg = new RegExp(this.filterBy.txt, 'i')
                 const typeReg = new RegExp(this.filterBy.noteType, 'i')
                 return this.notes.filter(note => txtReg.test(note.info.title)
-                    && typeReg.test(note.noteType))
+                    && typeReg.test(note.type))
             }
         }
     },
