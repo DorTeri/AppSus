@@ -5,7 +5,6 @@ export default {
   template: `
         <section class="search-filter">
             <input type="search" class="header-search-input"
-            @click="searchClicked"
             @input="sendSearch" v-model="txt"
                 placeholder="Search"/>
             </section>
@@ -22,8 +21,5 @@ export default {
     sendSearch() {
       eventBus.emit('search' , this.txt)
     },
-    searchClicked() {
-      eventBus.emit('searchClicked')
-    }
   },
 }

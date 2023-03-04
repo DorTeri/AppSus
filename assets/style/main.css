@@ -24,6 +24,7 @@
 
 /* Note Components */
 @import 'apps/note/cmps/MakeNote.css';
+@import 'apps/note/cmps/UserMsg.css';
 @import 'apps/note/cmps/NoteMap.css';
 @import 'apps/note/cmps/NoteFilter.css';
 @import 'apps/note/cmps/NoteAudio.css';

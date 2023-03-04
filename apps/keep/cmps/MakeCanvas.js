@@ -4,12 +4,8 @@ import { utilService } from "../../../services/util.service.js"
 
 export default {
     name: 'MakeCanvas',
-    props: ['info' , 'editAble'],
+    props: ['info', 'editAble'],
     template: `
-    <section v-if="info">
-    <h4 :contenteditable="editAble" class="content"  @click.stop="" ref="canvasTitle" @focusout="updateTitle">{{ info.title }}</h4>
-    <h5 :contenteditable="editAble" class="content" @click.stop="" ref="canvasTxt" @focusout="updateTxt">{{ info.txt }}</h5>
-    </section>
     <div class="canvas-container" v-if="isCanvasEdit">
     <canvas 
     class="canvas-edit"
@@ -18,6 +14,11 @@ export default {
     @mouseup="stopDrawing"
     ref="canvas"></canvas>
     </div>
+    <section v-if="info">
+    <img :src="info.canvasUrl" v-if="!isCanvasEdit">
+    <h4 :contenteditable="editAble" class="content"  @click.stop="" ref="canvasTitle" @focusout="updateTitle">{{ info.title }}</h4>
+    <h5 :contenteditable="editAble" class="content" @click.stop="" ref="canvasTxt" @focusout="updateTxt">{{ info.txt }}</h5>
+    </section>
     `,
     data() {
         return {
@@ -29,15 +30,16 @@ export default {
         }
     },
     created() {
-        this.debounceUpdateInfo = utilService.debounce(this.updateInfo , 400)
+        this.debounceUpdateInfo = utilService.debounce(this.updateInfo, 400)
         eventBus.on('getCanvasUrl', () => {
-            console.log('this.$refs.canvas', this.$refs.canvas)
             const url = this.$refs.canvas.toDataURL('images/jpeg')
             eventBus.emit('canvasUrlUpdated', url)
+            this.ctx = null
         })
     },
     mounted() {
-        if(!this.info) this.ctx = this.$refs.canvas.getContext("2d")
+        if (this.isCanvasEdit) this.ctx = this.$refs.canvas.getContext("2d")
+        if (this.isCanvasEdit) this.loadImg()
     },
     methods: {
         drawLine(x1, y1, x2, y2) {
@@ -76,12 +78,19 @@ export default {
             this.newInfo.title = this.$refs.canvasTitle.innerText
         },
         updateInfo() {
-            this.$emit('updateInfo' , this.newInfo)
+            this.$emit('updateInfo', this.newInfo)
+        },
+        loadImg() {
+            const img = new Image()
+            img.src = this.info.canvasUrl
+            img.onload = () => {
+                this.ctx.drawImage(img, 0, 0, this.$refs.canvas.width, this.$refs.canvas.height)
+            }
         }
     },
     computed: {
         isCanvasEdit() {
-            if(this.editAble || !this.info) return true
+            if (this.editAble || !this.info) return true
             else return false
         }
     }
