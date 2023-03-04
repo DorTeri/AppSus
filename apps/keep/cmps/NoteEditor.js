@@ -8,7 +8,6 @@ export default {
     template: `
     <section class="note-editor">
     <div data-title="Background options" @click.stop="openColor = !openColor" className="icon-editor" v-html="getSvg('colorPallet1')"></div>
-    <div className="icon-editor" v-html="getSvg('img')"></div>
     <div @click.stop="copy" className="icon-editor" v-html="getSvg('copy1')"></div>
     <div @click.stop="makeEmail" className="icon-editor" v-html="getSvg('mail')"></div>
     <div @click.stop="remove" className="icon-editor" v-html="getSvg('trash')"></div>

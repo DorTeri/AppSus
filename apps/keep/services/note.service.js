@@ -133,18 +133,6 @@ const notes = [
             backgroundColor: '#aecbfa'
         }
     },
-    {
-        id: 'n104',
-        type: 'NoteVideo',
-        isPinned: false,
-        info: {
-            url: 'https://youtu.be/VvU27gvAK40',
-            title: 'Coding Academy'
-        },
-        style: {
-            backgroundColor: '#fbbc04'
-        }
-    },
 ]
 
 makeNotes()

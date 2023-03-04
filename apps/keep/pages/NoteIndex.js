@@ -2,6 +2,7 @@ import NoteList from "../cmps/NoteList.js"
 import NoteEditor from "../cmps/NoteEditor.js"
 import MakeNote from "../cmps/MakeNote.js"
 import NoteFilter from "../cmps/NoteFilter.js"
+import NoteSidebar from "../cmps/NoteSidebar.js"
 
 import { noteService } from "../services/note.service.js"
 import { eventBus } from "../../../services/event-bus.service.js"
@@ -11,6 +12,7 @@ export default {
     emits: ['noteUpdated'],
     template: `
     <section class="main-layout">
+    <NoteSidebar :filterBy="filterBy"/>
     <section class="note-index">
     <NoteFilter v-if="searchOpen" @filter="setFilterBy"
     @closeSearch="this.searchOpen = false"/>
@@ -31,8 +33,8 @@ export default {
         }
     },
     created() {
-        eventBus.on('search' , (txt) => this.filterBy.txt = txt)
-        eventBus.on('searchClicked', () => this.searchOpen = true)
+        eventBus.on('search', (txt) => this.filterBy.txt = txt)
+        eventBus.on('filterByType', (type) => this.filterBy.noteType = type)
         eventBus.on('updateNoteInfo', (changeObj) => this.update(changeObj))
         eventBus.on('removeNote', (noteId) => this.removeNote(noteId))
         this.loadNotes()
@@ -83,6 +85,7 @@ export default {
         NoteList,
         NoteEditor,
         MakeNote,
-        NoteFilter
+        NoteFilter,
+        NoteSidebar
     }
 }

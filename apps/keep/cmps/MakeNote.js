@@ -59,7 +59,7 @@ export default {
                     if (!this.note.txt) return
                     noteService.createNoteTxt(this.note)
                         .then(() => {
-                            this.$emit('addedNote')
+                            eventBus.emit('show-msg' , 'hi')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
                         })
@@ -68,7 +68,7 @@ export default {
                     if (!this.note.txt) return
                     noteService.createNoteList(this.note)
                         .then(() => {
-                            this.$emit('addedNote')
+                            eventBus.emit('show-msg' , 'Todos list created')
                             this.note = this.getNewNote()
                         })
                     break
@@ -76,7 +76,7 @@ export default {
                     if (!this.note.url) return
                     noteService.createNoteImg(this.note)
                         .then(() => {
-                            this.$emit('addedNote')
+                            eventBus.emit('show-msg' , 'Image note created')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
                         })
@@ -87,7 +87,7 @@ export default {
                 case 'NoteAudio':
                     noteService.createNoteRecording(this.note)
                         .then(() => {
-                            this.$emit('addedNote')
+                            eventBus.emit('show-msg' , 'Audio note created')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
                         })
@@ -164,8 +164,10 @@ export default {
             immediate: true,
             handler(newVal) {
                 this.note.noteType = 'NoteTxt'
+                this.isMakingNote = true
                 this.note.title = newVal.title
                 this.note.txt = newVal.txt
+                if(Object.keys(newVal).length === 0) this.isMakingNote = false
             }
         }
     },
