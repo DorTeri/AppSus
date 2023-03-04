@@ -15,14 +15,11 @@ export default {
         }
     },
     created() {
-        this.unsubscribe = eventBus.on('show-msg', msg => {
+        eventBus.on('show-msg', (msg) => {
             this.msg = msg
             setTimeout(() => {
                 this.msg = null
             }, 1500)
         })
-    },
-    unmounted() {
-        this.unsubscribe()
     },
 }

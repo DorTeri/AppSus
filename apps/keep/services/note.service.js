@@ -28,8 +28,8 @@ const notes = [
             backgroundColor: '#f28b82'
         },
         info: {
-            title: `I'm a test`,
-            txt: 'Fullstack Me Baby!'
+            title: `The first note!`,
+            txt: `Hi , I'm the first note that Dor and Bar ever did in their life. never thought they can make me but they did!!!`
         }
     },
     {
@@ -37,8 +37,9 @@ const notes = [
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'https://images.unsplash.com/photo-1529612700005-e35377bf1415?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z29vZ2xlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-            title: 'Bobi and Me'
+            url: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            title: 'Many colors',
+            txt: 'Food is treated in a number of articles. For a description of the processes of absorption and utilization of food, see nutrition; nutrition, human; digestion; and digestive system, human.'
         },
         style: {
             backgroundColor: '#fbbc04'
@@ -77,8 +78,8 @@ const notes = [
         isPinned: false,
         info: {
             audioUrl: `http://codeskulptor-demos.commondatastorage.googleapis.com/GalaxyInvaders/theme_01.mp3`,
-            title: 'My first audio',
-            txt: 'Dor & Bar audio'
+            title: 'Dancing sound',
+            txt: 'In physics, sound is a vibration that propagates as an acoustic wave, through a transmission medium such as a gas, liquid or solid. In human physiology and psychology, sound is the reception of such waves and their perception by the brain'
         },
         style: {
             backgroundColor: '#fbbc04'
@@ -90,47 +91,76 @@ const notes = [
         isPinned: false,
         info: {
             coords: {lat: 40.712 , lng: -74},
-            title: 'Best place',
-            txt: 'Have been there'
-        },
-        style: {
-            backgroundColor: '#fbbc04'
-        }
-    },
-    {
-        id: 'n102',
-        type: 'NoteImg',
-        isPinned: false,
-        info: {
-            url: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-            title: 'Beautiful road'
-        },
-        style: {
-            backgroundColor: '#a7ffeb'
-        }
-    },
-    {
-        id: 'n102',
-        type: 'NoteImg',
-        isPinned: false,
-        info: {
-            url: 'https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIweW9ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-            title: 'Best photo on my trip'
+            title: 'New york',
+            txt: 'New York, often called New York City[a] or NYC, is the most populous city in the United States. With a 2020 population of 8,804,190 distributed over 300.46 square miles'
         },
         style: {
             backgroundColor: '#e6c9a8'
         }
     },
     {
-        id: 'n102',
+        id: 'n114',
+        type: 'NoteImg',
+        isPinned: true,
+        info: {
+            url: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+            title: 'BBQ',
+            txt: 'This was especially the case during the early phases of European trade and colonial expansion, when foods such as the hot red pepper, corn (maize), and sweet potatoes spread throughout Europe to Africa and Asia.'
+        },
+        style: {
+            backgroundColor: '#a7ffeb'
+        }
+    },
+    {
+        id: 'n113',
         type: 'NoteImg',
         isPinned: false,
         info: {
-            url: 'https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmV3JTIweW9ya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-            title: 'My trip'
+            url: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=780&q=80',
+            title: 'Yummy',
+            txt: 'Hunting and gathering, horticulture, pastoralism, and the development of agriculture are the primary means by which humans have adapted to their environments to feed themselves. Food has long served as a carrier of culture in human societies and has been a driving force for globalization. '
+        },
+        style: {
+            backgroundColor: '#fff475'
+        }
+    },
+    {
+        id: 'n112',
+        type: 'NoteImg',
+        isPinned: false,
+        info: {
+            url: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
+            title: 'Helaty food',
+            txt: 'and other nutrients used in the body of an organism to sustain growth and vital processes and to furnish energy. The absorption and utilization of food by the body is fundamental to nutrition and is facilitated by digestion. '
         },
         style: {
             backgroundColor: '#aecbfa'
+        }
+    },
+    {
+        id: 'n111',
+        type: 'NoteMap',
+        isPinned: false,
+        info: {
+            coords: {lat: 32.08 , lng: 34.81},
+            title: 'My work',
+            txt: 'Coding academy in Ramat-Gan'
+        },
+        style: {
+            backgroundColor: '#fbbc04'
+        }
+    },
+    {
+        id: 'n124',
+        type: 'NoteImg',
+        isPinned: true,
+        info: {
+            url: 'https://images.unsplash.com/photo-1518057111178-44a106bad636?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80',
+            title: 'My coffe',
+            txt: 'Coffee is a drink prepared from roasted coffee beans. Darkly colored, bitter, and slightly acidic, coffee has a stimulating effect on humans, primarily due to its caffeine content. '
+        },
+        style: {
+            backgroundColor: '#e6c9a8'
         }
     },
 ]
