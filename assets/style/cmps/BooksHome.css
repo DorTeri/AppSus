@@ -2,7 +2,7 @@
     margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: baseline;
 }
 
 .books-home img {
@@ -14,6 +14,11 @@
 .pikachu {
     margin-right: 50px;
     width: 33%;
+    /* height: ; */
+}
+
+.vue {
+    width: 40%;
 }
 
 .btn-pikachu , .btn-vue {
@@ -34,7 +39,7 @@
 }
 
 .btn-vue {
-    margin-top: 20px;
+    margin-top: 16px;
     background-color: rgb(107, 196, 129);
 }
 

@@ -9,6 +9,7 @@ export default {
         <section class="email-side-filter">
         <EmailComposed :noteInfo="noteInfo" @close="isCompose = false"
         v-if="isCompose"/>
+
         <!-- Compose -->
         <section @click="isCompose = true" class="filter-section compose-icon">
           <div className="compose" 
@@ -46,6 +47,7 @@ export default {
               v-html="getSvg('drafts')"></div>
               <span>Drafts</span>
             </section>
+            
             <!-- Trash -->
           <section @click="filter('trash')" :class="{ 'selected': filterBy.status === 'trash' }" class="filter-section-svg">
            <div className="trash" 

@@ -35,7 +35,7 @@ export default {
     }
   },
   created() {
-    eventBus.on('search', (txt) => this.filterBy.txt = txt)
+    eventBus.on('search', (txt) => (this.filterBy.txt = txt))
     emailService.query().then((emails) => (this.emails = emails))
   },
   methods: {
@@ -58,14 +58,16 @@ export default {
       if (!this.emails) return
       let filteredEmails = []
       if (this.filterBy.status === 'starred') {
-        filteredEmails = this.emails.filter((email) => email.isStarred
-        && regex.test(email.txt))
+        filteredEmails = this.emails.filter(
+          (email) => email.isStarred && regex.test(email.txt)
+        )
       } else {
         filteredEmails = this.emails.filter(
-          (email) => email.status === this.filterBy.status 
-          && regex.test(email.txt))
-        }
-        return filteredEmails
+          (email) =>
+            email.status === this.filterBy.status && regex.test(email.txt)
+        )
+      }
+      return filteredEmails
     },
   },
   watch: {
@@ -75,7 +77,6 @@ export default {
       },
       deep: true,
     },
-
   },
   components: {
     EmailFilter,
@@ -84,7 +85,5 @@ export default {
   },
 }
 
-
-
-  // const regex = new RegExp(this.filterBy.txt, 'i')
-  // return this.emails.filter((email) => regex.test(email.txt))
+// const regex = new RegExp(this.filterBy.txt, 'i')
+// return this.emails.filter((email) => regex.test(email.txt))
