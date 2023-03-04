@@ -49,7 +49,7 @@
 
 .preview-content {
   display: inline-block;
-text-overflow: ellipsis;
+  text-overflow: ellipsis;
   text-align: start;
   white-space: nowrap;
   overflow: hidden;
@@ -63,11 +63,12 @@ text-overflow: ellipsis;
 .subject-body {
   display: flex;
   flex-grow: 1;
-  /* text-align: left; */
-  /* margin-left: 50px; */
+  width: 400px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* text-align: left; */
+  /* margin-left: 50px; */
 }
 
 .body-prev {
