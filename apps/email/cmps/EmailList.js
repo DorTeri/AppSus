@@ -1,6 +1,6 @@
 import EmailPreview from './EmailPreview.js'
 import { svgService } from '../../../services/svg.service.js'
-
+import { eventBus } from '../../../services/event-bus.service.js'
 // @click="remove(email.id)"
 
 export default {
@@ -38,7 +38,10 @@ export default {
     moveToTrash(emailId) {
       const email = this.emails.find((email) => email.id === emailId)
       if (email.status === 'trash') this.remove(emailId)
-      else email.status = 'trash'
+      else {
+        email.status = 'trash'
+        eventBus.emit('show-msg', { txt: 'Moved to trash', type: 'success' })
+      }
     },
   },
   components: {

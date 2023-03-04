@@ -62,6 +62,7 @@ export default {
                             this.$emit('addedNote')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
+                            eventBus.emit('show-msg', { txt: 'Note created', type: 'success' })
                         })
                     break
                 case 'NoteTodos':
@@ -70,6 +71,7 @@ export default {
                         .then(() => {
                             this.$emit('addedNote')
                             this.note = this.getNewNote()
+                            eventBus.emit('show-msg', { txt: 'List created', type: 'success' })
                         })
                     break
                 case 'NoteImg':
@@ -79,6 +81,7 @@ export default {
                             this.$emit('addedNote')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
+                            eventBus.emit('show-msg', { txt: 'Note image created', type: 'success' })
                         })
                     break
                 case 'MakeCanvas':
@@ -90,6 +93,7 @@ export default {
                             eventBus.emit('addedNote')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
+                            eventBus.emit('show-msg', { txt: 'Note created', type: 'success' })
                         })
                     break
                 case 'NoteMap':
@@ -107,6 +111,7 @@ export default {
                     this.$emit('addedNote')
                     this.note = this.getNewNote()
                     this.$router.push({ query: {} })
+                    eventBus.emit('show-msg', { txt: 'Note map created', type: 'success' })
                 })
         },
         createImg(event) {

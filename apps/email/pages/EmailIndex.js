@@ -46,6 +46,7 @@ export default {
       emailService.remove(emailId).then(() => {
         const idx = this.emails.findIndex((email) => email.id === emailId)
         this.emails.splice(idx, 1)
+        eventBus.emit('show-msg', { txt: 'Email removed', type: 'success' })
       })
     },
     toDetails({ mailId }) {

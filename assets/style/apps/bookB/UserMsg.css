@@ -8,7 +8,7 @@
   border: 1px solid rgb(0, 0, 0);
 }
 .user-msg.success {
-  background-color: rgb(27, 102, 67);
+  background-color: rgb(97, 196, 150);
 }
 .user-msg.error {
   background-color: rgb(122, 33, 33);
