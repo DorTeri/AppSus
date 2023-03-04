@@ -20,7 +20,8 @@
 }
 
 .email-preview:hover {
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .email-preview:hover .remove-btn {
@@ -48,7 +49,7 @@
 
 .preview-content {
   /* flex-grow: 1; */
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
   text-align: start;
   /* margin-left: 150px; */
 }
@@ -58,12 +59,13 @@
 }
 
 .subject-body {
-display: flex;
-flex-grow: 1;
-text-overflow: ellipsis;
-text-align: left;
-margin-left: 50px;
-
+  display: flex;
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .body-prev {
@@ -88,16 +90,15 @@ margin-left: 50px;
   margin-inline-start: 10px;
 }
 
-
 /* .remove-btn { */
-  /* position: absolute; */
-  /* top: 10;
+/* position: absolute; */
+/* top: 10;
   right: 0; */
-  /* display: none;  */
+/* display: none;  */
 /* } */
 
 .email-preview:hover .remove-btn {
-  display: block; 
+  display: block;
 }
 .email-preview:hover .preview-date {
   display: none;
@@ -107,14 +108,13 @@ margin-left: 50px;
   position: absolute;
   top: 10;
   right: 0; */
-  /* display: none;  */
+/* display: none;  */
 /* } */
 
 .email-preview:hover .keep-btn {
-  display: block; 
+  display: block;
 }
 
-
 .trash-keep-svgs {
-display: flex;
+  display: flex;
 }
