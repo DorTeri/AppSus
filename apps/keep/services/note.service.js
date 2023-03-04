@@ -66,10 +66,11 @@ const notes = [
         isPinned: false,
         info: {
             url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-            title: 'Bobi and Me'
+            title: 'A new video',
+            txt: 'I am just a normal video in a note, not that you never seen one of those'
         },
         style: {
-            backgroundColor: '#fbbc04'
+            backgroundColor: '#ccff90'
         }
     },
     {
@@ -82,7 +83,7 @@ const notes = [
             txt: 'In physics, sound is a vibration that propagates as an acoustic wave, through a transmission medium such as a gas, liquid or solid. In human physiology and psychology, sound is the reception of such waves and their perception by the brain'
         },
         style: {
-            backgroundColor: '#fbbc04'
+            backgroundColor: '#a7ffeb'
         }
     },
     {
@@ -101,7 +102,7 @@ const notes = [
     {
         id: 'n114',
         type: 'NoteImg',
-        isPinned: true,
+        isPinned: false,
         info: {
             url: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
             title: 'BBQ',
@@ -140,14 +141,14 @@ const notes = [
     {
         id: 'n111',
         type: 'NoteMap',
-        isPinned: false,
+        isPinned: true,
         info: {
             coords: {lat: 32.08 , lng: 34.81},
             title: 'My work',
             txt: 'Coding academy in Ramat-Gan'
         },
         style: {
-            backgroundColor: '#fbbc04'
+            backgroundColor: '#ccff90'
         }
     },
     {
