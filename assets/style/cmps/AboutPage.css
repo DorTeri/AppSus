@@ -1,4 +1,11 @@
 .about-page {
-  width: 80%;
-  margin: 50px auto;
+ display: flex;
+  font-size: 40px;
+  width: 50%;
+  color: rgb(35, 35, 35);
 }
+
+/* 
+.our-cards {
+ display: grid;
+} */
