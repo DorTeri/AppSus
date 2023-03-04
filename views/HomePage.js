@@ -5,7 +5,8 @@ export default {
             <section class="home-txt">
             <h1>Secure, smart and easy to use</h1>
             <p>With AppSus you can get more done, Gmail, Keep and Books all in the same place.</p>
-            <button>Get Started!</button>
+            <RouterLink to="/mail"><button>Mail</button></RouterLink>
+            <RouterLink to="/keep"><button>Keep</button></RouterLink>
         </section>
         </section>
     `,
