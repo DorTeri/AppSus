@@ -26,9 +26,12 @@ export default {
     },
     showDetails(mailId) {
       const email = this.emails.find((email) => email.id === mailId)
-      if (email.status === 'drafts') {
+      console.log(email)
+      if (email.status === 'draft') {
+        console.log('draft')
         this.$emit('editDraft', email)
       } else {
+        email.isRead = true
         this.$emit('toDetails', { mailId: mailId })
       }
     },

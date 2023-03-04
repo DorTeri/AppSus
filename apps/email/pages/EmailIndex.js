@@ -12,7 +12,7 @@ export default {
           
           <section class="main-mail-layout">
             <EmailSideFilter @filter="setFilterBy" :emails="this.emails"/>
-            <EmailList 
+            <EmailList @editDraft="compose"
              v-if="!isDetails"
             :emails="filteredEmails" 
             @remove="removeEmail"
@@ -51,6 +51,9 @@ export default {
     toDetails({ mailId }) {
       this.$router.push(`mail/${mailId}`)
     },
+     compose(email) {
+      eventBus.emit('openCompose', email)
+     }
   },
   computed: {
     filteredEmails() {
