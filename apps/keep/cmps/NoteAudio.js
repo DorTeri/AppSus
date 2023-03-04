@@ -9,7 +9,7 @@ export default {
     <h4 :contenteditable="editAble"  @click.stop="" class="content" ref="audioTitle" @focusout="updateTitle">{{ info.title }}</h4>
     <h5 :contenteditable="editAble" @click.stop="" class="content" ref="audioTxt" @focusout="updateTxt">{{ info.txt }}</h5>
     <audio controls>
-    <source :src="info.audioUrl" type="audio/ogg">
+    <source :src="info.audioUrl" type="audio/mp3">
     </audio>
     `,
     data() {

@@ -12,7 +12,9 @@ export const noteService = {
     createNoteTxt,
     createNoteList,
     createNoteImg,
-    createNoteCanvas
+    createNoteCanvas,
+    createNoteRecording,
+    createNoteMap,
 }
 
 const notes = [
@@ -170,6 +172,24 @@ function createNoteCanvas(note) {
     const newNote = getEmptyNote()
     newNote.type = 'MakeCanvas'
     newNote.info.canvasUrl = note.canvasUrl
+    newNote.info.title = note.title
+    newNote.info.txt = note.txt
+    return storageService.post(NOTE_KEY, newNote)
+}
+
+function createNoteRecording(note) {
+    const newNote = getEmptyNote()
+    newNote.type = 'NoteAudio'
+    newNote.info.audioUrl = note.audioUrl
+    newNote.info.title = note.title
+    newNote.info.txt = note.txt
+    return storageService.post(NOTE_KEY, newNote)
+}
+
+function createNoteMap(note) {
+    const newNote = getEmptyNote()
+    newNote.type = 'NoteMap'
+    newNote.info.coords = note.coords
     newNote.info.title = note.title
     newNote.info.txt = note.txt
     return storageService.post(NOTE_KEY, newNote)

@@ -23,6 +23,7 @@ export default {
         this.debounceUpdateInfo = utilService.debounce(this.updateInfo , 400)
         return mapService.connectGoogleApi()
         .then(() => {
+            console.log('this.info', this.info)
             this.map = new google.maps.Map(
                 this.$refs.map, {
                 center: { lat: this.info.coords.lat, lng: this.info.coords.lng },
