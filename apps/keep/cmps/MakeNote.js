@@ -22,7 +22,7 @@ export default {
     <div @click="changeType('MakeCanvas')" data-title="New note with drawing"  className="icon-paint" v-html="getSvg('pencil10')"></div>
     <div v-if="mediaRecorder" @click="stopRecord" data-title="Stop record" className="icon-img" v-html="getSvg('stopRecord')"></div>
     <div v-if="!mediaRecorder" @click="record" data-title="New note with audio" className="icon-img" v-html="getSvg('audio')"></div>
-    <div @click="changeType('NoteMap')" data-title="New list" className="icon-list" v-html="getSvg('location')"></div>
+    <div @click="changeType('NoteMap')" data-title="New note with map" className="icon-list" v-html="getSvg('location')"></div>
     <label>
     <div @click="changeType('NoteImg')" data-title="New note with image"  className="icon-img" v-html="getSvg('img')"></div>
     <input class="file" hidden type="file" @change="createImg">
