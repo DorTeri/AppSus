@@ -2,17 +2,19 @@ export default {
 	template: `
         <section class="about-page">
             <div class="our-cards">
-                <div>
-                <h2>Dor Tayari</h2>
-                <p>Web developer and a genius.</p>
+                <article>
+                <h2>Gezer Finest, 
+                    <br>"The Debugger"
+                     Dor Tayari</h2>
                 <p>DorTayari@gmail.com</p>
-                </div>
+                </article>
             </div>
-            <div class="our-cards">
-                <h2>Bar Barina</h2>
-                <p>Web developer and a genius.</p>
+            <article class="our-cards bar">
+                <h2>Holon Finest,
+                    <br>"Asi Son"<br>
+                    Bar Barina</h2>
                 <p>BarBarina@gmail.com</p>
-            </div>
+            </article>
         </section>
     `
 }
