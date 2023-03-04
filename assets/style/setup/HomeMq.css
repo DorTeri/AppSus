@@ -3,6 +3,11 @@
     grid-row-gap: 20px;
     margin-left: 20px;
   }
+
+  .make-note {
+    width: 600px;
+  }
+
   .home-img {
     width: 660px;
     height: 450px;
@@ -28,5 +33,22 @@
 @media (max-width: 850px) {
   .home-page {
     flex-direction: column;
+  }
+
+  .make-note {
+    width: 400px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .make-note {
+    width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .make-note {
+    width: 200px;
   }
 }
