@@ -2,9 +2,8 @@ import { svgService } from '../../../services/svg.service.js'
 import { emailService } from '../services/email.service.js'
 import { eventBus } from '../../../services/event-bus.service.js'
 
-
 export default {
-  props:['noteInfo'],
+  props: ['noteInfo'],
   template: `
     <section class="compose-section">
         <!-- Compose -->
@@ -25,7 +24,7 @@ export default {
     }
   },
   created() {
-    if(this.noteInfo) {
+    if (this.noteInfo) {
       this.email.subject = this.noteInfo.subject
       this.email.body = this.noteInfo.body
     }
@@ -39,14 +38,14 @@ export default {
       this.email.status = 'sent'
       emailService.save(this.email)
       this.closeCompose()
-      this.$router.push({query: {}})
+      this.$router.push({ query: {} })
       //   this.$emit('saveEmail',emailId)
     },
     saveDraft() {
-      if(this.isSending) return
+      if (this.isSending) return
       this.email.status = 'draft'
       emailService.save(this.email)
-      this.$router.push({query: {}})
+      this.$router.push({ query: {} })
     },
     closeCompose() {
       this.$emit('close')

@@ -41,4 +41,7 @@
 @import 'apps/mail/EmailLayouts.css';
 @import 'apps/mail/EmailCompose.css';
 
-@import 'setup/mq.css';
+/* MQ */
+@import 'setup/MailMq.css';
+@import 'setup/HomeMq.css';
+@import 'setup/HeaderMq.css';
