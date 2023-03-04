@@ -89,9 +89,9 @@ const notes = [
         type: 'NoteMap',
         isPinned: false,
         info: {
-            coords: {lat: 21 , lng: 21},
-            title: 'My first Map',
-            txt: 'Dor & Bar Map'
+            coords: {lat: 40.712 , lng: -74},
+            title: 'Best place',
+            txt: 'Have been there'
         },
         style: {
             backgroundColor: '#fbbc04'
@@ -131,6 +131,18 @@ const notes = [
         },
         style: {
             backgroundColor: '#aecbfa'
+        }
+    },
+    {
+        id: 'n104',
+        type: 'NoteVideo',
+        isPinned: false,
+        info: {
+            url: 'https://youtu.be/VvU27gvAK40',
+            title: 'Coding Academy'
+        },
+        style: {
+            backgroundColor: '#fbbc04'
         }
     },
 ]

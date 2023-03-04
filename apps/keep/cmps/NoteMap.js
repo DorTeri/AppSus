@@ -26,7 +26,7 @@ export default {
             this.map = new google.maps.Map(
                 this.$refs.map, {
                 center: { lat: this.info.coords.lat, lng: this.info.coords.lng },
-                zoom: 15
+                zoom: 10
             })
             this.center = JSON.parse(JSON.stringify(this.map.center))
         })

@@ -6,9 +6,18 @@ export default {
     <section class="filter-keep">
     <h4>Types</h4>
     <div class="filter-types">
-    <div @click="filterBy.noteType = 'NoteTodos'" className="icon" v-html="getSvg('bars')"></div>
-    <div @click="filterBy.noteType = 'NoteImg'" className="icon" v-html="getSvg('img')"></div>
-    <div @click="filterBy.noteType = 'NoteCanvas'" className="icon" v-html="getSvg('pencil2')"></div>
+    <div @click="filterBy.noteType = 'NoteTodos'" class="wrap-icon">
+        <div className="icon" v-html="getSvg('menuFilter')"></div>
+        <p>Lists</p>
+    </div>
+    <div @click="filterBy.noteType = 'NoteImg'" class="wrap-icon">
+        <div className="icon" v-html="getSvg('imageFilter')"></div>
+        <p>Images</p>
+    </div>
+    <div @click="filterBy.noteType = 'NoteCanvas'" class="wrap-icon">
+        <div className="icon" v-html="getSvg('pencilFilter')"></div>
+        <p>Drawings</p>
+    </div>
     </div>
     <button class="closeSearch" @click="closeSearch">X</button>
     </section>
@@ -19,7 +28,7 @@ export default {
         }
     },
     created() {
-        eventBus.on('search', (txt) => this.filterBy.txt = txt)
+        eventBus.on('filterTxt', (txt) => this.filterBy.txt = txt)
     },
     methods: {
         filter() {
@@ -29,6 +38,7 @@ export default {
             return svgService.getSvg(iconName)
         },
         closeSearch() {
+            this.filterBy.noteType = ''
             this.$emit('closeSearch')
         }
     },
