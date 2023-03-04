@@ -14,6 +14,7 @@
 @import 'cmps/AppHeader.css';
 @import 'cmps/UserMsg.css';
 @import 'cmps/AppFooter.css';
+@import 'cmps/BooksHome.css';
 
 /* Apps */
 @import 'apps/mail/EmailIndex.css';
@@ -40,5 +41,27 @@
 @import 'apps/mail/EmailButtons.css';
 @import 'apps/mail/EmailLayouts.css';
 @import 'apps/mail/EmailCompose.css';
+
+/* Book */
+@import 'apps/book/AddReview.css';
+@import 'apps/book/ReviewPreview.css';
+@import 'apps/book/BookAdd.css';
+@import 'apps/book/UserMsg.css';
+@import 'apps/book/BookIndex.css';
+@import 'apps/book/BookFilter.css';
+@import 'apps/book/BookList.css';
+@import 'apps/book/BookDetails.css';
+@import 'apps/book/BookEdit.css';
+
+/* BookB */
+
+@import 'apps/bookB/BookDetails.css';
+@import 'apps/bookB/BookFilter.css';
+@import 'apps/bookB/BookList.css';
+@import 'apps/bookB/BookPreview.css';
+@import 'apps/bookB/BookEdit.css';
+@import 'apps/bookB/UserMsg.css';
+@import 'apps/bookB/AddReview.css';
+@import 'apps/bookB/AddBook.css';
 
 @import 'setup/mq.css';

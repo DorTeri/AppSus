@@ -14,7 +14,7 @@ export default {
         <nav v-show="navOpen" class="header-nav">
             <RouterLink to="/"><div @click="navOpen = false" className="icon" v-html="getSvg('home')"></div>Home</RouterLink>
             <RouterLink to="/keep"><div @click="navOpen = false" className="icon" v-html="getSvg('keep')"></div>Keep</RouterLink>
-            <RouterLink to="/"><div @click="navOpen = false" className="icon" v-html="getSvg('books')"></div>Books</RouterLink>
+            <RouterLink to="/books"><div @click="navOpen = false" className="icon" v-html="getSvg('books')"></div>Books</RouterLink>
             <RouterLink to="/mail"><div @click="navOpen = false" className="icon" v-html="getSvg('gmail')"></div>Gmail</RouterLink>
             <RouterLink to="/about"><div @click="navOpen = false" className="icon" v-html="getSvg('about')"></div>About</RouterLink>
             <div><a href="https://www.youtube.com/watch?v=Z3TIhMGQ_8k" className="icon" v-html="getSvg('youtube')"></a>YouTube</div>
