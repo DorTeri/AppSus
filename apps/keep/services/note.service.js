@@ -35,7 +35,7 @@ const notes = [
     {
         id: 'n102',
         type: 'NoteImg',
-        isPinned: false,
+        isPinned: true,
         info: {
             url: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
             title: 'Many colors',
@@ -131,7 +131,7 @@ const notes = [
         isPinned: false,
         info: {
             url: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80',
-            title: 'Helaty food',
+            title: 'Healthy food',
             txt: 'and other nutrients used in the body of an organism to sustain growth and vital processes and to furnish energy. The absorption and utilization of food by the body is fundamental to nutrition and is facilitated by digestion. '
         },
         style: {
@@ -157,7 +157,7 @@ const notes = [
         isPinned: true,
         info: {
             url: 'https://images.unsplash.com/photo-1518057111178-44a106bad636?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=988&q=80',
-            title: 'My coffe',
+            title: 'My coffee',
             txt: 'Coffee is a drink prepared from roasted coffee beans. Darkly colored, bitter, and slightly acidic, coffee has a stimulating effect on humans, primarily due to its caffeine content. '
         },
         style: {

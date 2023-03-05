@@ -46,6 +46,7 @@ export default {
       emailService.remove(emailId).then(() => {
         const idx = this.emails.findIndex((email) => email.id === emailId)
         this.emails.splice(idx, 1)
+        eventBus.emit('show-msg', { txt: 'Email removed', type: 'success' })
       })
     },
     toDetails({ mailId }) {
@@ -62,12 +63,12 @@ export default {
       let filteredEmails = []
       if (this.filterBy.status === 'starred') {
         filteredEmails = this.emails.filter(
-          (email) => email.isStarred && regex.test(email.txt)
+          (email) => email.isStarred && regex.test(email.subject)
         )
       } else {
         filteredEmails = this.emails.filter(
           (email) =>
-            email.status === this.filterBy.status && regex.test(email.txt)
+            email.status === this.filterBy.status && regex.test(email.subject)
         )
       }
       return filteredEmails

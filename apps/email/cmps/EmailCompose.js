@@ -46,6 +46,7 @@ export default {
       emailService.save(this.email)
       this.closeCompose()
       this.$router.push({ query: {} })
+      eventBus.emit('show-msg', { txt: 'Email sent', type: 'success' })
       //   this.$emit('saveEmail',emailId)
     },
     saveDraft() {

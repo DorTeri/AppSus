@@ -45,6 +45,7 @@ export default {
                 .then(() => {
                     const idx = this.notes.findIndex(note => note.id === noteId)
                     this.notes.splice(idx, 1)
+                    eventBus.emit('show-msg', { txt: 'Note removed', type: 'success' })
                 })
         },
         loadNotes() {
