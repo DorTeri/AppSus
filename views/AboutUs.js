@@ -32,7 +32,7 @@ export default {
                 <a href="https://www.linkedin.com/in/bar-barina-a6854b23a"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.facebook.com/bar.barina.5?mibextid=LQQJ4d"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=BarBarina@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://twitter.com/bar_barina_/status/483705116827340801?s=48&t=l7CA5cra_eI6MPEMQ10RWQ"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://twitter.com/bar_barina_"><i class="fa-brands fa-twitter"></i></a>
                  </div>
               </div>
             </div>

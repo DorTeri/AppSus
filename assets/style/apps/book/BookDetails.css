@@ -80,15 +80,17 @@
 
 .book-details button{
     justify-self: end;
+    border: none;
+    background-color: inherit;
 }
 
 .book-details .red {
     color: red;
 }
 
-.book-details .green {
+/* .book-details .green {
     color: rgb(0, 255, 0);
-}
+} */
 
 .btn-close-details {
     color: #ff0000;
