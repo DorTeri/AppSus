@@ -8,7 +8,7 @@
   color: rgb(33, 33, 33);
 }
 
-img {
+.bookDetails img {
   width: 270px;
   box-shadow: inset;
   justify-self: center;
