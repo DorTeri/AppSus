@@ -90,7 +90,8 @@ export default {
                 case 'NoteAudio':
                     noteService.createNoteRecording(this.note)
                         .then(() => {
-                            eventBus.emit('addedNote')
+                            console.log('this.note', this.note)
+                            this.$emit('addedNote')
                             this.note = this.getNewNote()
                             this.$router.push({ query: {} })
                             eventBus.emit('show-msg', { txt: 'Note created', type: 'success' })
@@ -149,7 +150,6 @@ export default {
                         this.note.audioUrl = audioUrl
                         this.note.noteType = 'NoteAudio'
                     })
-
                 })
         },
         stopRecord() {
