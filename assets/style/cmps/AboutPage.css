@@ -8,15 +8,17 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
+  gap: 50px;
 }
 
 .card {
-  width: fit-content;
+  width: 100%;
   color: rgb(0, 0, 0);
   position: relative;
 }
 
 .card img {
+  width: 100%;
   position: relative;
   opacity: 0.8;
 }
